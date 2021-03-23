@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct ExerciseData: Codable{
+    let Exercises: [Exercises]
+}
+
+struct Exercises: Codable {
+    let id: String
+    let name: String
+    let muscleGroup: String
+    let description: String
+    let last_modified: String
+
+}

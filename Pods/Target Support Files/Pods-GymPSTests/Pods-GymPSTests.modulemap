@@ -1,0 +1,6 @@
+framework module Pods_GymPSTests {
+  umbrella header "Pods-GymPSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

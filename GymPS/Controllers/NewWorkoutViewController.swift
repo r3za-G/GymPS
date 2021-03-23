@@ -1,31 +1,30 @@
 //
-//  AddWorkoutTableViewController.swift
+//  NewWorkoutViewController.swift
 //  GymPS
 //
-//  Created by Reza Gharooni on 04/03/2021.
+//  Created by Reza Gharooni on 23/03/2021.
 //
 
-import Foundation
 import UIKit
 
+class ExerciseCell: UITableViewCell{
+    
+    @IBOutlet var setsLabel: UILabel!
+    
+    @IBAction func stepper(_ sender: UIStepper) {
+        setsLabel.text = String(Int(sender.value))
+    }
+}
 
-class NameTableCell: UITableViewCell{
+class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, SegueHandlerType, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet var setsLabel: UILabel!
+    
     
     @IBOutlet var workoutNameTextField: UITextField!
-}
+    @IBOutlet var workoutTable: UITableView!
 
-class ExercisesTableCell: UITableViewCell{
-}
-
-class AddExercisesTableCell: UITableViewCell{
-}
-
-class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDelegate, SegueHandlerType, UITextFieldDelegate{
-    
-    
-    
-    @IBOutlet var exerciseNameTable: UITableView!
-    
     
     private var exercise = [Exercise]()
     
@@ -34,11 +33,9 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
     var delegateExercises: [String] = []
     
     var workoutName: String = ""
+    var numberOfSets: String = ""
     
-    @IBOutlet var workoutTable: UITableView!
-    
-
-    var nameTableCell = NameTableCell()
+    var exerciseCell = ExerciseCell()
     
     var exercisesAdded = AddExerciseTableViewController()
     
@@ -47,9 +44,7 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddWorkoutTableViewController"
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
+
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black
         
@@ -57,8 +52,12 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        
-        
+       configureTextfields()
+
+    }
+    
+    private func configureTextfields(){
+        workoutNameTextField.delegate = self
     }
     
     
@@ -85,6 +84,8 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
     @IBAction func addExercisesPressed(_ sender: UIButton) {
         
         self.performSegue(withIdentifier: "AddSelectedExercises", sender: nil)
+        
+    
         
     }
     
@@ -113,57 +114,40 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
         self.updateTheTable()
         
     }
-    
-    
-    
-    
-    
-    
+
     
     @IBAction func workoutName(_ sender: UITextField) {
-        
-        self.nameTableCell.workoutNameTextField?.text = workoutName
-        
-        print(workoutName)
-        
+  
+        self.workoutName = workoutNameTextField.text!
+ 
     }
     
     
     @IBAction func saveWorkout(_ sender: UIButton) {
+        
+     
     }
     
     
     
     // MARK: - Table view data source
+  
     
-        override func numberOfSections(in tableView: UITableView) -> Int {
-            return 3
-        }
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            return 1
-        }
-        else if section == 1{
             if selectedExercises.count == 0{
                 return 0
             } else {
                 return selectedExercises.count
+ 
             }
-        }else {
-            return 1
-        }
-        
-    
 }
 
     
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 0:
-            return ("Name")
-        case 1:
             return("Exercises")
         default:
             return nil
@@ -172,32 +156,27 @@ class AddWorkoutTableViewController: UITableViewController, SelectedExercisesDel
     
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "workoutNameCell", for: indexPath) as! NameTableCell
-            return cell
-        }
-        else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as! ExercisesTableCell
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as! ExerciseCell
+            
+      
             if selectedExercises.isEmpty{
+                
                 return cell
             }else{
                 cell.textLabel!.text = selectedExercises[indexPath.row]
             }
             return cell
-}
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addExerciseCell", for: indexPath) as! AddExercisesTableCell
-            return cell
-            
-        }
+
     }
 }
 
-
-
-
-
+//MARK: - TextField delegate
+extension NewWorkoutViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

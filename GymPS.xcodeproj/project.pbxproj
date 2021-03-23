@@ -7,9 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8248DA362B8A4FCBA3D60868 /* Pods_GymPS_GymPSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75D96979B5ADB851F85FCF7 /* Pods_GymPS_GymPSUITests.framework */; };
+		9E5FDFD67FB852B687178469 /* Pods_GymPSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBBC5091B0D615CD8A2D547 /* Pods_GymPSTests.framework */; };
+		E31F46893A1FB401EF77CBE0 /* Pods_GymPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BD5F7F011B0EF7CA1B9EA2 /* Pods_GymPS.framework */; };
+		EC139CA625ED3B1D006A5227 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CA525ED3B1D006A5227 /* CoreDataStack.swift */; };
+		EC139CAF25ED3D6F006A5227 /* StoryBoardSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */; };
+		EC139CB425ED3D87006A5227 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CB325ED3D87006A5227 /* UnitExtensions.swift */; };
+		EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CBB25ED403B006A5227 /* FormatDisplay.swift */; };
+		EC139CC125ED4054006A5227 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CC025ED4054006A5227 /* LocationManager.swift */; };
+		EC139CC625ED4072006A5227 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CC525ED4072006A5227 /* Extensions.swift */; };
+		EC139CCB25ED4099006A5227 /* ToolBarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */; };
+		EC139CD525ED40FE006A5227 /* LogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CD425ED40FE006A5227 /* LogTableViewCell.swift */; };
+		EC139CDD25ED422F006A5227 /* CardioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CDC25ED422F006A5227 /* CardioViewController.swift */; };
+		EC139CEA25ED4343006A5227 /* CardioDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */; };
+		EC139CEF25ED4381006A5227 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CEE25ED4381006A5227 /* SettingsViewController.swift */; };
+		EC139CF425ED43E1006A5227 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CF325ED43E1006A5227 /* LogViewController.swift */; };
+		EC57E3ED2608F3D1008FF2E5 /* LogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */; };
+		EC9E4A6725F528D3005CEA35 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */; };
+		EC9E4A7625F64C81005CEA35 /* ExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */; };
+		ECA20C3B25F1467A0086B63E /* AddWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C3A25F1467A0086B63E /* AddWorkoutTableViewController.swift */; };
+		ECA20C4025F146CC0086B63E /* AddExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */; };
+		ECA20C4525F147030086B63E /* StartExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C4425F147030086B63E /* StartExerciseTableViewController.swift */; };
+		ECA20C4A25F159C60086B63E /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */; };
+		ECA20C4F25F1670F0086B63E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */; };
+		ECA20C5B25F172AF0086B63E /* WorkoutNameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */; };
+		ECD12E0725ED50320034BF06 /* CardioHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD12E0625ED50320034BF06 /* CardioHomeViewController.swift */; };
 		ECDCDDF625EC390A006B30B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */; };
 		ECDCDDF825EC390A006B30B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */; };
-		ECDCDDFA25EC390A006B30B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDF925EC390A006B30B2 /* ViewController.swift */; };
 		ECDCDDFD25EC390A006B30B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDCDDFB25EC390A006B30B2 /* Main.storyboard */; };
 		ECDCDE0025EC390A006B30B2 /* GymPS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDFE25EC390A006B30B2 /* GymPS.xcdatamodeld */; };
 		ECDCDE0225EC390C006B30B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDCDE0125EC390C006B30B2 /* Assets.xcassets */; };
@@ -36,10 +60,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		055443FBB7E303ABAD44349B /* Pods-GymPS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPS.debug.xcconfig"; path = "Target Support Files/Pods-GymPS/Pods-GymPS.debug.xcconfig"; sourceTree = "<group>"; };
+		304D3FC5348AB5F495C5836A /* Pods-GymPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPS.release.xcconfig"; path = "Target Support Files/Pods-GymPS/Pods-GymPS.release.xcconfig"; sourceTree = "<group>"; };
+		583F7E71322A1F4F7D159FCD /* Pods-GymPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPSTests.debug.xcconfig"; path = "Target Support Files/Pods-GymPSTests/Pods-GymPSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6FBBC5091B0D615CD8A2D547 /* Pods_GymPSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC09021CEB7FF3AECEA3327F /* Pods-GymPSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPSTests.release.xcconfig"; path = "Target Support Files/Pods-GymPSTests/Pods-GymPSTests.release.xcconfig"; sourceTree = "<group>"; };
+		B83FEA9EE85A94EE9518EFFD /* Pods-GymPS-GymPSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPS-GymPSUITests.debug.xcconfig"; path = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3B67F657D5940BFE010CD9A /* Pods-GymPS-GymPSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymPS-GymPSUITests.release.xcconfig"; path = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5BD5F7F011B0EF7CA1B9EA2 /* Pods_GymPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC139CA525ED3B1D006A5227 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSupport.swift; sourceTree = "<group>"; };
+		EC139CB325ED3D87006A5227 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
+		EC139CBB25ED403B006A5227 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		EC139CC025ED4054006A5227 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EC139CC525ED4072006A5227 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerViewDelegate.swift; sourceTree = "<group>"; };
+		EC139CD425ED40FE006A5227 /* LogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewCell.swift; sourceTree = "<group>"; };
+		EC139CDC25ED422F006A5227 /* CardioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioViewController.swift; sourceTree = "<group>"; };
+		EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioDetailsViewController.swift; sourceTree = "<group>"; };
+		EC139CEE25ED4381006A5227 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EC139CF325ED43E1006A5227 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailsViewController.swift; sourceTree = "<group>"; };
+		EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
+		EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseData.swift; sourceTree = "<group>"; };
+		ECA20C3A25F1467A0086B63E /* AddWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutTableViewController.swift; sourceTree = "<group>"; };
+		ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseTableViewController.swift; sourceTree = "<group>"; };
+		ECA20C4425F147030086B63E /* StartExerciseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartExerciseTableViewController.swift; sourceTree = "<group>"; };
+		ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
+		ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNameTableCell.swift; sourceTree = "<group>"; };
+		ECD12E0625ED50320034BF06 /* CardioHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioHomeViewController.swift; sourceTree = "<group>"; };
 		ECDCDDF225EC390A006B30B2 /* GymPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECDCDDF925EC390A006B30B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ECDCDDFC25EC390A006B30B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECDCDDFF25EC390A006B30B2 /* GymPS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GymPS.xcdatamodel; sourceTree = "<group>"; };
 		ECDCDE0125EC390C006B30B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +104,7 @@
 		ECDCDE1625EC390D006B30B2 /* GymPSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymPSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDCDE1A25EC390D006B30B2 /* GymPSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPSUITests.swift; sourceTree = "<group>"; };
 		ECDCDE1C25EC390D006B30B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F75D96979B5ADB851F85FCF7 /* Pods_GymPS_GymPSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPS_GymPSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31F46893A1FB401EF77CBE0 /* Pods_GymPS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5FDFD67FB852B687178469 /* Pods_GymPSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +128,91 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8248DA362B8A4FCBA3D60868 /* Pods_GymPS_GymPSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B61F7FAF4D1A7283A9F0EA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				055443FBB7E303ABAD44349B /* Pods-GymPS.debug.xcconfig */,
+				304D3FC5348AB5F495C5836A /* Pods-GymPS.release.xcconfig */,
+				B83FEA9EE85A94EE9518EFFD /* Pods-GymPS-GymPSUITests.debug.xcconfig */,
+				E3B67F657D5940BFE010CD9A /* Pods-GymPS-GymPSUITests.release.xcconfig */,
+				583F7E71322A1F4F7D159FCD /* Pods-GymPSTests.debug.xcconfig */,
+				AC09021CEB7FF3AECEA3327F /* Pods-GymPSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		30F26BE0B32BDF60E6970C32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5BD5F7F011B0EF7CA1B9EA2 /* Pods_GymPS.framework */,
+				F75D96979B5ADB851F85FCF7 /* Pods_GymPS_GymPSUITests.framework */,
+				6FBBC5091B0D615CD8A2D547 /* Pods_GymPSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC139CA025ED3A43006A5227 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				ECDCDDFE25EC390A006B30B2 /* GymPS.xcdatamodeld */,
+				EC139CA525ED3B1D006A5227 /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		EC139CA125ED3A4B006A5227 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */,
+				EC139CB325ED3D87006A5227 /* UnitExtensions.swift */,
+				ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */,
+				ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */,
+				EC139CBB25ED403B006A5227 /* FormatDisplay.swift */,
+				EC139CC025ED4054006A5227 /* LocationManager.swift */,
+				EC139CC525ED4072006A5227 /* Extensions.swift */,
+				EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */,
+				EC139CD425ED40FE006A5227 /* LogTableViewCell.swift */,
+				ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */,
+				ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */,
+				EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */,
+				EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC139CA225ED3A5B006A5227 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECDCDE0325EC390C006B30B2 /* LaunchScreen.storyboard */,
+				ECDCDDFB25EC390A006B30B2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC139CA325ED3A61006A5227 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD12E0625ED50320034BF06 /* CardioHomeViewController.swift */,
+				EC139CDC25ED422F006A5227 /* CardioViewController.swift */,
+				EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */,
+				EC139CEE25ED4381006A5227 /* SettingsViewController.swift */,
+				EC139CF325ED43E1006A5227 /* LogViewController.swift */,
+				ECA20C3A25F1467A0086B63E /* AddWorkoutTableViewController.swift */,
+				ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */,
+				ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */,
+				ECA20C4425F147030086B63E /* StartExerciseTableViewController.swift */,
+				EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		ECDCDDE925EC390A006B30B2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +220,8 @@
 				ECDCDE0E25EC390D006B30B2 /* GymPSTests */,
 				ECDCDE1925EC390D006B30B2 /* GymPSUITests */,
 				ECDCDDF325EC390A006B30B2 /* Products */,
+				2B61F7FAF4D1A7283A9F0EA2 /* Pods */,
+				30F26BE0B32BDF60E6970C32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,14 +238,12 @@
 		ECDCDDF425EC390A006B30B2 /* GymPS */ = {
 			isa = PBXGroup;
 			children = (
-				ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */,
-				ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */,
-				ECDCDDF925EC390A006B30B2 /* ViewController.swift */,
-				ECDCDDFB25EC390A006B30B2 /* Main.storyboard */,
+				EC139CA325ED3A61006A5227 /* Controllers */,
+				EC139CA225ED3A5B006A5227 /* View */,
+				EC139CA125ED3A4B006A5227 /* Models */,
+				EC139CA025ED3A43006A5227 /* Core Data */,
 				ECDCDE0125EC390C006B30B2 /* Assets.xcassets */,
-				ECDCDE0325EC390C006B30B2 /* LaunchScreen.storyboard */,
 				ECDCDE0625EC390C006B30B2 /* Info.plist */,
-				ECDCDDFE25EC390A006B30B2 /* GymPS.xcdatamodeld */,
 			);
 			path = GymPS;
 			sourceTree = "<group>";
@@ -138,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECDCDE1F25EC390D006B30B2 /* Build configuration list for PBXNativeTarget "GymPS" */;
 			buildPhases = (
+				7D10D81A0096DBBFF7B4D7FB /* [CP] Check Pods Manifest.lock */,
 				ECDCDDEE25EC390A006B30B2 /* Sources */,
 				ECDCDDEF25EC390A006B30B2 /* Frameworks */,
 				ECDCDDF025EC390A006B30B2 /* Resources */,
@@ -155,6 +291,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECDCDE2225EC390D006B30B2 /* Build configuration list for PBXNativeTarget "GymPSTests" */;
 			buildPhases = (
+				67936DA759F7B27E18787238 /* [CP] Check Pods Manifest.lock */,
 				ECDCDE0725EC390C006B30B2 /* Sources */,
 				ECDCDE0825EC390C006B30B2 /* Frameworks */,
 				ECDCDE0925EC390C006B30B2 /* Resources */,
@@ -173,6 +310,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECDCDE2525EC390D006B30B2 /* Build configuration list for PBXNativeTarget "GymPSUITests" */;
 			buildPhases = (
+				5496B4474A898F94F0D1E305 /* [CP] Check Pods Manifest.lock */,
 				ECDCDE1225EC390D006B30B2 /* Sources */,
 				ECDCDE1325EC390D006B30B2 /* Frameworks */,
 				ECDCDE1425EC390D006B30B2 /* Resources */,
@@ -256,15 +394,105 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5496B4474A898F94F0D1E305 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GymPS-GymPSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67936DA759F7B27E18787238 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GymPSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D10D81A0096DBBFF7B4D7FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GymPS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ECDCDDEE25EC390A006B30B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECDCDDFA25EC390A006B30B2 /* ViewController.swift in Sources */,
+				EC139CA625ED3B1D006A5227 /* CoreDataStack.swift in Sources */,
+				EC139CEA25ED4343006A5227 /* CardioDetailsViewController.swift in Sources */,
+				ECA20C4525F147030086B63E /* StartExerciseTableViewController.swift in Sources */,
+				EC9E4A6725F528D3005CEA35 /* ExerciseManager.swift in Sources */,
+				ECA20C4025F146CC0086B63E /* AddExerciseTableViewController.swift in Sources */,
+				EC139CD525ED40FE006A5227 /* LogTableViewCell.swift in Sources */,
+				EC139CF425ED43E1006A5227 /* LogViewController.swift in Sources */,
 				ECDCDDF625EC390A006B30B2 /* AppDelegate.swift in Sources */,
+				EC139CDD25ED422F006A5227 /* CardioViewController.swift in Sources */,
+				EC139CCB25ED4099006A5227 /* ToolBarPickerViewDelegate.swift in Sources */,
 				ECDCDE0025EC390A006B30B2 /* GymPS.xcdatamodeld in Sources */,
+				EC57E3ED2608F3D1008FF2E5 /* LogDetailsViewController.swift in Sources */,
+				ECA20C4A25F159C60086B63E /* WorkoutTableViewController.swift in Sources */,
+				ECA20C5B25F172AF0086B63E /* WorkoutNameTableCell.swift in Sources */,
+				EC139CAF25ED3D6F006A5227 /* StoryBoardSupport.swift in Sources */,
+				EC9E4A7625F64C81005CEA35 /* ExerciseData.swift in Sources */,
+				EC139CEF25ED4381006A5227 /* SettingsViewController.swift in Sources */,
+				ECA20C3B25F1467A0086B63E /* AddWorkoutTableViewController.swift in Sources */,
+				EC139CC625ED4072006A5227 /* Extensions.swift in Sources */,
+				EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */,
+				EC139CB425ED3D87006A5227 /* UnitExtensions.swift in Sources */,
+				ECD12E0725ED50320034BF06 /* CardioHomeViewController.swift in Sources */,
 				ECDCDDF825EC390A006B30B2 /* SceneDelegate.swift in Sources */,
+				ECA20C4F25F1670F0086B63E /* WorkoutTableViewCell.swift in Sources */,
+				EC139CC125ED4054006A5227 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,12 +665,14 @@
 		};
 		ECDCDE2025EC390D006B30B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 055443FBB7E303ABAD44349B /* Pods-GymPS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G833PB6N23;
 				INFOPLIST_FILE = GymPS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,12 +686,14 @@
 		};
 		ECDCDE2125EC390D006B30B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 304D3FC5348AB5F495C5836A /* Pods-GymPS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G833PB6N23;
 				INFOPLIST_FILE = GymPS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +707,7 @@
 		};
 		ECDCDE2325EC390D006B30B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 583F7E71322A1F4F7D159FCD /* Pods-GymPSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +730,7 @@
 		};
 		ECDCDE2425EC390D006B30B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC09021CEB7FF3AECEA3327F /* Pods-GymPSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +753,7 @@
 		};
 		ECDCDE2625EC390D006B30B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83FEA9EE85A94EE9518EFFD /* Pods-GymPS-GymPSUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +774,7 @@
 		};
 		ECDCDE2725EC390D006B30B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3B67F657D5940BFE010CD9A /* Pods-GymPS-GymPSUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

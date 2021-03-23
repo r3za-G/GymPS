@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
+class WorkoutNameTableCell: UITableViewCell{
+    
+    
+    
+    @IBAction func workoutName(_ sender: UITextField) {
+    }
+    
+    
+}

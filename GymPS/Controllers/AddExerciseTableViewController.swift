@@ -13,6 +13,8 @@ protocol SelectedExercisesDelegate {
     func didLoadSelectedExercises(exercises: [String])
 }
 
+var exerciseDescription = ""
+
 class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate{
     
     
@@ -38,24 +40,29 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var shouldersExercises: [String] = []
     var absExercises: [String] = []
     
+    var chestDescription: [String] = []
+    var bicepDescription: [String] = []
+    var tricepDescription: [String] = []
+    var backDescription: [String] = []
+    var legsDescription: [String] = []
+    var shouldersDescription: [String] = []
+    var absDescription: [String] = []
+    
     
     
     var exercisesSelected: [String] = []
     
     var exerciseArray = [[String]]()
     var filteredExercises = [[String]]()
+    var exerciseDescriptions = [[String]]()
     
     
-    //    let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddExerciseTableViewController"
-        
-        //        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
-        
+
         searchBar.delegate = self
         exerciseManager.delegate = self
         exerciseManager.fetchExercises()
@@ -83,35 +90,44 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
             for n in 0..<(exerciseInfo!.Exercises.count){
                 if exerciseInfo!.Exercises[n].muscleGroup == "Chest"{
                     self.chestExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.chestDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Biceps)"{
                     self.bicepExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.bicepDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Triceps)" {
                     self.tricepExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.tricepDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Back" {
                     self.backExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.backDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Legs" {
                     self.legsExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.legsDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Shoulders" {
                     self.shouldersExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.shouldersDescription.append(exerciseInfo!.Exercises[n].description)
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Abs" {
                     self.absExercises.append(exerciseInfo!.Exercises[n].name)
+                    self.absDescription.append(exerciseInfo!.Exercises[n].description)
                 }
             }
         }
-        self.exerciseArray.append(chestExercises)
-        self.exerciseArray.append(bicepExercises)
-        self.exerciseArray.append(tricepExercises)
-        self.exerciseArray.append(backExercises)
-        self.exerciseArray.append(legsExercises)
-        self.exerciseArray.append(shouldersExercises)
-        self.exerciseArray.append(absExercises)
+
         
+        self.exerciseArray.append(contentsOf: [chestExercises, bicepExercises, tricepExercises,
+                                                backExercises, legsExercises, shouldersExercises,
+                                                absExercises])
+        
+        self.exerciseDescriptions.append(contentsOf: [chestDescription, bicepDescription,
+                                                      tricepDescription, backDescription, legsDescription,
+                                                        shouldersDescription, absDescription])
+     
         
         
         filteredExercises = exerciseArray
@@ -184,6 +200,8 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
@@ -195,17 +213,24 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.orange
         cell.selectedBackgroundView = backgroundView
-        
+
         return cell
+ 
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        
-        
+        exerciseDescription = exerciseDescriptions[indexPath.section][indexPath.row]
+        performSegue(withIdentifier: "ExerciseDescription", sender: tableView.cellForRow(at: indexPath))
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         exercisesSelected.append(filteredExercises[indexPath.section][indexPath.row])
+        
+        exerciseDescription = (exerciseInfo?.Exercises[indexPath.row].description)!
+        
         
     }
     
@@ -216,6 +241,10 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
             exercisesSelected.remove(at: index)
         }
     }
+    
+  
+    
+    
 }
 
 
@@ -248,6 +277,7 @@ extension AddExerciseTableViewController: UISearchBarDelegate {
         
         
         filteredExercises = [[]]
+  
         
         
         if searchText == ""{
@@ -259,6 +289,7 @@ extension AddExerciseTableViewController: UISearchBarDelegate {
                     if name.lowercased().contains(searchText.lowercased()){
                         filteredExercises.append([name])
                     }
+                    
                     
                 }
             }

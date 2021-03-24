@@ -26,10 +26,10 @@ class WorkoutTableViewCell: UITableViewCell {
        guard let workout = workout else { return }
         
         let workoutNames = workout.name
-        let numberOfExercise = workout.exercises
+        let numberOfExercise = workout.amountOfExercises
         
         workoutName.text = workoutNames
-        numberOfExercises.text = "\(numberOfExercise)"
+        numberOfExercises.text = "\(numberOfExercise) Exercises"
        
     }
 }

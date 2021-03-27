@@ -79,36 +79,13 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath)
             cell.textLabel?.text = exerciseArray[indexPath.row]
-            
-//            if setsArray.contains(1){
-//                print(setsArray.firstIndex(of: 1)!)
-//            }
-            
-//            for n in setsArray{
-//                if setsArray.contains(1){
-//                    print(true)
-//
-//                    cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) set"
-//                } else{
-//                    cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) sets"
-//                }
-//            }
-            
-            if setsArray.contains(1){
-                for n in setsArray{
-                    print(n)
-                    if setsArray.firstIndex(of: 1) == n ||  setsArray.lastIndex(of: 1) == n{
-                        cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) set"
-                    } else{
-                        cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) sets"
-                    }
-                }
-            } else {
+
+            if setsArray[indexPath.row] == 1{
+                cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) set"
+            } else{
                 cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) sets"
             }
-            
-            
-            
+           
             cell.isEditing = true
             self.tableView.isEditing = true
             return cell
@@ -116,6 +93,8 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: "totalsCell", for: indexPath)
             cell.textLabel?.text = "Total exercises: \(workout.amountOfExercises)"
             cell.detailTextLabel?.text = "Total sets: \(setsArray.sum())"
+            cell.isEditing = false
+            self.tableView.isEditing = false
             return cell
         }
     }
@@ -174,7 +153,6 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         let exerciseStringAsData = workout.exerciseNames!.data(using: String.Encoding.utf16)
         self.exerciseArray = try! JSONDecoder().decode([String].self, from: exerciseStringAsData!)
         
-        print(setsArray)
         
     }
 }

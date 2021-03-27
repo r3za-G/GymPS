@@ -149,7 +149,7 @@ extension WorkoutTableViewController: SegueHandlerType {
             case .detailsOne:
                 let destination = segue.destination as! StartWorkoutTableViewController
     
-                destination.workout = workoutsArray.reversed()[indexPath!.row]
+                destination.workout = workoutsArray.sorted(by: { $0.name! < $1.name! })[indexPath!.row]
                 
             case .detailsTwo:
                 _ = segue.destination as! NewWorkoutViewController

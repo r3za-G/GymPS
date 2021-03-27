@@ -7,7 +7,7 @@ target 'GymPS' do
   
 
   # Pods for GymPS
-
+  pod 'ValueStepper'
 
 
   target 'GymPSTests' do

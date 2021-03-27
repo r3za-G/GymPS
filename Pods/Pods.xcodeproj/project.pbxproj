@@ -7,65 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EF7F67C1EA6F03B8D666B69E707EE8C /* Pods-GymPS-GymPSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DB56A5B839CB5F4DB6AA85B0D2EB699 /* Pods-GymPS-GymPSUITests-dummy.m */; };
-		3027BDB3CCB237BDFF51105A214B79A9 /* Pods-GymPS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8607B4B3CD0EDE22C0292D052B34562 /* Pods-GymPS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21502344A2FC30C3787524588416B560 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2821BF14167005D39BCB116D7793CBAB /* ValueStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672AB6397134E09C7459FB47CF99DD1 /* ValueStepper.swift */; };
+		494322A7AA67710698B310085DCD1689 /* ValueStepper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD2459E18AF4D816D5E982378DE957B6 /* ValueStepper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506E569DAADC248B81ADD0333DA9EFB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		5956A1E7BE6EFEFD41AA25152079CEDA /* Pods-GymPSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F83494EB273CA8A706B807A103A8E114 /* Pods-GymPSTests-dummy.m */; };
-		747AFB92BF756C98C7959F6DBAD41DF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		79D38E832327FC2455F4A92B2EBEE099 /* Pods-GymPSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE2871E278820645AAB88F43AFE16631 /* Pods-GymPSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		89F8449D6ADE2C93C3B9007ADF175247 /* Pods-GymPS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F642E6305C9BBBF492F41385E9AA43 /* Pods-GymPS-dummy.m */; };
-		C2CB3201202BE84A80A52249DE895BD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		C611167F0120F706765CD1BBFE82B245 /* Pods-GymPS-GymPSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13A17103A2A09B628B27AD7E50D61635 /* Pods-GymPS-GymPSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5956A1E7BE6EFEFD41AA25152079CEDA /* Pods-GymPSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 96879427C70072AD31B9BCEE8481C380 /* Pods-GymPSTests-dummy.m */; };
+		5CB7BC86894E785A1E196721E49AC460 /* Pods-GymPS-GymPSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC8D4336AB08966D12F34EAA7FCC596 /* Pods-GymPS-GymPSUITests-dummy.m */; };
+		79D38E832327FC2455F4A92B2EBEE099 /* Pods-GymPSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA287BD6C52F7569171B872EAECFBF5 /* Pods-GymPSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		899D521BB0FE65930D9086BBA5D46B32 /* Pods-GymPS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B71BA603F3A15299F2CB53FC4423C8 /* Pods-GymPS-dummy.m */; };
+		AB4666BA3FF6C7C14B27E018FCCA4B73 /* Pods-GymPS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 59841A52DDE36641EF5814752C63CB5D /* Pods-GymPS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3CFD0C8D22DCA0C8F95DEABEFF7539C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CCD441D5833BA0A776F4ACEFCE98BAD5 /* ValueStepper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E1734A3D7B2FDD16DBA1A23903708F0 /* ValueStepper-dummy.m */; };
+		D3CA13D99CDF74A432D90BF14C70EA0A /* Pods-GymPS-GymPSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 18242A75547C0FE73BA826566C6C930E /* Pods-GymPS-GymPSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D76EC9DC25A9C1E1950AA80EBE284B7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A8CF3E0B36FB4C3F2240B888D880A300 /* PBXContainerItemProxy */ = {
+		2E40A67B219321E7CF518F74F04B0B2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AD0ABD2C126E667BB2A7076FD2E756D8;
 			remoteInfo = "Pods-GymPS";
 		};
+		80CEC98FEB16B70715FF60925E719AB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75626691707CB65882B0D7D67E1235EC;
+			remoteInfo = ValueStepper;
+		};
+		D6E771A37758F4E050A4AB0E24A97225 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75626691707CB65882B0D7D67E1235EC;
+			remoteInfo = ValueStepper;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00EA169FDB88678D3508D36C56952127 /* Pods-GymPS-GymPSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS-GymPSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		0CB3252518EBF219E877650B323DF32E /* Pods-GymPS-GymPSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPS-GymPSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		12232332AA562E6FABE6B13607298046 /* Pods-GymPS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-acknowledgements.plist"; sourceTree = "<group>"; };
-		123AAD7D834A5AD824331063B89C438E /* Pods-GymPSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPSTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		13A17103A2A09B628B27AD7E50D61635 /* Pods-GymPS-GymPSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPS-GymPSUITests-umbrella.h"; sourceTree = "<group>"; };
-		18ABCC4BE6AF9BD02895829964E63581 /* Pods-GymPS-GymPSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS-GymPSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1BB607B6BDCAF158EB638A5E338D5CC4 /* Pods-GymPS-GymPSUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPS-GymPSUITests.modulemap"; sourceTree = "<group>"; };
-		2C8D091B01077A851C188B06B88271F1 /* Pods-GymPSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3F254E54A3F83B5B0ACB20F870C496B2 /* Pods-GymPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS.release.xcconfig"; sourceTree = "<group>"; };
-		432504B8BF0551E7A3E502F64CE51C1F /* Pods-GymPSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPSTests.release.xcconfig"; sourceTree = "<group>"; };
-		4B8D354508C831B082E2E0ABB344EAEA /* Pods-GymPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4D617DB101044CF5F4BFFA4E3A72CF81 /* Pods-GymPS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		51083308F7B576F66F6A0B02210217A1 /* Pods-GymPS-GymPSUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-GymPSUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6ED8F5ADB1B9D52ABE2DFED9CC1D0489 /* Pods-GymPS-GymPSUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-GymPSUITests-Info.plist"; sourceTree = "<group>"; };
+		0765A361C471B760C7FCFC300D832434 /* Pods-GymPS-GymPSUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPS-GymPSUITests.modulemap"; sourceTree = "<group>"; };
+		0CC8D4336AB08966D12F34EAA7FCC596 /* Pods-GymPS-GymPSUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPS-GymPSUITests-dummy.m"; sourceTree = "<group>"; };
+		18242A75547C0FE73BA826566C6C930E /* Pods-GymPS-GymPSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPS-GymPSUITests-umbrella.h"; sourceTree = "<group>"; };
+		1C9DF1EC26EC09985A8AD0DED8FF2106 /* Pods-GymPSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPSTests-Info.plist"; sourceTree = "<group>"; };
+		2FEE04DDA932DF6DC889B6442F95EFCF /* Pods-GymPSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5815F59570FCE1F69BCF8C10896A551A /* Pods-GymPS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS.release.xcconfig"; sourceTree = "<group>"; };
+		59841A52DDE36641EF5814752C63CB5D /* Pods-GymPS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPS-umbrella.h"; sourceTree = "<group>"; };
+		5AC6386230FBFEC3843CE5FE404BD0AF /* ValueStepper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ValueStepper.release.xcconfig; sourceTree = "<group>"; };
+		5C2132830F45EBB4B326193135F34DA1 /* Pods-GymPS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-Info.plist"; sourceTree = "<group>"; };
+		6318F5A21F613A4EA20226C7AA74539D /* Pods-GymPS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		65E3700EC7BABE16C64EB68E097EF3F9 /* Pods-GymPS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GymPS-frameworks.sh"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		78F642E6305C9BBBF492F41385E9AA43 /* Pods-GymPS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPS-dummy.m"; sourceTree = "<group>"; };
-		7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GymPS_GymPSUITests.framework; path = "Pods-GymPS-GymPSUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8863DE85810EB16D874C60E40B9D34C0 /* Pods_GymPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GymPS.framework; path = "Pods-GymPS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92A085FD72AD7FC402B51C25ED64FF54 /* Pods-GymPSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPSTests-Info.plist"; sourceTree = "<group>"; };
-		947EC29171E877B6340F5E88E3A7A8EB /* Pods_GymPSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GymPSTests.framework; path = "Pods-GymPSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B3B6C2219B5FD9E9B510C8D66D0B26D /* Pods-GymPSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPSTests.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DB56A5B839CB5F4DB6AA85B0D2EB699 /* Pods-GymPS-GymPSUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPS-GymPSUITests-dummy.m"; sourceTree = "<group>"; };
-		AA9F354D7FB81C84861664F9F03E11C1 /* Pods-GymPS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPS.modulemap"; sourceTree = "<group>"; };
-		B492EC068DE4BDE16EC0A18E615FA931 /* Pods-GymPS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-Info.plist"; sourceTree = "<group>"; };
-		B8607B4B3CD0EDE22C0292D052B34562 /* Pods-GymPS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPS-umbrella.h"; sourceTree = "<group>"; };
-		F76FE010549D6A6546CA53B86663B593 /* Pods-GymPS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS.debug.xcconfig"; sourceTree = "<group>"; };
-		F83494EB273CA8A706B807A103A8E114 /* Pods-GymPSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPSTests-dummy.m"; sourceTree = "<group>"; };
-		FE2871E278820645AAB88F43AFE16631 /* Pods-GymPSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPSTests-umbrella.h"; sourceTree = "<group>"; };
+		7672AB6397134E09C7459FB47CF99DD1 /* ValueStepper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValueStepper.swift; path = Pod/Classes/ValueStepper.swift; sourceTree = "<group>"; };
+		7E1734A3D7B2FDD16DBA1A23903708F0 /* ValueStepper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ValueStepper-dummy.m"; sourceTree = "<group>"; };
+		7E3DFBA74A43F971DDCC946E70428776 /* ValueStepper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ValueStepper.debug.xcconfig; sourceTree = "<group>"; };
+		7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPS_GymPSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8863DE85810EB16D874C60E40B9D34C0 /* Pods_GymPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E7939315CADDB06DB0AEB7421B11BF6 /* Pods-GymPS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-acknowledgements.plist"; sourceTree = "<group>"; };
+		8F2958F89951E19D3C28E5A8AE785043 /* ValueStepper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ValueStepper-Info.plist"; sourceTree = "<group>"; };
+		924F542847C458041A6237BA0FEE0CB7 /* Pods-GymPSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPSTests.modulemap"; sourceTree = "<group>"; };
+		947EC29171E877B6340F5E88E3A7A8EB /* Pods_GymPSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968254092DAD6CB39DBDA3EF4BD59B40 /* Pods-GymPS-GymPSUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-GymPSUITests-Info.plist"; sourceTree = "<group>"; };
+		96879427C70072AD31B9BCEE8481C380 /* Pods-GymPSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPSTests-dummy.m"; sourceTree = "<group>"; };
+		999983720B79D94735DB72BCA5801DD9 /* Pods-GymPS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS.debug.xcconfig"; sourceTree = "<group>"; };
+		9D09AB9723BFF8E8438E4F9FAE733632 /* Pods-GymPS-GymPSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS-GymPSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A2B81E8512EC9F8DB4190D950D1709CE /* Pods-GymPS-GymPSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPS-GymPSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7A2AA704704041C717E08486F02D899 /* Pods-GymPSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B1AFB1479FD1EFA272DCEDEE38B0425A /* ValueStepper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ValueStepper-prefix.pch"; sourceTree = "<group>"; };
+		BDA287BD6C52F7569171B872EAECFBF5 /* Pods-GymPSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GymPSTests-umbrella.h"; sourceTree = "<group>"; };
+		BF77ECDCF048ED3AADE06444373A76B0 /* Pods-GymPS-GymPSUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GymPS-GymPSUITests-frameworks.sh"; sourceTree = "<group>"; };
+		C889CF77DEBB6C5A4280A4E03EA7D1E7 /* Pods-GymPS-GymPSUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GymPS-GymPSUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CACF7CB5A98950D47B8826072985FB52 /* Pods-GymPS-GymPSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPS-GymPSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CB855576DB949C53369EC546543A071C /* Pods-GymPSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GymPSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CD2459E18AF4D816D5E982378DE957B6 /* ValueStepper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ValueStepper-umbrella.h"; sourceTree = "<group>"; };
+		DCC5613B4BBEBA2E3ECAEDF4A2F663AC /* ValueStepper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ValueStepper.modulemap; sourceTree = "<group>"; };
+		E5795221EE7E73138C1D474806109609 /* ValueStepper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ValueStepper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F89E60DE658598E7635A121FFE213454 /* Pods-GymPS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-GymPS.modulemap"; sourceTree = "<group>"; };
+		F9B71BA603F3A15299F2CB53FC4423C8 /* Pods-GymPS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GymPS-dummy.m"; sourceTree = "<group>"; };
+		FD92070BE5E74D896CD37CA525CA1C66 /* Pods-GymPSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GymPSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3C8AF59CE37070541568C95E27560102 /* Frameworks */ = {
+		2D42180E0A456708DBEC5F0AB8689331 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747AFB92BF756C98C7959F6DBAD41DF6 /* Foundation.framework in Frameworks */,
+				C3CFD0C8D22DCA0C8F95DEABEFF7539C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,47 +106,74 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F96B286454A318131AA53CDA822AA7DD /* Frameworks */ = {
+		9A7D7058820C2B7FADBD0249B7574F93 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2CB3201202BE84A80A52249DE895BD7 /* Foundation.framework in Frameworks */,
+				D76EC9DC25A9C1E1950AA80EBE284B7F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE6788F39AD82858D24E3BE5E0C99D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21502344A2FC30C3787524588416B560 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		053CF77D4A3D49EECD112D3B4B312093 /* Pods-GymPSTests */ = {
+		02297D804670A715D2141FC2702F4719 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9B3B6C2219B5FD9E9B510C8D66D0B26D /* Pods-GymPSTests.modulemap */,
-				2C8D091B01077A851C188B06B88271F1 /* Pods-GymPSTests-acknowledgements.markdown */,
-				123AAD7D834A5AD824331063B89C438E /* Pods-GymPSTests-acknowledgements.plist */,
-				F83494EB273CA8A706B807A103A8E114 /* Pods-GymPSTests-dummy.m */,
-				92A085FD72AD7FC402B51C25ED64FF54 /* Pods-GymPSTests-Info.plist */,
-				FE2871E278820645AAB88F43AFE16631 /* Pods-GymPSTests-umbrella.h */,
-				4B8D354508C831B082E2E0ABB344EAEA /* Pods-GymPSTests.debug.xcconfig */,
-				432504B8BF0551E7A3E502F64CE51C1F /* Pods-GymPSTests.release.xcconfig */,
+				724E10AB8768FA2BD85D4860BB8C988F /* ValueStepper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		02AC85E789E2399A90A201EA2D0380E9 /* Pods-GymPSTests */ = {
+			isa = PBXGroup;
+			children = (
+				924F542847C458041A6237BA0FEE0CB7 /* Pods-GymPSTests.modulemap */,
+				CB855576DB949C53369EC546543A071C /* Pods-GymPSTests-acknowledgements.markdown */,
+				A7A2AA704704041C717E08486F02D899 /* Pods-GymPSTests-acknowledgements.plist */,
+				96879427C70072AD31B9BCEE8481C380 /* Pods-GymPSTests-dummy.m */,
+				1C9DF1EC26EC09985A8AD0DED8FF2106 /* Pods-GymPSTests-Info.plist */,
+				BDA287BD6C52F7569171B872EAECFBF5 /* Pods-GymPSTests-umbrella.h */,
+				2FEE04DDA932DF6DC889B6442F95EFCF /* Pods-GymPSTests.debug.xcconfig */,
+				FD92070BE5E74D896CD37CA525CA1C66 /* Pods-GymPSTests.release.xcconfig */,
 			);
 			name = "Pods-GymPSTests";
 			path = "Target Support Files/Pods-GymPSTests";
 			sourceTree = "<group>";
 		};
-		2CE806372ABB3278DF19EDADC84BD541 /* Pods-GymPS-GymPSUITests */ = {
+		0C4588B2024F6D5AB696CBD0A5B13863 /* Pods-GymPS-GymPSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1BB607B6BDCAF158EB638A5E338D5CC4 /* Pods-GymPS-GymPSUITests.modulemap */,
-				0CB3252518EBF219E877650B323DF32E /* Pods-GymPS-GymPSUITests-acknowledgements.markdown */,
-				51083308F7B576F66F6A0B02210217A1 /* Pods-GymPS-GymPSUITests-acknowledgements.plist */,
-				9DB56A5B839CB5F4DB6AA85B0D2EB699 /* Pods-GymPS-GymPSUITests-dummy.m */,
-				6ED8F5ADB1B9D52ABE2DFED9CC1D0489 /* Pods-GymPS-GymPSUITests-Info.plist */,
-				13A17103A2A09B628B27AD7E50D61635 /* Pods-GymPS-GymPSUITests-umbrella.h */,
-				00EA169FDB88678D3508D36C56952127 /* Pods-GymPS-GymPSUITests.debug.xcconfig */,
-				18ABCC4BE6AF9BD02895829964E63581 /* Pods-GymPS-GymPSUITests.release.xcconfig */,
+				0765A361C471B760C7FCFC300D832434 /* Pods-GymPS-GymPSUITests.modulemap */,
+				CACF7CB5A98950D47B8826072985FB52 /* Pods-GymPS-GymPSUITests-acknowledgements.markdown */,
+				C889CF77DEBB6C5A4280A4E03EA7D1E7 /* Pods-GymPS-GymPSUITests-acknowledgements.plist */,
+				0CC8D4336AB08966D12F34EAA7FCC596 /* Pods-GymPS-GymPSUITests-dummy.m */,
+				BF77ECDCF048ED3AADE06444373A76B0 /* Pods-GymPS-GymPSUITests-frameworks.sh */,
+				968254092DAD6CB39DBDA3EF4BD59B40 /* Pods-GymPS-GymPSUITests-Info.plist */,
+				18242A75547C0FE73BA826566C6C930E /* Pods-GymPS-GymPSUITests-umbrella.h */,
+				A2B81E8512EC9F8DB4190D950D1709CE /* Pods-GymPS-GymPSUITests.debug.xcconfig */,
+				9D09AB9723BFF8E8438E4F9FAE733632 /* Pods-GymPS-GymPSUITests.release.xcconfig */,
 			);
 			name = "Pods-GymPS-GymPSUITests";
 			path = "Target Support Files/Pods-GymPS-GymPSUITests";
+			sourceTree = "<group>";
+		};
+		2D2099A85A7B58D1E54172D1A2E17C3E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C29D27D5242C59EBFF8C3822CCE9C038 /* Pods-GymPS */,
+				0C4588B2024F6D5AB696CBD0A5B13863 /* Pods-GymPS-GymPSUITests */,
+				02AC85E789E2399A90A201EA2D0380E9 /* Pods-GymPSTests */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -128,13 +184,51 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		724E10AB8768FA2BD85D4860BB8C988F /* ValueStepper */ = {
+			isa = PBXGroup;
+			children = (
+				7672AB6397134E09C7459FB47CF99DD1 /* ValueStepper.swift */,
+				E3D35ADFF0F0FD8671C68DF6E082F44E /* Support Files */,
+			);
+			path = ValueStepper;
+			sourceTree = "<group>";
+		};
+		8CB6A415EA70E3F6AA7EA473D90FC483 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8863DE85810EB16D874C60E40B9D34C0 /* Pods_GymPS.framework */,
+				7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */,
+				947EC29171E877B6340F5E88E3A7A8EB /* Pods_GymPSTests.framework */,
+				E5795221EE7E73138C1D474806109609 /* ValueStepper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C29D27D5242C59EBFF8C3822CCE9C038 /* Pods-GymPS */ = {
+			isa = PBXGroup;
+			children = (
+				F89E60DE658598E7635A121FFE213454 /* Pods-GymPS.modulemap */,
+				6318F5A21F613A4EA20226C7AA74539D /* Pods-GymPS-acknowledgements.markdown */,
+				8E7939315CADDB06DB0AEB7421B11BF6 /* Pods-GymPS-acknowledgements.plist */,
+				F9B71BA603F3A15299F2CB53FC4423C8 /* Pods-GymPS-dummy.m */,
+				65E3700EC7BABE16C64EB68E097EF3F9 /* Pods-GymPS-frameworks.sh */,
+				5C2132830F45EBB4B326193135F34DA1 /* Pods-GymPS-Info.plist */,
+				59841A52DDE36641EF5814752C63CB5D /* Pods-GymPS-umbrella.h */,
+				999983720B79D94735DB72BCA5801DD9 /* Pods-GymPS.debug.xcconfig */,
+				5815F59570FCE1F69BCF8C10896A551A /* Pods-GymPS.release.xcconfig */,
+			);
+			name = "Pods-GymPS";
+			path = "Target Support Files/Pods-GymPS";
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				D946BB76FC568B9C45B8AE2BFF4E940D /* Products */,
-				FE54A58EC70840F5150CCAFF5DF3167C /* Targets Support Files */,
+				02297D804670A715D2141FC2702F4719 /* Pods */,
+				8CB6A415EA70E3F6AA7EA473D90FC483 /* Products */,
+				2D2099A85A7B58D1E54172D1A2E17C3E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -146,45 +240,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D946BB76FC568B9C45B8AE2BFF4E940D /* Products */ = {
+		E3D35ADFF0F0FD8671C68DF6E082F44E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8863DE85810EB16D874C60E40B9D34C0 /* Pods_GymPS.framework */,
-				7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */,
-				947EC29171E877B6340F5E88E3A7A8EB /* Pods_GymPSTests.framework */,
+				DCC5613B4BBEBA2E3ECAEDF4A2F663AC /* ValueStepper.modulemap */,
+				7E1734A3D7B2FDD16DBA1A23903708F0 /* ValueStepper-dummy.m */,
+				8F2958F89951E19D3C28E5A8AE785043 /* ValueStepper-Info.plist */,
+				B1AFB1479FD1EFA272DCEDEE38B0425A /* ValueStepper-prefix.pch */,
+				CD2459E18AF4D816D5E982378DE957B6 /* ValueStepper-umbrella.h */,
+				7E3DFBA74A43F971DDCC946E70428776 /* ValueStepper.debug.xcconfig */,
+				5AC6386230FBFEC3843CE5FE404BD0AF /* ValueStepper.release.xcconfig */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E7645BC8FBF72E78C42DDB48EC5BE1AA /* Pods-GymPS */ = {
-			isa = PBXGroup;
-			children = (
-				AA9F354D7FB81C84861664F9F03E11C1 /* Pods-GymPS.modulemap */,
-				4D617DB101044CF5F4BFFA4E3A72CF81 /* Pods-GymPS-acknowledgements.markdown */,
-				12232332AA562E6FABE6B13607298046 /* Pods-GymPS-acknowledgements.plist */,
-				78F642E6305C9BBBF492F41385E9AA43 /* Pods-GymPS-dummy.m */,
-				B492EC068DE4BDE16EC0A18E615FA931 /* Pods-GymPS-Info.plist */,
-				B8607B4B3CD0EDE22C0292D052B34562 /* Pods-GymPS-umbrella.h */,
-				F76FE010549D6A6546CA53B86663B593 /* Pods-GymPS.debug.xcconfig */,
-				3F254E54A3F83B5B0ACB20F870C496B2 /* Pods-GymPS.release.xcconfig */,
-			);
-			name = "Pods-GymPS";
-			path = "Target Support Files/Pods-GymPS";
-			sourceTree = "<group>";
-		};
-		FE54A58EC70840F5150CCAFF5DF3167C /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E7645BC8FBF72E78C42DDB48EC5BE1AA /* Pods-GymPS */,
-				2CE806372ABB3278DF19EDADC84BD541 /* Pods-GymPS-GymPSUITests */,
-				053CF77D4A3D49EECD112D3B4B312093 /* Pods-GymPSTests */,
-			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "../Target Support Files/ValueStepper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		3D1BC48B68E713C58F7B42124BE39704 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3CA13D99CDF74A432D90BF14C70EA0A /* Pods-GymPS-GymPSUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DEF747A8AE6D3ED9584ABA9E70ED61A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,19 +274,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		909755FAB467AE55A1FCB989C04B7E1A /* Headers */ = {
+		674B3FC97970C8B05F4B4C9AA03EAFFC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3027BDB3CCB237BDFF51105A214B79A9 /* Pods-GymPS-umbrella.h in Headers */,
+				494322A7AA67710698B310085DCD1689 /* ValueStepper-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D709EF4FC7A7583CDE39058C5821AEB2 /* Headers */ = {
+		73FD2F21C41DBC0A392EFA41C2881C0C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C611167F0120F706765CD1BBFE82B245 /* Pods-GymPS-GymPSUITests-umbrella.h in Headers */,
+				AB4666BA3FF6C7C14B27E018FCCA4B73 /* Pods-GymPS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,20 +295,39 @@
 /* Begin PBXNativeTarget section */
 		410E555D4016AB225A33E6DF06EB3AE4 /* Pods-GymPS-GymPSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7EC5288669741D450534F26A4C73081F /* Build configuration list for PBXNativeTarget "Pods-GymPS-GymPSUITests" */;
+			buildConfigurationList = 1C55C25BBD1018C5ED7E2FE7CC926F04 /* Build configuration list for PBXNativeTarget "Pods-GymPS-GymPSUITests" */;
 			buildPhases = (
-				D709EF4FC7A7583CDE39058C5821AEB2 /* Headers */,
-				B414FC4F30F3B3ED865FF3190463A53E /* Sources */,
-				3C8AF59CE37070541568C95E27560102 /* Frameworks */,
-				655DE9E42D0ED8D8B15FC86ABFE2634A /* Resources */,
+				3D1BC48B68E713C58F7B42124BE39704 /* Headers */,
+				DD25325C9C9C90515A0DAD4CF963837B /* Sources */,
+				CE6788F39AD82858D24E3BE5E0C99D2C /* Frameworks */,
+				A5C3934F5B9AA16D567732CF440DFED6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C81CC9411D7B15EDAC2FF81FFE1DBE34 /* PBXTargetDependency */,
+			);
+			name = "Pods-GymPS-GymPSUITests";
+			productName = "Pods-GymPS-GymPSUITests";
+			productReference = 7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		75626691707CB65882B0D7D67E1235EC /* ValueStepper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5999E116734E167696F6139B8458D10B /* Build configuration list for PBXNativeTarget "ValueStepper" */;
+			buildPhases = (
+				674B3FC97970C8B05F4B4C9AA03EAFFC /* Headers */,
+				944748576E16C63C4081F9AE2CE51FAA /* Sources */,
+				2D42180E0A456708DBEC5F0AB8689331 /* Frameworks */,
+				36A1769CAA2E9354C8E371DAD18E67DE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Pods-GymPS-GymPSUITests";
-			productName = "Pods-GymPS-GymPSUITests";
-			productReference = 7F5995C09A90691267C41BFC589D882E /* Pods_GymPS_GymPSUITests.framework */;
+			name = ValueStepper;
+			productName = ValueStepper;
+			productReference = E5795221EE7E73138C1D474806109609 /* ValueStepper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		82072030B5103C03DA4387FF32C5F8D5 /* Pods-GymPSTests */ = {
@@ -242,7 +342,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				45F657166B0E4C858C2B2BFC672F6416 /* PBXTargetDependency */,
+				D704AB8FC2DB96CA2DED8D02DAC040AB /* PBXTargetDependency */,
 			);
 			name = "Pods-GymPSTests";
 			productName = "Pods-GymPSTests";
@@ -251,16 +351,17 @@
 		};
 		AD0ABD2C126E667BB2A7076FD2E756D8 /* Pods-GymPS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AA340683B248B6419AA8E78CF46EABD /* Build configuration list for PBXNativeTarget "Pods-GymPS" */;
+			buildConfigurationList = E1A1490BB9FD28A23BBB4C8D2BB50AD6 /* Build configuration list for PBXNativeTarget "Pods-GymPS" */;
 			buildPhases = (
-				909755FAB467AE55A1FCB989C04B7E1A /* Headers */,
-				E3C22679DB2F8F3477B45F36C0ECFA06 /* Sources */,
-				F96B286454A318131AA53CDA822AA7DD /* Frameworks */,
-				1EF48D8F8B72398CB86AD57BEABFE60E /* Resources */,
+				73FD2F21C41DBC0A392EFA41C2881C0C /* Headers */,
+				7E359180095A899CE6A012586916AFF9 /* Sources */,
+				9A7D7058820C2B7FADBD0249B7574F93 /* Frameworks */,
+				16DB61C3D44D75A5201B67CD3832F1F9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				81BEB5865858ECCC7A7356A0A40AE2C2 /* PBXTargetDependency */,
 			);
 			name = "Pods-GymPS";
 			productName = "Pods-GymPS";
@@ -274,7 +375,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -285,18 +386,26 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = D946BB76FC568B9C45B8AE2BFF4E940D /* Products */;
+			productRefGroup = 8CB6A415EA70E3F6AA7EA473D90FC483 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				AD0ABD2C126E667BB2A7076FD2E756D8 /* Pods-GymPS */,
 				410E555D4016AB225A33E6DF06EB3AE4 /* Pods-GymPS-GymPSUITests */,
 				82072030B5103C03DA4387FF32C5F8D5 /* Pods-GymPSTests */,
+				75626691707CB65882B0D7D67E1235EC /* ValueStepper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		16DB61C3D44D75A5201B67CD3832F1F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C0B84199AEF0397DFFF525CCD3210C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,14 +413,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1EF48D8F8B72398CB86AD57BEABFE60E /* Resources */ = {
+		36A1769CAA2E9354C8E371DAD18E67DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		655DE9E42D0ED8D8B15FC86ABFE2634A /* Resources */ = {
+		A5C3934F5B9AA16D567732CF440DFED6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,34 +438,90 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B414FC4F30F3B3ED865FF3190463A53E /* Sources */ = {
+		7E359180095A899CE6A012586916AFF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EF7F67C1EA6F03B8D666B69E707EE8C /* Pods-GymPS-GymPSUITests-dummy.m in Sources */,
+				899D521BB0FE65930D9086BBA5D46B32 /* Pods-GymPS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E3C22679DB2F8F3477B45F36C0ECFA06 /* Sources */ = {
+		944748576E16C63C4081F9AE2CE51FAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89F8449D6ADE2C93C3B9007ADF175247 /* Pods-GymPS-dummy.m in Sources */,
+				CCD441D5833BA0A776F4ACEFCE98BAD5 /* ValueStepper-dummy.m in Sources */,
+				2821BF14167005D39BCB116D7793CBAB /* ValueStepper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD25325C9C9C90515A0DAD4CF963837B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB7BC86894E785A1E196721E49AC460 /* Pods-GymPS-GymPSUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		45F657166B0E4C858C2B2BFC672F6416 /* PBXTargetDependency */ = {
+		81BEB5865858ECCC7A7356A0A40AE2C2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ValueStepper;
+			target = 75626691707CB65882B0D7D67E1235EC /* ValueStepper */;
+			targetProxy = D6E771A37758F4E050A4AB0E24A97225 /* PBXContainerItemProxy */;
+		};
+		C81CC9411D7B15EDAC2FF81FFE1DBE34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ValueStepper;
+			target = 75626691707CB65882B0D7D67E1235EC /* ValueStepper */;
+			targetProxy = 80CEC98FEB16B70715FF60925E719AB6 /* PBXContainerItemProxy */;
+		};
+		D704AB8FC2DB96CA2DED8D02DAC040AB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-GymPS";
 			target = AD0ABD2C126E667BB2A7076FD2E756D8 /* Pods-GymPS */;
-			targetProxy = A8CF3E0B36FB4C3F2240B888D880A300 /* PBXContainerItemProxy */;
+			targetProxy = 2E40A67B219321E7CF518F74F04B0B2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		18A480C6D21D5000D5ACA0E8FE10505B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AC6386230FBFEC3843CE5FE404BD0AF /* ValueStepper.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ValueStepper/ValueStepper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ValueStepper/ValueStepper-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ValueStepper/ValueStepper.modulemap";
+				PRODUCT_MODULE_NAME = ValueStepper;
+				PRODUCT_NAME = ValueStepper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -410,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -423,9 +588,9 @@
 			};
 			name = Debug;
 		};
-		282205AB0F347F53F350014EB450ACF8 /* Debug */ = {
+		381F3EFEA4D1E36349179AACFF7E41CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F76FE010549D6A6546CA53B86663B593 /* Pods-GymPS.debug.xcconfig */;
+			baseConfigurationReference = 999983720B79D94735DB72BCA5801DD9 /* Pods-GymPS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -438,7 +603,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-GymPS/Pods-GymPS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,45 +624,9 @@
 			};
 			name = Debug;
 		};
-		3A787537F01CCA10024E8164E2FDFA84 /* Debug */ = {
+		3CC8A1C4EA27584C74E9BBF257D3A141 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00EA169FDB88678D3508D36C56952127 /* Pods-GymPS-GymPSUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5127EBD3E18DE7F0ABEE7B7D1AEA5244 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F254E54A3F83B5B0ACB20F870C496B2 /* Pods-GymPS.release.xcconfig */;
+			baseConfigurationReference = 5815F59570FCE1F69BCF8C10896A551A /* Pods-GymPS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -510,7 +639,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-GymPS/Pods-GymPS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +663,7 @@
 		};
 		622C2184BEF1BCD7FAC54844AF07B36D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B8D354508C831B082E2E0ABB344EAEA /* Pods-GymPSTests.debug.xcconfig */;
+			baseConfigurationReference = 2FEE04DDA932DF6DC889B6442F95EFCF /* Pods-GymPSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -547,7 +676,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-GymPSTests/Pods-GymPSTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,11 +697,10 @@
 			};
 			name = Debug;
 		};
-		A07FDBF2450A8B44EB3FD14489D85643 /* Release */ = {
+		71ED44E1F25E2075155AB9ECFD9AF126 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18ABCC4BE6AF9BD02895829964E63581 /* Pods-GymPS-GymPSUITests.release.xcconfig */;
+			baseConfigurationReference = 7E3DFBA74A43F971DDCC946E70428776 /* ValueStepper.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -581,33 +709,31 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ValueStepper/ValueStepper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ValueStepper/ValueStepper-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/ValueStepper/ValueStepper.modulemap";
+				PRODUCT_MODULE_NAME = ValueStepper;
+				PRODUCT_NAME = ValueStepper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		C1BCFFAC3145ED293A58799E3741162F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 432504B8BF0551E7A3E502F64CE51C1F /* Pods-GymPSTests.release.xcconfig */;
+			baseConfigurationReference = FD92070BE5E74D896CD37CA525CA1C66 /* Pods-GymPSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -620,7 +746,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-GymPSTests/Pods-GymPSTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -641,6 +767,42 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		C855EDC4F3548F9F32442A6E902ACACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2B81E8512EC9F8DB4190D950D1709CE /* Pods-GymPS-GymPSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -692,7 +854,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -704,9 +866,55 @@
 			};
 			name = Release;
 		};
+		FAF5D00CEE2858B72F19E1A1C68D4CA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D09AB9723BFF8E8438E4F9FAE733632 /* Pods-GymPS-GymPSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GymPS-GymPSUITests/Pods-GymPS-GymPSUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C55C25BBD1018C5ED7E2FE7CC926F04 /* Build configuration list for PBXNativeTarget "Pods-GymPS-GymPSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C855EDC4F3548F9F32442A6E902ACACC /* Debug */,
+				FAF5D00CEE2858B72F19E1A1C68D4CA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -716,20 +924,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AA340683B248B6419AA8E78CF46EABD /* Build configuration list for PBXNativeTarget "Pods-GymPS" */ = {
+		5999E116734E167696F6139B8458D10B /* Build configuration list for PBXNativeTarget "ValueStepper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				282205AB0F347F53F350014EB450ACF8 /* Debug */,
-				5127EBD3E18DE7F0ABEE7B7D1AEA5244 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7EC5288669741D450534F26A4C73081F /* Build configuration list for PBXNativeTarget "Pods-GymPS-GymPSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3A787537F01CCA10024E8164E2FDFA84 /* Debug */,
-				A07FDBF2450A8B44EB3FD14489D85643 /* Release */,
+				71ED44E1F25E2075155AB9ECFD9AF126 /* Debug */,
+				18A480C6D21D5000D5ACA0E8FE10505B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -739,6 +938,15 @@
 			buildConfigurations = (
 				622C2184BEF1BCD7FAC54844AF07B36D /* Debug */,
 				C1BCFFAC3145ED293A58799E3741162F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1A1490BB9FD28A23BBB4C8D2BB50AD6 /* Build configuration list for PBXNativeTarget "Pods-GymPS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				381F3EFEA4D1E36349179AACFF7E41CF /* Debug */,
+				3CC8A1C4EA27584C74E9BBF257D3A141 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

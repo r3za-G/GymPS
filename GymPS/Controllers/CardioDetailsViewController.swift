@@ -105,26 +105,59 @@ class CardioDetailsViewController: UIViewController {
             return MKShape() as! MKPointAnnotation
         }
         
+        let startPin = MKPointAnnotation()
+        let title = "Start"
+        startPin.title = title
+        
         let coords: [CLLocationCoordinate2D] = locations.map { location in
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-      
-
-        return MKPointAnnotation(__coordinate: coords.first!)
+        startPin.coordinate = coords.first!
         
+        return startPin
     }
+    
     private func finishPin() -> MKPointAnnotation{
         guard let locations = cardio.locations else {
             return MKShape() as! MKPointAnnotation
         }
         
+        let endPin = MKPointAnnotation()
+        let title = "Finish"
+        endPin.title = title
+        
         let coords: [CLLocationCoordinate2D] = locations.map { location in
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-        return MKPointAnnotation(__coordinate: coords.last!)
+        endPin.coordinate = coords.last!
+        
+        return endPin
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
+        annotationView.markerTintColor = UIColor.blue
+        
+        switch annotation.title {
+        case "Start":
+            annotationView.markerTintColor = UIColor.green
+            annotationView.glyphImage = UIImage(named: "startPin")
+        case "Finish":
+            annotationView.markerTintColor = UIColor.red
+            annotationView.glyphImage = UIImage(named: "endPin")
+        default:
+        annotationView.markerTintColor = UIColor.orange
+        }
+
+        return annotationView
+    }
+    
+    
+    
+    
+   
     
     
 
@@ -148,6 +181,7 @@ class CardioDetailsViewController: UIViewController {
         mapView.addOverlay(polyLine())
         mapView.addAnnotation(startPin())
         mapView.addAnnotation(finishPin())
+       
 
     }
     

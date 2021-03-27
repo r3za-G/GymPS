@@ -175,10 +175,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/TempoStepper/TempoStepper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ValueStepper/ValueStepper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/TempoStepper/TempoStepper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ValueStepper/ValueStepper.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

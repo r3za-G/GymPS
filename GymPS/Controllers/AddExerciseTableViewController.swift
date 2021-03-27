@@ -31,20 +31,19 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var exerciseInfo: ExerciseData? = nil
     
     
-    var chestExercises: [(name: String, description: String)] = []
-    
-    var bicepExercises: [(name: String, description: String)] = []
-    var tricepExercises: [(name: String, description: String)] = []
-    var backExercises: [(name: String, description: String)] = []
-    var legsExercises: [(name: String, description: String)] = []
-    var shouldersExercises: [(name: String, description: String)] = []
-    var absExercises: [(name: String, description: String)] = []
+    var chestExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var bicepExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var tricepExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var backExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var legsExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var shouldersExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var absExercises: [(name: String, muscleGroup: String, description: String)] = []
     
     var exercisesSelected: [String] = []
     
-    var exerciseArray = [[(name: String, description: String)]]()
+    var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
     
-    var filteredExercises = [[(name: String, description: String)]]()
+    var filteredExercises = [[(name: String, muscleGroup: String, description: String)]]()
     
     var createdExerciseArray = [String]()
     
@@ -87,44 +86,57 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         if exerciseInfo?.Exercises != nil{
             for n in 0..<(exerciseInfo!.Exercises.count){
                 if exerciseInfo!.Exercises[n].muscleGroup == "Chest"{
-                    self.chestExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.chestExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                                muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                                description: exerciseInfo!.Exercises[n].description))
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Biceps)"{
-                    self.bicepExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.bicepExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                                muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                                description: exerciseInfo!.Exercises[n].description))
 
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Triceps)" {
-                    self.tricepExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.tricepExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                                 muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                                 description: exerciseInfo!.Exercises[n].description))
 
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Back" {
-                    self.backExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.backExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                               muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                               description: exerciseInfo!.Exercises[n].description))
           
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Legs" {
-                    self.legsExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.legsExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                               muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                               description: exerciseInfo!.Exercises[n].description))
                    
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Shoulders" {
-                    self.shouldersExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.shouldersExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                                    muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                                    description: exerciseInfo!.Exercises[n].description))
      
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Abs" {
-                    self.absExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    self.absExercises.append((name: exerciseInfo!.Exercises[n].name,
+                                              muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
+                                              description: exerciseInfo!.Exercises[n].description))
                     
                 }
             }
             
         }
         
-
-        let sortedChestArray = self.chestExercises.sorted{ $0 < $1 }
-        let sortedBicepArray = self.bicepExercises.sorted{ $0 < $1 }
-        let sortedTricepArray = self.tricepExercises.sorted{ $0 < $1 }
-        let sortedBackArray = self.backExercises.sorted{ $0 < $1 }
-        let sortedLegsArray = self.legsExercises.sorted{ $0 < $1 }
-        let sortedShouldersArray = self.shouldersExercises.sorted{ $0 < $1 }
-        let sortedAbsArray = self.absExercises.sorted{ $0 < $1 }
+        let sortedChestArray = self.chestExercises.sorted{ $0.name < $1.name }
+        let sortedBicepArray = self.bicepExercises.sorted{ $0.name < $1.name }
+        let sortedTricepArray = self.tricepExercises.sorted{ $0.name < $1.name }
+        let sortedBackArray = self.backExercises.sorted{ $0.name < $1.name }
+        let sortedLegsArray = self.legsExercises.sorted{ $0.name < $1.name }
+        let sortedShouldersArray = self.shouldersExercises.sorted{ $0.name < $1.name }
+        let sortedAbsArray = self.absExercises.sorted{ $0.name < $1.name }
    
         self.exerciseArray.append(contentsOf: [sortedChestArray, sortedBicepArray, sortedTricepArray,
                                                sortedBackArray, sortedLegsArray, sortedShouldersArray,
@@ -259,9 +271,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
-        
+ 
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseNameCell", for: indexPath)
         cell.textLabel!.text = filteredExercises[indexPath.section][indexPath.row].name
         cell.textLabel?.textColor = UIColor.white

@@ -8,21 +8,24 @@
 import Foundation
 import UIKit
 import CoreData
+import ValueStepper
 
 
 
 class ExerciseCell: UITableViewCell{
     
-    @IBOutlet var setsLabel: UILabel!
-    @IBOutlet var setsStepper: UIStepper!
     
-    @IBAction func stepper(_ sender: UIStepper) {
-        setsLabel.text = String(Int(sender.value))
+    @IBOutlet weak var setsStepper: ValueStepper!
+    
+    @IBAction func setsValueChanged(_ sender: ValueStepper) {
+
     }
+    
+
 }
 
 class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, SegueHandlerType, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var workoutNameTextField: UITextField!
     @IBOutlet var workoutTable: UITableView!
     
@@ -34,7 +37,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     var finalSetsArray = [(Int)]()
     
     let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
     
     
     override func viewDidLoad() {
@@ -52,11 +55,8 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         configureTextfields()
         
         workoutNameTextField.attributedPlaceholder = NSAttributedString(string: "Workout Name",
-                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
-        self.workoutTable.isEditing = true
-        
-        
+                                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+       
         
     }
     
@@ -68,7 +68,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-       
+        
     }
     
     
@@ -106,7 +106,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     func updatedExercisesArray() {
-
+        
         for exercises in delegateExercises{
             if !(selectedExercises.contains(exercises)){
                 self.selectedExercises.append(exercises)
@@ -134,8 +134,8 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     
     @IBAction func saveWorkout(_ sender: UIButton) {
         
-       
-      
+        
+        
         
         exercisesAndSetsHandler()
         self.navigationController?.popViewController(animated: false)
@@ -144,10 +144,11 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     
     
     
-    @IBAction func setsStepper(_ sender: UIStepper) {
-        
+
+    
+    
+    @IBAction func setsValueChangedVC(_ sender: ValueStepper) {
         self.updateTheTable()
-        
     }
     
     
@@ -176,6 +177,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         }
     }
     
+  
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -183,13 +185,13 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         let cell =  tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as! ExerciseCell
         
 
-        cell.setsLabel.text = String(Int(cell.setsStepper.value))
-       
-        
         self.exercisesSetsArray.append((Int)(cell.setsStepper.value))
         self.finalSetsArray.append(contentsOf: self.exercisesSetsArray)
         self.exercisesSetsArray.removeLast()
-
+        
+        
+       
+        
         if selectedExercises.isEmpty{
             return cell
         }else{
@@ -202,38 +204,19 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-            return true
-        }
-    
-    
-     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-
-     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        let exericeToMove = selectedExercises[sourceIndexPath.row]
-        
-        selectedExercises.remove(at: sourceIndexPath.row)
-        selectedExercises.insert(exericeToMove, at: destinationIndexPath.row)
-        
-    }
     
     
     
     func exercisesAndSetsHandler(){
         
         self.finalSetsArray = finalSetsArray.suffix(selectedExercises.count)
-
+        
         let exerciseArrayAsString: String = selectedExercises.description
         let setsArrayAsString: String = finalSetsArray.description
         
-
+     
+        
+        
         if selectedExercises.isEmpty == true {
             
             let alert = UIAlertController(title: "Add Exercises", message: "Please add desired exercises to your workout.", preferredStyle: .alert)
@@ -266,7 +249,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
             self.saveItems()
         }
         
-       
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

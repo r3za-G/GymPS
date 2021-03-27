@@ -16,6 +16,7 @@ class ExerciseDescriptionViewController: UIViewController{
         super.viewDidLoad()
         
         textView.text = exerciseDescription
+        textView.allowsEditingTextAttributes = false
     }
     
 }

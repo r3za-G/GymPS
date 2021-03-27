@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 
+
 class ExerciseCell: UITableViewCell{
     
     @IBOutlet var setsLabel: UILabel!
@@ -17,41 +18,23 @@ class ExerciseCell: UITableViewCell{
     
     @IBAction func stepper(_ sender: UIStepper) {
         setsLabel.text = String(Int(sender.value))
-        
-        
     }
-    
-    
 }
 
 class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, SegueHandlerType, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
-    
-    
-    
+
     @IBOutlet var workoutNameTextField: UITextField!
     @IBOutlet var workoutTable: UITableView!
     
-    
-    
     private var workout = [Workout]()
-    
     var selectedExercises: [String] = []
-    
     var delegateExercises: [String] = []
-    
     var workoutName: String = ""
-    var numberOfSets = 0
-    
     var exercisesSetsArray = [(Int)]()
-    
     var finalSetsArray = [(Int)]()
     
     let context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    var exercisesAdded = AddExerciseTableViewController()
     
     
     override func viewDidLoad() {
@@ -71,6 +54,8 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         workoutNameTextField.attributedPlaceholder = NSAttributedString(string: "Workout Name",
                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
+        self.workoutTable.isEditing = true
+        
         
         
     }
@@ -83,6 +68,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+       
     }
     
     
@@ -92,7 +78,6 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        exercisesAdded.delegate = self
         switch segueIdentifier(for: segue) {
         case .details:
             let exercisesSelector = segue.destination as! AddExerciseTableViewController
@@ -121,17 +106,13 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     func updatedExercisesArray() {
-        
-        //        print(delegateExercises)
-        //        print(sele)
-        
+
         for exercises in delegateExercises{
             if !(selectedExercises.contains(exercises)){
                 self.selectedExercises.append(exercises)
             }
         }
         self.updateTheTable()
-        
     }
     
     
@@ -152,6 +133,9 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     @IBAction func saveWorkout(_ sender: UIButton) {
+        
+       
+      
         
         exercisesAndSetsHandler()
         self.navigationController?.popViewController(animated: false)
@@ -198,25 +182,19 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath) as! ExerciseCell
         
-        cell.setsStepper.accessibilityIdentifier = selectedExercises[indexPath.row]
-        cell.setsStepper.addTarget(self, action: #selector(setsStepper(_:)), for: .valueChanged)
+
         cell.setsLabel.text = String(Int(cell.setsStepper.value))
-        self.numberOfSets = Int(cell.setsLabel.text!)!
-        
+       
         
         self.exercisesSetsArray.append((Int)(cell.setsStepper.value))
-        
-        
         self.finalSetsArray.append(contentsOf: self.exercisesSetsArray)
-        
         self.exercisesSetsArray.removeLast()
-        
-        
-        
+
         if selectedExercises.isEmpty{
             return cell
         }else{
             cell.textLabel!.text = selectedExercises[indexPath.row]
+            cell.textLabel!.font = UIFont.systemFont(ofSize: 16.0)
             cell.textLabel!.textColor = UIColor.white
         }
         return cell
@@ -224,21 +202,71 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+            return true
+        }
+    
+    
+     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+
+     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let exericeToMove = selectedExercises[sourceIndexPath.row]
+        
+        selectedExercises.remove(at: sourceIndexPath.row)
+        selectedExercises.insert(exericeToMove, at: destinationIndexPath.row)
+        
+    }
+    
+    
+    
     func exercisesAndSetsHandler(){
         
-        finalSetsArray = finalSetsArray.suffix(selectedExercises.count)
-        
- 
+        self.finalSetsArray = finalSetsArray.suffix(selectedExercises.count)
+
         let exerciseArrayAsString: String = selectedExercises.description
         let setsArrayAsString: String = finalSetsArray.description
         
-        let newWorkout = Workout(context: self.context)
-        newWorkout.name = workoutName
-        newWorkout.exerciseNames = exerciseArrayAsString
-        newWorkout.amountOfExercises = Int16(selectedExercises.count)
-        newWorkout.sets = setsArrayAsString
-        newWorkout.created = Date()
-        self.saveItems()
+
+        if selectedExercises.isEmpty == true {
+            
+            let alert = UIAlertController(title: "Add Exercises", message: "Please add desired exercises to your workout.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if workoutName == "" {
+            
+            let alert = UIAlertController(title: "Add Workout Name", message: "Please choose a name for your workout.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if finalSetsArray.contains(0){
+            
+            let alert = UIAlertController(title: "Choose Sets", message: "Please pick how many sets you wish to do for each exercise.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            
+            let newWorkout = Workout(context: self.context)
+            newWorkout.name = workoutName
+            newWorkout.exerciseNames = exerciseArrayAsString
+            newWorkout.amountOfExercises = Int16(selectedExercises.count)
+            newWorkout.sets = setsArrayAsString
+            newWorkout.created = Date()
+            self.saveItems()
+        }
+        
+       
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

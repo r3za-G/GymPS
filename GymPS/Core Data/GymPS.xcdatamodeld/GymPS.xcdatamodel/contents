@@ -23,7 +23,7 @@
     <entity name="Workout" representedClassName="Workout" syncable="YES" codeGenerationType="class">
         <attribute name="amountOfExercises" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="created" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="exerciseNames" optional="YES" attributeType="String"/>
+        <attribute name="exerciseNames" optional="YES" attributeType="String" customClassName="[String]"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="sets" optional="YES" attributeType="String"/>
         <relationship name="exerciseSets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SetReps" inverseName="setsReps" inverseEntity="SetReps"/>

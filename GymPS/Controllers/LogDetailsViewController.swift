@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import MapKit
 
+
+
 class LogDetailsViewController: UIViewController{
     
     @IBOutlet var mapView: MKMapView!
@@ -22,8 +24,7 @@ class LogDetailsViewController: UIViewController{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var cardioArray = [Cardio]()
     var cardio: Cardio!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,10 +101,13 @@ class LogDetailsViewController: UIViewController{
             return MKShape() as! MKPointAnnotation
         }
         
+        
         let coords: [CLLocationCoordinate2D] = locations.map { location in
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
+        
+        
         return MKPointAnnotation(__coordinate: coords.last!)
     }
     
@@ -123,7 +127,6 @@ class LogDetailsViewController: UIViewController{
             return
         }
         
-
         mapView.setRegion(region, animated: true)
         mapView.addOverlay(polyLine())
         mapView.addAnnotation(startPin())

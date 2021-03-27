@@ -12,8 +12,6 @@ import UIKit
 class SettingsViewController: UITableViewController,  UITextFieldDelegate, ToolbarPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
 
-
-
     @IBOutlet var metricTextField: UITextField!
     @IBOutlet var numberTextField: UITextField!
 
@@ -82,6 +80,7 @@ class SettingsViewController: UITableViewController,  UITextFieldDelegate, Toolb
 
 
     func didTapDone() {
+        
         let row = self.weightMetricPicker.selectedRow(inComponent: 0)
         self.weightMetricPicker.selectRow(row, inComponent: 0, animated: false)
         self.metricTextField.text = self.metricWeight[row]

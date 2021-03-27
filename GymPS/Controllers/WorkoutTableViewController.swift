@@ -1,5 +1,5 @@
 //
-//  ExercisesTableViewController.swift
+//  WorkoutTableViewController.swift
 //  GymPS
 //
 //  Created by Reza Gharooni on 04/03/2021.
@@ -13,10 +13,12 @@ class WorkoutTableViewController: UITableViewController {
  
   
     @IBOutlet var workoutTable: UITableView!
-    @IBOutlet weak var addWorkout: UIBarButtonItem!
+ 
     
     var workoutsArray = [Workout]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var indexRowSelected = 0
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -28,8 +30,7 @@ class WorkoutTableViewController: UITableViewController {
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-
+ 
      }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,9 +41,18 @@ class WorkoutTableViewController: UITableViewController {
     }
     
     
+    @IBAction func createWorkoutButton(_ sender: UIBarButtonItem) {
+        
+        self.performSegue(withIdentifier: .detailsTwo, sender: nil)
+        
+    }
+    
+    
     func updateTheTable() {
         workoutTable.reloadData()
     }
+    
+    
     
     
     func loadWorkouts() -> [Workout]?{
@@ -61,21 +71,16 @@ class WorkoutTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        if loadWorkouts()?.count == 0{
         return 1
-        } else{
-            return 1
-        }
 }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0{
+        if loadWorkouts()?.count == 0{
             return 1
         }else{
-            return loadWorkouts()?.count ?? 0
+        return loadWorkouts()?.count ?? 0
     }
-    }
+}
 
     
     
@@ -91,11 +96,19 @@ class WorkoutTableViewController: UITableViewController {
             let workouts = loadWorkouts()
         else { return UITableViewCell() }
         
-        let workout = workouts[indexPath.row]
+        let sortedWorkouts = workouts.sorted(by: { $0.name! < $1.name! })
+        let workout = sortedWorkouts[indexPath.row]
+        
 
         cell.workout = workout
   
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.indexRowSelected = indexPath.row
+
     }
     
     
@@ -121,4 +134,28 @@ class WorkoutTableViewController: UITableViewController {
     }
 }
     
+extension WorkoutTableViewController: SegueHandlerType {
+    enum SegueIdentifier: String {
+        case detailsOne = "StartWorkout"
+        case detailsTwo = "CreateWorkout"
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+            let indexPath = workoutTable.indexPathForSelectedRow
+            switch segueIdentifier(for: segue) {
+            case .detailsOne:
+                let destination = segue.destination as! StartWorkoutTableViewController
+    
+                destination.workout = workoutsArray.reversed()[indexPath!.row]
+                
+            case .detailsTwo:
+                _ = segue.destination as! NewWorkoutViewController
+            }
+        
+    }
+}
+
 

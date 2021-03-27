@@ -15,8 +15,7 @@ protocol SelectedExercisesDelegate {
 
 var exerciseDescription = ""
 
-class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate{
-    
+class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType, CreatedExerciseDelegate{
     
     
     @IBOutlet var exerciseTable: UITableView!
@@ -32,29 +31,22 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var exerciseInfo: ExerciseData? = nil
     
     
-    var chestExercises: [String] = []
-    var bicepExercises: [String] = []
-    var tricepExercises: [String] = []
-    var backExercises: [String] = []
-    var legsExercises: [String] = []
-    var shouldersExercises: [String] = []
-    var absExercises: [String] = []
+    var chestExercises: [(name: String, description: String)] = []
     
-    var chestDescription: [String] = []
-    var bicepDescription: [String] = []
-    var tricepDescription: [String] = []
-    var backDescription: [String] = []
-    var legsDescription: [String] = []
-    var shouldersDescription: [String] = []
-    var absDescription: [String] = []
-    
-    
+    var bicepExercises: [(name: String, description: String)] = []
+    var tricepExercises: [(name: String, description: String)] = []
+    var backExercises: [(name: String, description: String)] = []
+    var legsExercises: [(name: String, description: String)] = []
+    var shouldersExercises: [(name: String, description: String)] = []
+    var absExercises: [(name: String, description: String)] = []
     
     var exercisesSelected: [String] = []
     
-    var exerciseArray = [[String]]()
-    var filteredExercises = [[String]]()
-    var exerciseDescriptions = [[String]]()
+    var exerciseArray = [[(name: String, description: String)]]()
+    
+    var filteredExercises = [[(name: String, description: String)]]()
+    
+    var createdExerciseArray = [String]()
     
     
     
@@ -62,7 +54,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddExerciseTableViewController"
-
+        
         searchBar.delegate = self
         exerciseManager.delegate = self
         exerciseManager.fetchExercises()
@@ -75,8 +67,14 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        print(createdExerciseArray)
+    }
+    
+    
     
     func updateTheTable() {
         exerciseTable.reloadData()
@@ -89,53 +87,96 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         if exerciseInfo?.Exercises != nil{
             for n in 0..<(exerciseInfo!.Exercises.count){
                 if exerciseInfo!.Exercises[n].muscleGroup == "Chest"{
-                    self.chestExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.chestDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.chestExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Biceps)"{
-                    self.bicepExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.bicepDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.bicepExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Triceps)" {
-                    self.tricepExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.tricepDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.tricepExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Back" {
-                    self.backExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.backDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.backExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+          
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Legs" {
-                    self.legsExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.legsDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.legsExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                   
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Shoulders" {
-                    self.shouldersExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.shouldersDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.shouldersExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+     
                 }
                 if exerciseInfo!.Exercises[n].muscleGroup == "Abs" {
-                    self.absExercises.append(exerciseInfo!.Exercises[n].name)
-                    self.absDescription.append(exerciseInfo!.Exercises[n].description)
+                    self.absExercises.append((name: exerciseInfo!.Exercises[n].name, description: exerciseInfo!.Exercises[n].description))
+                    
                 }
             }
+            
         }
+        
+
+        let sortedChestArray = self.chestExercises.sorted{ $0 < $1 }
+        let sortedBicepArray = self.bicepExercises.sorted{ $0 < $1 }
+        let sortedTricepArray = self.tricepExercises.sorted{ $0 < $1 }
+        let sortedBackArray = self.backExercises.sorted{ $0 < $1 }
+        let sortedLegsArray = self.legsExercises.sorted{ $0 < $1 }
+        let sortedShouldersArray = self.shouldersExercises.sorted{ $0 < $1 }
+        let sortedAbsArray = self.absExercises.sorted{ $0 < $1 }
+   
+        self.exerciseArray.append(contentsOf: [sortedChestArray, sortedBicepArray, sortedTricepArray,
+                                               sortedBackArray, sortedLegsArray, sortedShouldersArray,
+                                               sortedAbsArray])
 
         
-        self.exerciseArray.append(contentsOf: [chestExercises, bicepExercises, tricepExercises,
-                                                backExercises, legsExercises, shouldersExercises,
-                                                absExercises])
-        
-        self.exerciseDescriptions.append(contentsOf: [chestDescription, bicepDescription,
-                                                      tricepDescription, backDescription, legsDescription,
-                                                        shouldersDescription, absDescription])
-     
-        
+
         
         filteredExercises = exerciseArray
-        
         
         DispatchQueue.main.async {
             self.updateTheTable()
         }
+        
+        
+        
+    }
+    
+    func didLoadCreatedExercise(createdExercise: [String]) {
+        
+        self.createdExerciseArray = createdExercise
+        
+        
+        
+        //        if !(createdExerciseArray.isEmpty) == true{
+        //            if createdExerciseArray.contains("Chest"){
+        //                self.chestExercises.append(createdExerciseArray[0])
+        //                self.chestDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Arms (Biceps)"){
+        //                self.bicepExercises.append(createdExerciseArray[0])
+        //                self.bicepDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Arms (Triceps)"){
+        //                self.tricepExercises.append(createdExerciseArray[0])
+        //                self.tricepDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Back"){
+        //                self.backExercises.append(createdExerciseArray[0])
+        //                self.backDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Legs"){
+        //                self.legsExercises.append(createdExerciseArray[0])
+        //                self.legsDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Shoulders"){
+        //                self.shouldersExercises.append(createdExerciseArray[0])
+        //                self.shouldersDescription.append(createdExerciseArray[2])
+        //            } else if createdExerciseArray.contains("Abs"){
+        //                self.absExercises.append(createdExerciseArray[0])
+        //                self.absDescription.append(createdExerciseArray[2])
+        //            }
+        //        }
+        
+        
+        
+        self.updateTheTable()
         
     }
     
@@ -151,10 +192,24 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func addExercisesButton(_ sender: UIButton) {
         
+        if exercisesSelected.isEmpty == true{
+            let alert = UIAlertController(title: "Select Exercises", message: "Please select your desired exercises for your workout.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         addExercises()
         self.navigationController?.popViewController(animated: false)
         
     }
+    
+    
+    @IBAction func createExercisePressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "CreateExercise", sender: nil)
+        
+    }
+    
     
     
     
@@ -208,26 +263,28 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseNameCell", for: indexPath)
-        cell.textLabel!.text = filteredExercises[indexPath.section][indexPath.row]
+        cell.textLabel!.text = filteredExercises[indexPath.section][indexPath.row].name
         cell.textLabel?.textColor = UIColor.white
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.orange
         cell.selectedBackgroundView = backgroundView
-
+        
         return cell
- 
+        
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         
-        exerciseDescription = exerciseDescriptions[indexPath.section][indexPath.row]
+        exerciseDescription = exerciseArray[indexPath.section][indexPath.row].description
+        
         performSegue(withIdentifier: "ExerciseDescription", sender: tableView.cellForRow(at: indexPath))
+        
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        exercisesSelected.append(filteredExercises[indexPath.section][indexPath.row])
+        exercisesSelected.append(filteredExercises[indexPath.section][indexPath.row].name)
         
         exerciseDescription = (exerciseInfo?.Exercises[indexPath.row].description)!
         
@@ -236,68 +293,64 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        if let index = exercisesSelected.firstIndex(of: filteredExercises[indexPath.section][indexPath.row]) {
+        if let index = exercisesSelected.firstIndex(of: filteredExercises[indexPath.section][indexPath.row].name) {
             // changed to firstindex
             exercisesSelected.remove(at: index)
         }
     }
-    
-  
-    
-    
+     
 }
-
-
-////MARK: - Picker view methods
-//extension AddExerciseTableViewController: ToolbarPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
-//    func didTapDone() {
-//
-//    }
-//
-//    func didTapCancel() {
-//
-//    }
-//
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 2
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return 3
-//    }
-//
-//}
-
 
 
 //MARK: - Search bar methods
 extension AddExerciseTableViewController: UISearchBarDelegate {
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//
+//            filteredExercises = [[]]
+//
+//
+//
+//            if searchText == ""{
+//                filteredExercises = exerciseArray
+//            }
+//            else{
+//                for exercises in exerciseArray{
+//                    for name in exercises{
+//                        if name.lowercased().contains(searchText.lowercased()){
+//                            filteredExercises.append([name])
+//
+//                        }
+//
+//
+//                    }
+//                }
+//            }
+//            print(filteredExercises)
+//
+//            updateTheTable()
+//
+//        }
+//
+    
+    
+    
+    
+    enum SegueIdentifier: String {
+        case detailsOne = "CreateExercise"
+        case detailsTwo = "ExerciseDescription"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        filteredExercises = [[]]
-  
-        
-        
-        if searchText == ""{
-            filteredExercises = exerciseArray
+        switch segueIdentifier(for: segue) {
+        case .detailsOne:
+            let createExercise = segue.destination as! CreateExerciseViewController
+            createExercise.delegate = self
+        case .detailsTwo:
+            _ = segue.destination as! ExerciseDescriptionViewController
         }
-        else{
-            for exercises in exerciseArray{
-                for name in exercises{
-                    if name.lowercased().contains(searchText.lowercased()){
-                        filteredExercises.append([name])
-                    }
-                    
-                    
-                }
-            }
-        }
-        print(filteredExercises)
-        
-        updateTheTable()
-        
     }
     
 }

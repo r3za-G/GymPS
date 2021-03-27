@@ -72,7 +72,6 @@ class LogViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.indexRowSelected = indexPath.row
-        
 
     }
     

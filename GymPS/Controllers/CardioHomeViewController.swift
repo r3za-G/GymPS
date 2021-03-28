@@ -34,12 +34,5 @@ class CardioHomeViewController: UIViewController {
     }
     
     
-    func didLoadExercise(exercise: ExerciseData) {
-        for exercises in exercise.Exercises{
-            print(exercises.name)
-        }
-    }
-    
-    
 }
 

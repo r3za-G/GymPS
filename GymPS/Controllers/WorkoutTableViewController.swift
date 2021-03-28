@@ -136,7 +136,7 @@ class WorkoutTableViewController: UITableViewController {
     
 extension WorkoutTableViewController: SegueHandlerType {
     enum SegueIdentifier: String {
-        case detailsOne = "StartWorkout"
+        case detailsOne = "SelectWorkout"
         case detailsTwo = "CreateWorkout"
     }
     

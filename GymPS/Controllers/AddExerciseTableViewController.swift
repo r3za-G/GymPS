@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 protocol SelectedExercisesDelegate {
     func didLoadSelectedExercises(exercises: [String])
 }
+
+
 
 var exerciseDescription = ""
 
@@ -22,14 +25,9 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet var searchBar: UISearchBar!
     
     let searchController = UISearchController(searchResultsController: nil)
-    
     var exerciseManager = ExerciseManager()
-    
     var delegate: SelectedExercisesDelegate?
-    
-    
     var exerciseInfo: ExerciseData? = nil
-    
     
     var chestExercises: [(name: String, muscleGroup: String, description: String)] = []
     var bicepExercises: [(name: String, muscleGroup: String, description: String)] = []
@@ -38,18 +36,18 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var legsExercises: [(name: String, muscleGroup: String, description: String)] = []
     var shouldersExercises: [(name: String, muscleGroup: String, description: String)] = []
     var absExercises: [(name: String, muscleGroup: String, description: String)] = []
-    
     var exercisesSelected: [String] = []
-    
     var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
-    
     var filteredExercises = [[(name: String, muscleGroup: String, description: String)]]()
-    
+    var loadedSavedArray = [[(name: String, muscleGroup: String, description: String)]]()
+//    var loadedSavedArray = [[String]]()
     var createdExerciseArray = [String]()
     
+    var loadedExerciseArray = [Exercise]()
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddExerciseTableViewController"
@@ -66,12 +64,20 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        print(createdExerciseArray)
+        self.loadedExerciseArray = loadExercise()!
+
+        
+//        for i in loadedExerciseArray{
+//            let setsStringAsData = i.savedExerciseArray!.data(using: String.Encoding.utf16)
+//            self.loadedSavedArray = try! JSONDecoder().decode([[String]].self, from: setsStringAsData!)
+//
+//        }
+//        print(loadedSavedArray)
+   
     }
+ 
     
     
     
@@ -129,7 +135,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
             }
             
         }
-        
+    
         let sortedChestArray = self.chestExercises.sorted{ $0.name < $1.name }
         let sortedBicepArray = self.bicepExercises.sorted{ $0.name < $1.name }
         let sortedTricepArray = self.tricepExercises.sorted{ $0.name < $1.name }
@@ -138,28 +144,65 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         let sortedShouldersArray = self.shouldersExercises.sorted{ $0.name < $1.name }
         let sortedAbsArray = self.absExercises.sorted{ $0.name < $1.name }
    
-        self.exerciseArray.append(contentsOf: [sortedChestArray, sortedBicepArray, sortedTricepArray,
-                                               sortedBackArray, sortedLegsArray, sortedShouldersArray,
-                                               sortedAbsArray])
-
+        self.exerciseArray.append(contentsOf: [sortedAbsArray, sortedBicepArray, sortedTricepArray,
+                                               sortedBackArray, sortedChestArray, sortedLegsArray,
+                                               sortedShouldersArray])
         
-
+        
         
         filteredExercises = exerciseArray
         
+
+        
         DispatchQueue.main.async {
+            
+            self.saveArray()
             self.updateTheTable()
         }
-        
-        
-        
+ 
     }
+    
+    
+    func saveItems(){
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving items \(error)")
+        }
+        updateTheTable()
+    }
+    
+    
+    func loadExercise() -> [Exercise]?{
+        let request: NSFetchRequest<Exercise> = Exercise.fetchRequest()
+        do{
+            loadedExerciseArray = try context.fetch(request)
+            return loadedExerciseArray
+        }catch {
+            print("error fetching data \(error)")
+        }
+        return loadedExerciseArray
+    }
+    
+    func saveArray(){
+        
+        let savedArray = UserDefaults.standard.bool(forKey: "savedArray")
+        if !(savedArray){
+            let savedExerciseArray = Exercise(context: context)
+            let exerciseArrayAsString: String = filteredExercises.description
+            savedExerciseArray.savedExerciseArray = exerciseArrayAsString
+            self.saveItems()
+            UserDefaults.standard.set(true, forKey: "savedArray")
+        }
+    }
+    
     
     func didLoadCreatedExercise(createdExercise: [String]) {
         
         self.createdExerciseArray = createdExercise
         
-        
+//        print(createdExerciseArray)
         
         //        if !(createdExerciseArray.isEmpty) == true{
         //            if createdExerciseArray.contains("Chest"){
@@ -248,7 +291,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         if section == 0{
-            return "Chest"
+            return "Abs"
         } else if section == 1{
             return "Arms (Biceps)"
         } else if section == 2{
@@ -256,11 +299,11 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         } else if section == 3{
             return "Back"
         } else if section == 4{
-            return "Legs"
+            return "Chest"
         } else if section == 5{
-            return "Shoulders"
+            return "Legs"
         } else if section == 6{
-            return "Abs"
+            return "Shoulders"
         } else{
             return ""
         }
@@ -271,10 +314,10 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
- 
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseNameCell", for: indexPath)
         cell.textLabel!.text = filteredExercises[indexPath.section][indexPath.row].name
-        cell.textLabel?.textColor = UIColor.white
+        cell.textLabel!.textColor = UIColor.white
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.orange
         cell.selectedBackgroundView = backgroundView
@@ -322,31 +365,30 @@ extension AddExerciseTableViewController: UISearchBarDelegate {
 //
 //
 //
+//
+//
 //            if searchText == ""{
 //                filteredExercises = exerciseArray
 //            }
 //            else{
-//                for exercises in exerciseArray{
-//                    for name in exercises{
-//                        if name.lowercased().contains(searchText.lowercased()){
-//                            filteredExercises.append([name])
+//                for var exercises in exerciseArray{
+//                    for exerciseName in exercises{
+//                        if exerciseName.name.lowercased().contains(searchText.lowercased()){
+//
+//                            exercises.append((name: exerciseName.name, muscleGroup: exerciseName.muscleGroup, description: exerciseName.description))
+//                            print(exercises)
 //
 //                        }
-//
-//
+//                        filteredExercises.append(exercises)
 //                    }
 //                }
 //            }
-//            print(filteredExercises)
 //
-//            updateTheTable()
 //
-//        }
 //
-    
-    
-    
-    
+//            }
+
+
     enum SegueIdentifier: String {
         case detailsOne = "CreateExercise"
         case detailsTwo = "ExerciseDescription"

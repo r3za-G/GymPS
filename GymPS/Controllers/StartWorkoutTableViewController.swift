@@ -17,12 +17,18 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
     var exercises = 0
     var workoutArray = [Workout]()
     var workout: Workout!
+   
+    
+    var exerciseSetsArray: [(name: String, sets: Int)]?
+    var workoutName: String?
+    var setsArraySent: [Int]?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-    var exerciseArray = [String]()
+    var exerciseNameArray = [String]()
     var setsArray = [Int]()
+    var exerciseArray = [(name: String, sets: Int)]()
     
     func loadWorkout() -> [Workout]?{
         let request: NSFetchRequest<Workout> = Workout.fetchRequest()
@@ -78,14 +84,14 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath)
-            cell.textLabel?.text = exerciseArray[indexPath.row]
-
+            cell.textLabel?.text = exerciseNameArray[indexPath.row]
+            
             if setsArray[indexPath.row] == 1{
                 cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) set"
             } else{
                 cell.detailTextLabel?.text = "\(setsArray[indexPath.row]) sets"
             }
-           
+            
             cell.isEditing = true
             self.tableView.isEditing = true
             return cell
@@ -119,6 +125,7 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         
         exerciseArray.remove(at: sourceIndexPath.row)
         exerciseArray.insert(exericeToMove, at: destinationIndexPath.row)
+        self.tableView.reloadData()
         
     }
     
@@ -151,11 +158,46 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         self.setsArray = try! JSONDecoder().decode([Int].self, from: setsStringAsData!)
         
         let exerciseStringAsData = workout.exerciseNames!.data(using: String.Encoding.utf16)
-        self.exerciseArray = try! JSONDecoder().decode([String].self, from: exerciseStringAsData!)
+        self.exerciseNameArray = try! JSONDecoder().decode([String].self, from: exerciseStringAsData!)
         
         
+        for i in zip(exerciseNameArray, setsArray){
+            self.exerciseArray.append((name: i.0, sets: i.1))
+        }
+        
+        self.workoutName = workout.name
+        self.setsArraySent = setsArray
+    
     }
+    
+    @IBAction func startWorkoutPressed(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: .details, sender: nil)
+    }
+    
+    
 }
 
 
-
+extension StartWorkoutTableViewController: SegueHandlerType {
+    enum SegueIdentifier: String {
+        case details = "StartWorkout"
+        
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+            switch segueIdentifier(for: segue) {
+            case .details:
+                let destination = segue.destination as! DoWorkoutViewController
+                
+                destination.workoutName = workoutName
+                destination.setsArray = setsArraySent
+                destination.exerciseSetsArray = exerciseArray
+     
+            }
+        
+    }
+}

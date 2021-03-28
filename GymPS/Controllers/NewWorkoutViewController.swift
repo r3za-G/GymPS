@@ -133,10 +133,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     }
     
     @IBAction func saveWorkout(_ sender: UIButton) {
-        
-        
-        
-        
+
         exercisesAndSetsHandler()
         self.navigationController?.popViewController(animated: false)
         

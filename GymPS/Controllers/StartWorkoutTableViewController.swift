@@ -125,7 +125,7 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         
         exerciseArray.remove(at: sourceIndexPath.row)
         exerciseArray.insert(exericeToMove, at: destinationIndexPath.row)
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
         
     }
     

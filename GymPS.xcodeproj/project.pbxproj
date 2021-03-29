@@ -26,6 +26,8 @@
 		EC57E3F8260A3EB7008FF2E5 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3F7260A3EB4008FF2E5 /* NewWorkoutViewController.swift */; };
 		EC57E400260AA93F008FF2E5 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */; };
 		EC6D63AC2610F6F9008D2AC1 /* DoWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D63AB2610F6F9008D2AC1 /* DoWorkoutViewController.swift */; };
+		EC6D63BC2611E12C008D2AC1 /* SavedExerciseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D63BB2611E12C008D2AC1 /* SavedExerciseArray.swift */; };
+		EC6D63C12611FC7E008D2AC1 /* ExerciseRepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D63C02611FC7E008D2AC1 /* ExerciseRepsCell.swift */; };
 		EC9E4A6725F528D3005CEA35 /* ExerciseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */; };
 		EC9E4A7625F64C81005CEA35 /* ExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */; };
 		ECA20C4025F146CC0086B63E /* AddExerciseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */; };
@@ -88,6 +90,8 @@
 		EC57E3F7260A3EB4008FF2E5 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		EC6D63AB2610F6F9008D2AC1 /* DoWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoWorkoutViewController.swift; sourceTree = "<group>"; };
+		EC6D63BB2611E12C008D2AC1 /* SavedExerciseArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedExerciseArray.swift; sourceTree = "<group>"; };
+		EC6D63C02611FC7E008D2AC1 /* ExerciseRepsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRepsCell.swift; sourceTree = "<group>"; };
 		EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseManager.swift; sourceTree = "<group>"; };
 		EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseData.swift; sourceTree = "<group>"; };
 		ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseTableViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 				EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */,
 				EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */,
 				ECBC5B32260CB26400120BF7 /* CustomPin.swift */,
+				EC6D63BB2611E12C008D2AC1 /* SavedExerciseArray.swift */,
+				EC6D63C02611FC7E008D2AC1 /* ExerciseRepsCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				EC139CAF25ED3D6F006A5227 /* StoryBoardSupport.swift in Sources */,
 				EC9E4A7625F64C81005CEA35 /* ExerciseData.swift in Sources */,
 				EC139CEF25ED4381006A5227 /* SettingsViewController.swift in Sources */,
+				EC6D63C12611FC7E008D2AC1 /* ExerciseRepsCell.swift in Sources */,
 				EC139CC625ED4072006A5227 /* Extensions.swift in Sources */,
 				EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */,
 				EC6D63AC2610F6F9008D2AC1 /* DoWorkoutViewController.swift in Sources */,
@@ -545,6 +552,7 @@
 				ECA20C4F25F1670F0086B63E /* WorkoutTableViewCell.swift in Sources */,
 				EC139CC125ED4054006A5227 /* LocationManager.swift in Sources */,
 				EC57E400260AA93F008FF2E5 /* ExerciseDescriptionViewController.swift in Sources */,
+				EC6D63BC2611E12C008D2AC1 /* SavedExerciseArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

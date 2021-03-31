@@ -15,7 +15,7 @@ class WorkoutTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfExercises: UILabel!
     
     
-    var workout: Workout? {
+    var workout: CreateWorkout? {
         didSet {
             updateViews()
         }

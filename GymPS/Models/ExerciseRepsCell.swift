@@ -11,13 +11,14 @@ import ValueStepper
 
 class ExerciseRepsCell: UITableViewCell {
     
-    
+
 
     @IBOutlet weak var exerciseName: UILabel!
     @IBOutlet weak var exerciseSets: UILabel!
     @IBOutlet var weightTextField: UITextField!
     @IBOutlet var repsStepperValue: ValueStepper!
     
+
     
     
 }

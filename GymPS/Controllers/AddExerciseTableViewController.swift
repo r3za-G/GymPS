@@ -64,7 +64,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    
         
         self.loadedExerciseArray = loadExercise()!
 

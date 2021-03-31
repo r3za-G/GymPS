@@ -303,7 +303,7 @@ class CardioViewController: UIViewController {
     
     
     
-    private func startRun() {
+    private func startCardio() {
         
         mapContainerView.isHidden = false
         mapView.removeOverlays(mapView.overlays)
@@ -330,7 +330,7 @@ class CardioViewController: UIViewController {
         
     }
     
-    private func pauseRun(){
+    private func pauseCardio(){
         
         resumeButton.isHidden = false
         resumeImage.isHidden = false
@@ -345,7 +345,7 @@ class CardioViewController: UIViewController {
         
     }
     
-    private func resumeRun(){
+    private func resumeCardio(){
         resumeButton.isHidden = true
         resumeImage.isHidden = true
         stopButton.isHidden = true
@@ -359,7 +359,7 @@ class CardioViewController: UIViewController {
         
     }
     
-    private func stopRun() {
+    private func stopCardio() {
         
         startButton.isHidden = false
         pauseButton.isHidden = true
@@ -374,20 +374,20 @@ class CardioViewController: UIViewController {
 
     
     @IBAction func startPressed(_ sender: UIButton) {
-        startRun()
+        startCardio()
         
     }
     
     
     
     @IBAction func pausePressed(_ sender: UIButton) {
-        pauseRun()
+        pauseCardio()
     
     }
     
     @IBAction func resumePressed(_ sender: UIButton) {
         
-        resumeRun()
+        resumeCardio()
     }
     
     
@@ -395,21 +395,18 @@ class CardioViewController: UIViewController {
     
     @IBAction func stopPressed(_ sender: UIButton) {
         
-
-            
-            
-            
+   
         let alertController = UIAlertController(title: "End exercise?",
                                                     message: "Are you sure you want to stop?",
                                                     preferredStyle: .actionSheet)
             
             alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-                self.stopRun()
-                self.saveRun()
+                self.stopCardio()
+                self.saveCardio()
                 self.performSegue(withIdentifier: .details, sender: nil)
             })
             alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-                self.stopRun()
+                self.stopCardio()
                 _ = self.navigationController?.popToRootViewController(animated: true)
             })
             
@@ -419,7 +416,7 @@ class CardioViewController: UIViewController {
     }
     
     
-    private func saveRun() {
+    private func saveCardio() {
         
         
         let distanceMiles = Float(String(format: "%.03f", (distance.value / 1609)))
@@ -433,12 +430,7 @@ class CardioViewController: UIViewController {
         newCardio.calories = calories.sum()
         newCardio.cardioiType = self.exerciseType
         
-        
-        
-        
-        
-        
-        
+
         for location in locationList {
             let locationObject = Location(context: CoreDataStack.context)
             locationObject.timestamp = location.timestamp

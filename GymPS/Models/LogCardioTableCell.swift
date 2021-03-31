@@ -1,15 +1,17 @@
 //
-//  LogTableViewCell.swift
+//  LogCardioTableCell.swift
 //  GymPS
 //
-//  Created by Reza Gharooni on 01/03/2021.
+//  Created by Reza Gharooni on 31/03/2021.
 //
+
+
 
 import Foundation
 import UIKit
 import CoreData
 
-class LogTableViewCell: UITableViewCell {
+class LogCardioTableCell: UITableViewCell {
     
     @IBOutlet weak var paceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -53,5 +55,4 @@ class LogTableViewCell: UITableViewCell {
         dateLabel.text = "\(formattedDate)"
     }
 }
-    
     

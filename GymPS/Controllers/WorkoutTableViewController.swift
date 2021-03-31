@@ -15,7 +15,7 @@ class WorkoutTableViewController: UITableViewController {
     @IBOutlet var workoutTable: UITableView!
  
     
-    var workoutsArray = [Workout]()
+    var workoutsArray = [CreateWorkout]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var indexRowSelected = 0
@@ -55,8 +55,8 @@ class WorkoutTableViewController: UITableViewController {
     
     
     
-    func loadWorkouts() -> [Workout]?{
-        let request: NSFetchRequest<Workout> = Workout.fetchRequest()
+    func loadWorkouts() -> [CreateWorkout]?{
+        let request: NSFetchRequest<CreateWorkout> = CreateWorkout.fetchRequest()
         do{
             workoutsArray = try context.fetch(request)
             return workoutsArray.reversed()
@@ -96,12 +96,15 @@ class WorkoutTableViewController: UITableViewController {
             let workouts = loadWorkouts()
         else { return UITableViewCell() }
         
-        let sortedWorkouts = workouts.sorted(by: { $0.name! < $1.name! })
-        let workout = sortedWorkouts[indexPath.row]
         
-
-        cell.workout = workout
-  
+            
+            let sortedWorkouts = workouts.sorted(by: { $0.name ?? "" < $1.name ?? "" })
+            let workout = sortedWorkouts[indexPath.row]
+            
+            
+            cell.workout = workout
+            
+      
         return cell
     }
     

@@ -29,7 +29,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     @IBOutlet var workoutNameTextField: UITextField!
     @IBOutlet var workoutTable: UITableView!
     
-    private var workout = [Workout]()
+
     var selectedExercises: [String] = []
     var delegateExercises: [String] = []
     var workoutName: String = ""
@@ -237,7 +237,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         }
         else {
             
-            let newWorkout = Workout(context: self.context)
+            let newWorkout = CreateWorkout(context: self.context)
             newWorkout.name = workoutName
             newWorkout.exerciseNames = exerciseArrayAsString
             newWorkout.amountOfExercises = Int16(selectedExercises.count)

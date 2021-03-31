@@ -28,6 +28,10 @@ class CardioHomeViewController: UIViewController {
 
         }
         
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+      
+        
         navigationController?.navigationBar.barTintColor = UIColor.black
         
         

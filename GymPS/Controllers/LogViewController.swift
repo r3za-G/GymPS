@@ -2,19 +2,22 @@
 //  LogViewController.swift
 //  GymPS
 //
-//  Created by Reza Gharooni on 01/03/2021.
+//  Created by Reza Gharooni on 31/03/2021.
 //
 
 import UIKit
 import CoreData
 
-class LogViewController: UITableViewController{
+class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     
+    @IBOutlet weak var tableView: UITableView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var cardioArray = [Cardio]()
+    var workoutArray = [Workout]()
+    
     
     var indexRowSelected = 0
     
@@ -28,6 +31,9 @@ class LogViewController: UITableViewController{
     
     let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
     navigationController?.navigationBar.titleTextAttributes = textAttributes
+    
+
+    
     }
     
  
@@ -40,7 +46,7 @@ class LogViewController: UITableViewController{
         func loadCardioExercise() -> [Cardio]?{
             let request: NSFetchRequest<Cardio> = Cardio.fetchRequest()
             do{
-                cardioArray = try context.fetch(request)
+                self.cardioArray = try context.fetch(request)
                 return cardioArray.reversed()
             }catch {
                 print("error fetching data \(error)")
@@ -48,35 +54,77 @@ class LogViewController: UITableViewController{
             return cardioArray
         }
     
-
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return loadCardioExercise()?.count ?? 0
-        
+    
+    func loadWorkout() -> [Workout]?{
+        let request: NSFetchRequest<Workout> = Workout.fetchRequest()
+        do{
+            self.workoutArray = try context.fetch(request)
+            return workoutArray.reversed()
+        }catch {
+            print("error fetching data \(error)")
+        }
+        return workoutArray
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Cardio Exercises"
+        } else {
+            return "Weightlifting Exercises"
+        }
+    }
+    
+
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            if section == 0 {
+            return loadCardioExercise()?.count ?? 0
+            } else {
+                return loadWorkout()?.count ?? 0
+            }
+        }
+        
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
        
 
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "logCell", for: indexPath) as? LogTableViewCell,
-            let cardioExercise = loadCardioExercise()
-            else { return UITableViewCell() }
-        
-        let cardio = cardioExercise[indexPath.row]
-        cell.cardio = cardio
-        return cell
-    }
+            if indexPath.section == 0{
+                let cardioCell = tableView.dequeueReusableCell(withIdentifier: "LogCardioCell", for: indexPath) as? LogCardioTableCell
+                let cardioExercise = loadCardioExercise()
+                
+                
+                let cardio = cardioExercise?[indexPath.row]
+                cardioCell?.cardio = cardio
+                return cardioCell!
+                
+            } else {
+                
+                let workoutCell = tableView.dequeueReusableCell(withIdentifier: "LogWorkout", for: indexPath) as? LogWorkoutTableCell
+                let workouts = loadWorkout()
+                
+                let workout = workouts?[indexPath.row]
+                workoutCell?.workout = workout
+                return workoutCell!
+                
+            }
+        }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.indexRowSelected = indexPath.row
 
     }
     
     
-    func saveCardioExercise(){
+    func saveExercise(){
         do{
             try context.save()
         } catch{
@@ -87,34 +135,46 @@ class LogViewController: UITableViewController{
 
 
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard var cardio = loadCardioExercise() else { return }
-            context.delete(cardio[indexPath.row])
-            cardio.remove(at: indexPath.row)
-            tableView.reloadData()
-            saveCardioExercise()
+            if indexPath.section == 0 {
+                var cardio = loadCardioExercise()
+                context.delete((cardio?[indexPath.row])!  )
+                cardio?.remove(at: indexPath.row)
+                tableView.reloadData()
+                saveExercise()
+            } else{
+                var workout = loadWorkout()
+                context.delete((workout?[indexPath.row])!  )
+                workout?.remove(at: indexPath.row)
+                tableView.reloadData()
+                saveExercise()
+            }
         }
+        
     }
+    
 }
-
-
 
 
 extension LogViewController: SegueHandlerType {
     enum SegueIdentifier: String {
-        case details = "ShowCardioDetails"
+        case detailsOne = "ShowCardioDetails"
+        case detailsTwo = "ShowWorkoutDetails"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
             let indexPath = tableView.indexPathForSelectedRow
             switch segueIdentifier(for: segue) {
-            case .details:
+            case .detailsOne:
                 let destination = segue.destination as! LogDetailsViewController
     
                 destination.cardio = cardioArray.reversed()[indexPath!.row]
                 
+            case .detailsTwo:
+                let destination = segue.destination as! LogWorkoutDetailsViewController
+                destination.workout = workoutArray.reversed()[indexPath!.row]
             }
         
     }

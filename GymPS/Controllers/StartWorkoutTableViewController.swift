@@ -15,13 +15,14 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var tableView: UITableView!
     
     var exercises = 0
-    var workoutArray = [Workout]()
-    var workout: Workout!
+    var workoutArray = [CreateWorkout]()
+    var workout: CreateWorkout!
    
     
     var exerciseSetsArray: [(name: String, sets: Int)]?
     var workoutName: String?
     var setsArraySent: [Int]?
+    var exerciseNameArraySent: [String]?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -30,8 +31,8 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
     var setsArray = [Int]()
     var exerciseArray = [(name: String, sets: Int)]()
     
-    func loadWorkout() -> [Workout]?{
-        let request: NSFetchRequest<Workout> = Workout.fetchRequest()
+    func loadWorkout() -> [CreateWorkout]?{
+        let request: NSFetchRequest<CreateWorkout> = CreateWorkout.fetchRequest()
         do{
             workoutArray = try context.fetch(request)
             return workoutArray
@@ -81,6 +82,12 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
             let cell = tableView.dequeueReusableCell(withIdentifier: "workoutNameCell", for: indexPath)
             cell.textLabel?.text = workout.name
             cell.textLabel?.textColor = UIColor.white
+            
+            let formattedDate = FormatDisplay.date(workout.created)
+
+            cell.detailTextLabel?.text = "Created on: \(formattedDate)"
+            cell.detailTextLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 12.0)
             return cell
         }else if indexPath.section == 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "exercisesCell", for: indexPath)
@@ -125,7 +132,7 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         
         exerciseArray.remove(at: sourceIndexPath.row)
         exerciseArray.insert(exericeToMove, at: destinationIndexPath.row)
-//        self.tableView.reloadData()
+
         
     }
     
@@ -167,6 +174,8 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
         
         self.workoutName = workout.name
         self.setsArraySent = setsArray
+        self.exerciseNameArraySent = exerciseNameArray
+       
     
     }
     
@@ -196,6 +205,7 @@ extension StartWorkoutTableViewController: SegueHandlerType {
                 destination.workoutName = workoutName
                 destination.setsArray = setsArraySent
                 destination.exerciseSetsArray = exerciseArray
+                destination.exerciseNameArray = exerciseNameArraySent
      
             }
         

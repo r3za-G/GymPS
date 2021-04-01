@@ -103,7 +103,6 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.weightTextField.addDoneCancelToolbar(onDone: (target: self, action: #selector(self.tapDone)), onCancel: (target: self, action: #selector(self.tapCancel)))
         cell.repsStepperValue.valueLabel.font = cell.repsStepperValue.valueLabel.font.withSize(22)
         
-
         
         cell.weightTextField.delegate = self
        
@@ -121,7 +120,6 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.repsStepperValue.tag = currentCellIndex
         cell.repsStepperValue.value = Double(finalRepsArray[currentCellIndex])
         
-
         return cell
     }
     
@@ -141,9 +139,10 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
     
-    @objc func tapCancel() {
+    @objc func tapCancel(){
+        
         view.endEditing(true)
-
+        
     }
     
     
@@ -215,6 +214,7 @@ extension DoWorkoutViewController: SegueHandlerType {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueIdentifier(for: segue) {
         case .details: break
+            
 //            let destination = segue.destination as! CardioDetailsViewController
 //            destination.cardio = cardio
         }

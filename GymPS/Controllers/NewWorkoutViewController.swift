@@ -20,7 +20,6 @@ class ExerciseCell: UITableViewCell{
     @IBAction func setsValueChanged(_ sender: ValueStepper) {
 
     }
-    
 
 }
 
@@ -44,11 +43,9 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddWorkoutTableViewController"
         
-        
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.barTintColor = UIColor.black
-        
-        
+
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
@@ -56,8 +53,8 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         
         workoutNameTextField.attributedPlaceholder = NSAttributedString(string: "Workout Name",
                                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-       
-        
+        workoutNameTextField.font = UIFont.systemFont(ofSize: 20.0)
+           
     }
     
     private func configureTextfields(){

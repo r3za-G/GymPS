@@ -41,7 +41,9 @@ func addDoneCancelToolbar(onDone: (target: Any, action: Selector)? = nil, onCanc
 }
 
 // Default actions:
-@objc func doneButtonTapped() { self.resignFirstResponder() }
-@objc func cancelButtonTapped() { self.resignFirstResponder() }}
+@objc func doneButtonTapped() {
+    self.resignFirstResponder()
+}
+@objc func cancelButtonTapped() { self.resignFirstResponder() } }
 
 

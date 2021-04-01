@@ -24,6 +24,10 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
     var weightArray = [String]()
     var weightArrayAsDouble = [Double]()
     var exerciseArray = [(name: String, sets: Int)]()
+    var repsWeightsArray = [(reps: Int, weight: Double)]()
+    var groupedRepsWeightArray = [[(reps: Int, weight: Double)]]()
+    var totalWeight = [Double]()
+
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var workoutArray = [Workout]()
@@ -48,13 +52,17 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
             self.exerciseArray.append((name: i.0, sets: i.1))
         }
         
+        
+        
+       
+        
         let workoutNameString = workout.workoutName!
         let formattedDate = FormatDisplay.date(workout.dateCompleted)
         let formattedTime = FormatDisplay.time(Int(workout.duration))
         let totalExercisesInt = exerciseArray.count
         
         weightArrayAsDouble = weightArray.map { Double($0)!}
-        print(weightArrayAsDouble)
+        
         
         
         workoutName.text = "\(workoutNameString)"
@@ -67,12 +75,33 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
             totalExercise.text = "\(totalExercisesInt) Exercises"
         }
         
+        self.totalWeight = zip(repsArray, weightArrayAsDouble).map { Double($0) * $1 }
+        
         totalSets.text = "\(setsArray.sum()) Sets"
         totalReps.text = "\(repsArray.sum()) Reps"
-        totalWeightLifted.text = "\(weightArrayAsDouble.sum())kg Weight Lifted "
+        totalWeightLifted.text = "\(totalWeight.sum())kg Weight Lifted "
         
-        print(exerciseArray)
+
+        print("exercise: \(exerciseNames)")
+        print("sets: \(setsArray)")
+        print("reps: \(repsArray)")
+        print("weights: \(weightArrayAsDouble)")
         
+        for i in zip(repsArray, weightArrayAsDouble){
+            self.repsWeightsArray.append((reps: i.0, weight: i.1))
+        }
+        
+        
+ 
+//        print("-------------------")
+//        print(exerciseArray)
+        print("-------------------")
+        print(repsWeightsArray)
+        print("-------------------")
+        
+  
+     
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,14 +115,14 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutDetailsCell", for: indexPath) as! WorkoutDetailsCell
-        cell.setsLabel.text = "SET \(indexPath.row + 1)/\(exerciseArray[indexPath.section].sets)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "workoutDetailsCell", for: indexPath) as! WorkoutDetailsCell
         cell.exerciseName.text = exerciseArray[indexPath.section].name
-
+        cell.setsLabel.text = "SET \(indexPath.row + 1)/\(exerciseArray[indexPath.section].sets)"
+//        cell.weightsAndRepsLabel.text = "\(repsWeightsArray[indexPath.row].reps) x \(repsWeightsArray[indexPath.row].weight) kg"
+    
         return cell
         
     }
-
-
+    
 
 }

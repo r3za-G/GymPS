@@ -18,11 +18,10 @@ protocol SelectedExercisesDelegate {
 
 var exerciseDescription = ""
 
-class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType, CreatedExerciseDelegate{
+class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType{
     
     
     @IBOutlet var exerciseTable: UITableView!
-    @IBOutlet var searchBar: UISearchBar!
     
     let searchController = UISearchController(searchResultsController: nil)
     var exerciseManager = ExerciseManager()
@@ -38,12 +37,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var absExercises: [(name: String, muscleGroup: String, description: String)] = []
     var exercisesSelected: [String] = []
     var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
-    var filteredExercises = [[(name: String, muscleGroup: String, description: String)]]()
-    var loadedSavedArray = [[(name: String, muscleGroup: String, description: String)]]()
-//    var loadedSavedArray = [[String]]()
-    var createdExerciseArray = [String]()
-    
-    var loadedExerciseArray = [Exercise]()
+
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -52,7 +46,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddExerciseTableViewController"
         
-        searchBar.delegate = self
+      
         exerciseManager.delegate = self
         exerciseManager.fetchExercises()
         
@@ -62,20 +56,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        
-    
-        
-        self.loadedExerciseArray = loadExercise()!
 
-        
-//        for i in loadedExerciseArray{
-//            let setsStringAsData = i.savedExerciseArray!.data(using: String.Encoding.utf16)
-//            self.loadedSavedArray = try! JSONDecoder().decode([[String]].self, from: setsStringAsData!)
-//
-//        }
-//        print(loadedSavedArray)
-   
     }
  
     
@@ -148,15 +129,8 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
                                                sortedBackArray, sortedChestArray, sortedLegsArray,
                                                sortedShouldersArray])
         
-        
-        
-        filteredExercises = exerciseArray
-        
 
-        
         DispatchQueue.main.async {
-            
-            self.saveArray()
             self.updateTheTable()
         }
  
@@ -173,77 +147,14 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         updateTheTable()
     }
     
-    
-    func loadExercise() -> [Exercise]?{
-        let request: NSFetchRequest<Exercise> = Exercise.fetchRequest()
-        do{
-            loadedExerciseArray = try context.fetch(request)
-            return loadedExerciseArray
-        }catch {
-            print("error fetching data \(error)")
-        }
-        return loadedExerciseArray
-    }
-    
-    func saveArray(){
-        
-        let savedArray = UserDefaults.standard.bool(forKey: "savedArray")
-        if !(savedArray){
-            let savedExerciseArray = Exercise(context: context)
-            let exerciseArrayAsString: String = filteredExercises.description
-            savedExerciseArray.savedExerciseArray = exerciseArrayAsString
-            self.saveItems()
-            UserDefaults.standard.set(true, forKey: "savedArray")
-        }
-    }
-    
-    
-    func didLoadCreatedExercise(createdExercise: [String]) {
-        
-        self.createdExerciseArray = createdExercise
-        
-//        print(createdExerciseArray)
-        
-        //        if !(createdExerciseArray.isEmpty) == true{
-        //            if createdExerciseArray.contains("Chest"){
-        //                self.chestExercises.append(createdExerciseArray[0])
-        //                self.chestDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Arms (Biceps)"){
-        //                self.bicepExercises.append(createdExerciseArray[0])
-        //                self.bicepDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Arms (Triceps)"){
-        //                self.tricepExercises.append(createdExerciseArray[0])
-        //                self.tricepDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Back"){
-        //                self.backExercises.append(createdExerciseArray[0])
-        //                self.backDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Legs"){
-        //                self.legsExercises.append(createdExerciseArray[0])
-        //                self.legsDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Shoulders"){
-        //                self.shouldersExercises.append(createdExerciseArray[0])
-        //                self.shouldersDescription.append(createdExerciseArray[2])
-        //            } else if createdExerciseArray.contains("Abs"){
-        //                self.absExercises.append(createdExerciseArray[0])
-        //                self.absDescription.append(createdExerciseArray[2])
-        //            }
-        //        }
-        
-        
-        
-        self.updateTheTable()
-        
-    }
-    
-    
+
     func addExercises(){
         
         self.delegate?.didLoadSelectedExercises(exercises: exercisesSelected)
         
     }
     
-    
-    
+
     
     @IBAction func addExercisesButton(_ sender: UIButton) {
         
@@ -277,13 +188,13 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return filteredExercises.count
+        return exerciseArray.count
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return filteredExercises[section].count
+        return exerciseArray[section].count
         
     }
     
@@ -316,8 +227,9 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseNameCell", for: indexPath)
-        cell.textLabel!.text = filteredExercises[indexPath.section][indexPath.row].name
+        cell.textLabel!.text = exerciseArray[indexPath.section][indexPath.row].name
         cell.textLabel!.textColor = UIColor.white
+        cell.textLabel!.font = UIFont.systemFont(ofSize: 20.0)
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.orange
         cell.selectedBackgroundView = backgroundView
@@ -337,7 +249,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        exercisesSelected.append(filteredExercises[indexPath.section][indexPath.row].name)
+        exercisesSelected.append(exerciseArray[indexPath.section][indexPath.row].name)
         
         exerciseDescription = (exerciseInfo?.Exercises[indexPath.row].description)!
         
@@ -346,66 +258,33 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
-        if let index = exercisesSelected.firstIndex(of: filteredExercises[indexPath.section][indexPath.row].name) {
-            // changed to firstindex
+        if let index = exercisesSelected.firstIndex(of: exerciseArray[indexPath.section][indexPath.row].name) {
             exercisesSelected.remove(at: index)
+        }
+    }
+    
+    enum SegueIdentifier: String {
+
+        case details = "ExerciseDescription"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segueIdentifier(for: segue) {
+        case .details:
+            _ = segue.destination as! ExerciseDescriptionViewController
         }
     }
      
 }
 
 
-//MARK: - Search bar methods
-extension AddExerciseTableViewController: UISearchBarDelegate {
-    
-//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//
-//
-//            filteredExercises = [[]]
-//
-//
-//
-//
-//
-//            if searchText == ""{
-//                filteredExercises = exerciseArray
-//            }
-//            else{
-//                for var exercises in exerciseArray{
-//                    for exerciseName in exercises{
-//                        if exerciseName.name.lowercased().contains(searchText.lowercased()){
-//
-//                            exercises.append((name: exerciseName.name, muscleGroup: exerciseName.muscleGroup, description: exerciseName.description))
-//                            print(exercises)
-//
-//                        }
-//                        filteredExercises.append(exercises)
-//                    }
-//                }
-//            }
-//
-//
-//
-//            }
 
 
-    enum SegueIdentifier: String {
-        case detailsOne = "CreateExercise"
-        case detailsTwo = "ExerciseDescription"
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        switch segueIdentifier(for: segue) {
-        case .detailsOne:
-            let createExercise = segue.destination as! CreateExerciseViewController
-            createExercise.delegate = self
-        case .detailsTwo:
-            _ = segue.destination as! ExerciseDescriptionViewController
-        }
-    }
     
-}
+    
+
 
 
 

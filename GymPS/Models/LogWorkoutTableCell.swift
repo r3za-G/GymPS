@@ -35,7 +35,8 @@ class LogWorkoutTableCell: UITableViewCell {
         
         nameLabel.text = "\(name)"
         dateLabel.text = "\(formattedDate)"
-        dumbbellImage.image = UIImage(named: "Workout")
+        dumbbellImage.image = UIImage(named: "dumbbell")
+        dumbbellImage.tintColor = UIColor.white
     
         
     }

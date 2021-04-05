@@ -27,14 +27,12 @@ class LogDetailsViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        displayRuns()
-        
-   
+ 
+        displayCardioExercise()
+ 
     }
     
-    
-    
+    //Function to load all of the user's saved cardioExercises
     func loadCardioExercise() -> [Cardio]?{
         let request: NSFetchRequest<Cardio> = Cardio.fetchRequest()
         do{
@@ -46,7 +44,9 @@ class LogDetailsViewController: UIViewController{
         return cardioArray
     }
     
-    func displayRuns() {
+    // Function to configure the labels and display the results from the user's exercise
+    
+    func displayCardioExercise() {
 
         let distance = Measurement(value: cardio.distance, unit: UnitLength.meters)
         let seconds = Int(cardio.duration)
@@ -68,7 +68,7 @@ class LogDetailsViewController: UIViewController{
   
     }
     
-    
+    // Function to diplay the poly line showing where the user has ran/cycled
     private func polyLine() -> MKPolyline {
         guard let locations = cardio.locations else {
             return MKPolyline()
@@ -82,6 +82,7 @@ class LogDetailsViewController: UIViewController{
         return MKPolyline(coordinates: coords, count: coords.count)
     }
     
+    // Function to show a start pin for the first location of user
     private func startPin() -> MKPointAnnotation{
         guard let locations = cardio.locations else {
             return MKShape() as! MKPointAnnotation
@@ -95,11 +96,12 @@ class LogDetailsViewController: UIViewController{
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-        startPin.coordinate = coords.first!
+        startPin.coordinate = coords.first! //Retrieve the first point where the user started their exercise
         
         return startPin
     }
     
+    // Function to show a last pin for the last location of user
     private func finishPin() -> MKPointAnnotation{
         guard let locations = cardio.locations else {
             return MKShape() as! MKPointAnnotation
@@ -113,11 +115,12 @@ class LogDetailsViewController: UIViewController{
             let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-        endPin.coordinate = coords.last!
+        endPin.coordinate = coords.last!    //Retrieve the last point where the user finished their exercise
         
         return endPin
     }
     
+    //Function to display annotations on the map
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "MyMarker")
         annotationView.markerTintColor = UIColor.blue
@@ -125,10 +128,10 @@ class LogDetailsViewController: UIViewController{
         switch annotation.title {
         case "Start":
             annotationView.markerTintColor = UIColor.green
-            annotationView.glyphImage = UIImage(named: "startPin")
+            annotationView.glyphImage = UIImage(named: "startPin") //Start Pin
         case "Finish":
             annotationView.markerTintColor = UIColor.red
-            annotationView.glyphImage = UIImage(named: "endPin")
+            annotationView.glyphImage = UIImage(named: "endPin") //End pin
         default:
         annotationView.markerTintColor = UIColor.orange
         }
@@ -137,13 +140,14 @@ class LogDetailsViewController: UIViewController{
     }
     
     
-    
+    //Function to load the map and respective locations the user recorded
     private func loadMap() {
         guard
             let locations = cardio.locations,
             locations.count > 0,
             let region = mapRegion()
         else {
+            // Alert to notify the user that they didn't record any locations if they saved an exercise where they didn't move
             let alert = UIAlertController(title: "Error",
                                           message: "Sorry, this run has no locations saved",
                                           preferredStyle: .alert)
@@ -152,47 +156,52 @@ class LogDetailsViewController: UIViewController{
             return
         }
         
-        mapView.setRegion(region, animated: true)
-        mapView.addOverlay(polyLine())
-        mapView.addAnnotation(startPin())
-        mapView.addAnnotation(finishPin())
+        mapView.setRegion(region, animated: true) //Sets the region of the map
+        mapView.addOverlay(polyLine())  //Adds poly line
+        mapView.addAnnotation(startPin()) //Adds start pin
+        mapView.addAnnotation(finishPin())  //Adds finish pin
 
     }
     
+    // Function to show the map region where the user's locations were recorded
     private func mapRegion() -> MKCoordinateRegion? {
         guard
-            let locations = cardio.locations,
+            let locations = cardio.locations, // Retrieve the locations from the user's exercise
             locations.count > 0
         else {
             return nil
         }
         
+        // retrieve the latitudes from the locations
         let latitudes = locations.map { location -> Double in
             let location = location as! Location
             return location.latitude
         }
         
+        // retrieve the longitudes from the locations
         let longitudes = locations.map { location -> Double in
             let location = location as! Location
             return location.longitude
         }
         
-        let maxLat = latitudes.max()!
-        let minLat = latitudes.min()!
-        let maxLong = longitudes.max()!
-        let minLong = longitudes.min()!
+        let maxLatitude = latitudes.max()!
+        let minLatitude = latitudes.min()!
+        let maxLongitude = longitudes.max()!
+        let minLongitude = longitudes.min()!
         
-        let center = CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2,
-                                            longitude: (minLong + maxLong) / 2)
-        let span = MKCoordinateSpan(latitudeDelta: (maxLat - minLat) * 1.3,
-                                    longitudeDelta: (maxLong - minLong) * 1.3)
+        //The centre of the map region regarding the maximum and minimums longitudes/ latitudes
+        let center = CLLocationCoordinate2D(latitude: (minLatitude + maxLatitude) / 2,
+                                            longitude: (minLongitude + maxLongitude) / 2)
+        //The span of the map region regarding the maximum and minimums longitudes/ latitudes
+        let span = MKCoordinateSpan(latitudeDelta: (maxLatitude - minLatitude) * 1.3,
+                                    longitudeDelta: (maxLongitude - minLongitude) * 1.3)
         return MKCoordinateRegion(center: center, span: span)
     }
     
     
 }
 
-
+//MARK: - MKPolyLine method
 extension LogDetailsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)

@@ -32,6 +32,7 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
     navigationController?.navigationBar.titleTextAttributes = textAttributes
     
+  
     
     }
 

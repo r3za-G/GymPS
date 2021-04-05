@@ -18,7 +18,7 @@ protocol SelectedExercisesDelegate {
 
 var exerciseDescription = ""
 
-class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType{
+class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType {
     
     
     @IBOutlet var exerciseTable: UITableView!
@@ -37,6 +37,8 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var absExercises: [(name: String, muscleGroup: String, description: String)] = []
     var exercisesSelected: [String] = []
     var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
+    
+
 
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -56,7 +58,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-
+        
     }
  
     
@@ -70,8 +72,11 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
         self.exerciseInfo = exercise
         
+        
+        
         if exerciseInfo?.Exercises != nil{
             for n in 0..<(exerciseInfo!.Exercises.count){
+               
                 if exerciseInfo!.Exercises[n].muscleGroup == "Chest"{
                     self.chestExercises.append((name: exerciseInfo!.Exercises[n].name,
                                                 muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
@@ -116,6 +121,8 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
             }
             
         }
+        
+        
     
         let sortedChestArray = self.chestExercises.sorted{ $0.name < $1.name }
         let sortedBicepArray = self.bicepExercises.sorted{ $0.name < $1.name }
@@ -128,6 +135,9 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         self.exerciseArray.append(contentsOf: [sortedAbsArray, sortedBicepArray, sortedTricepArray,
                                                sortedBackArray, sortedChestArray, sortedLegsArray,
                                                sortedShouldersArray])
+        
+    
+       
         
 
         DispatchQueue.main.async {
@@ -146,6 +156,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         }
         updateTheTable()
     }
+
     
 
     func addExercises(){
@@ -176,16 +187,10 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
-    
-    
-    
-    
-    
+
     // MARK: - Table view data source
     
-    
-    
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return exerciseArray.count

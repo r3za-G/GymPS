@@ -15,8 +15,8 @@ class SettingsViewController: UITableViewController,  UITextFieldDelegate, Toolb
     @IBOutlet var metricTextField: UITextField!
     @IBOutlet var numberTextField: UITextField!
 
-    let weightMetricPicker = ToolbarPickerView()
-    let numberWeigthPicker = ToolbarPickerView()
+    let weightMetricPicker = ToolbarPickerView()    // custom toolbar pickerview
+    let numberWeigthPicker = ToolbarPickerView()    //
 
 
     let metricWeight = ["kg", "lb"]

@@ -159,11 +159,14 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
             alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
                 self.saveWorkout()
                 self.stopWorkout()
-                self.performSegue(withIdentifier: .details, sender: nil)
+                self.tabBarController?.selectedIndex = 2
+                _ = self.navigationController?.popToRootViewController(animated: false)
+                
+                
             })
             alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
                 self.stopWorkout()
-                _ = self.navigationController?.popToRootViewController(animated: true)
+                _ = self.navigationController?.popToRootViewController(animated: false)
             })
             
             present(alertController, animated: true)
@@ -207,17 +210,4 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
 }
 
 
-extension DoWorkoutViewController: SegueHandlerType {
-    enum SegueIdentifier: String {
-        case details = "ToLogView"
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segueIdentifier(for: segue) {
-        case .details: break
-            
-//            let destination = segue.destination as! CardioDetailsViewController
-//            destination.cardio = cardio
-        }
-    }
-}
 

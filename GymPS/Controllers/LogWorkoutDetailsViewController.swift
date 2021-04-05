@@ -25,8 +25,8 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
     var weightArrayAsDouble = [Double]()
     var exerciseArray = [(name: String, sets: Int)]()
     var repsWeightsArray = [(reps: Int, weight: Double)]()
-    var groupedRepsWeightArray = [[(reps: Int, weight: Double)]]()
     var totalWeight = [Double]()
+    var groupedRepsWeightArray = [[(reps: Int, weight: Double)]]()
 
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -35,6 +35,13 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
 
         let exerciseNamesStringAsData = workout.exerciseNames!.data(using: String.Encoding.utf16)
         self.exerciseNames = try! JSONDecoder().decode([String].self, from: exerciseNamesStringAsData!)
@@ -61,8 +68,11 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         let formattedTime = FormatDisplay.time(Int(workout.duration))
         let totalExercisesInt = exerciseArray.count
         
-        weightArrayAsDouble = weightArray.map { Double($0)!}
+     
         
+        if !(weightArray.contains("")) {
+        weightArrayAsDouble = weightArray.map { Double($0)!}
+        }
         
         
         workoutName.text = "\(workoutNameString)"
@@ -81,26 +91,40 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         totalReps.text = "\(repsArray.sum()) Reps"
         totalWeightLifted.text = "\(totalWeight.sum())kg Weight Lifted "
         
-
-        print("exercise: \(exerciseNames)")
+        print("-------------------")
+        
+        
         print("sets: \(setsArray)")
         print("reps: \(repsArray)")
         print("weights: \(weightArrayAsDouble)")
-        
+         
         for i in zip(repsArray, weightArrayAsDouble){
             self.repsWeightsArray.append((reps: i.0, weight: i.1))
         }
         
-        
  
-//        print("-------------------")
-//        print(exerciseArray)
-        print("-------------------")
-        print(repsWeightsArray)
-        print("-------------------")
         
-  
-     
+//        print(exerciseArray)
+//        print("-------------------")
+//        print(repsWeightsArray)
+        print("-------------------")
+
+//
+//        self.groupedRepsWeightArray = Array(repeating: Array(repeating: Array(repeating: 0, count: 2), count: setsArray.index(after: 0)), count: exerciseArray.count)
+//        print(groupedRepsWeightArray)
+        
+        for n in setsArray {
+            self.groupedRepsWeightArray = repsWeightsArray.chunked(by: n)
+            print(groupedRepsWeightArray)
+        }
+       
+       
+        
+
+        
+//        groupedRepsWeightArray = repsWeightsArray.joined(separator: ",")
+            
+    
 
     }
     
@@ -125,4 +149,18 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
     }
     
 
+}
+
+extension Array {
+    
+    func chunked(by distance: Int) -> [[Element]] {
+        let indicesSequence = stride(from: startIndex, to: endIndex, by: distance)
+        let array: [[Element]] = indicesSequence.map {
+            let newIndex = $0.advanced(by: distance) > endIndex ? endIndex : $0.advanced(by: distance)
+            //let newIndex = self.index($0, offsetBy: distance, limitedBy: self.endIndex) ?? self.endIndex // also works
+            return Array(self[$0 ..< newIndex])
+        }
+        return array
+    }
+    
 }

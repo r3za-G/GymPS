@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import CoreData
 
+//custom cell for workout details
 class WorkoutDetailsCell: UITableViewCell{
     
     @IBOutlet var exerciseName: UILabel!

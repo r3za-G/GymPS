@@ -8,48 +8,59 @@
 import Foundation
 import UIKit
 
-protocol ToolbarPickerViewDelegate: class {
-    func didTapDone()
-    func didTapCancel()
-}
+
 
 class ToolbarPickerView: UIPickerView {
-
+    
+    //set the toolbar to be a UIToolBar
     public private(set) var toolbar: UIToolbar?
-    public weak var toolbarDelegate: ToolbarPickerViewDelegate?
-
+    public weak var toolBarDelegate: ToolBarPickerViewDelegate?
+    
+    //initialise tool bar
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonInit()
+        self.initialiseToolbar()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.commonInit()
+        self.initialiseToolbar()
     }
-
-    private func commonInit() {
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = .black
-        toolBar.sizeToFit()
-
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.doneTapped))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelTapped))
-
-        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-
-        self.toolbar = toolBar
+    
+    //func to create and initialise toolbar
+    private func initialiseToolbar() {
+        let toolBarView = UIToolbar()
+        toolBarView.barStyle = UIBarStyle.default
+        toolBarView.tintColor = .black
+        toolBarView.isTranslucent = true
+        toolBarView.sizeToFit()
+        
+        //create done, space and cancel buttons
+        let doneB = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.tappedDone))
+        let spaceB = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelB = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.tappedCance))
+        
+        //set the items
+        toolBarView.setItems([cancelB, spaceB, doneB], animated: false)
+        toolBarView.isUserInteractionEnabled = true
+        
+        self.toolbar = toolBarView
     }
-
-    @objc func doneTapped() {
-        self.toolbarDelegate?.didTapDone()
+    
+    //function for tapped done
+    @objc func tappedDone() {
+        self.toolBarDelegate?.doneButtonTapped()
     }
-
-    @objc func cancelTapped() {
-        self.toolbarDelegate?.didTapCancel()
+    
+    //function for tapped cancel
+    @objc func tappedCance() {
+        self.toolBarDelegate?.cancelButtonTapped()
     }
+}
+
+//delegate protocol method for the toolbar picker
+
+protocol ToolBarPickerViewDelegate: class {
+    func doneButtonTapped()
+    func cancelButtonTapped()
 }

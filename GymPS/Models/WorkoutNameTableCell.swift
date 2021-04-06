@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
+//Custom cell for the workout name
 class WorkoutNameTableCell: UITableViewCell{
-    
-    
     
     @IBAction func workoutName(_ sender: UITextField) {
     }

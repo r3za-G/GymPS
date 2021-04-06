@@ -36,11 +36,9 @@ class WorkoutTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateTheTable()
-        
-        
     }
     
-    
+    //IBAction for the user to create their own workout
     @IBAction func createWorkoutButton(_ sender: UIBarButtonItem) {
         
         self.performSegue(withIdentifier: .detailsTwo, sender: nil)
@@ -54,7 +52,7 @@ class WorkoutTableViewController: UITableViewController {
     
     
     
-    
+    //function to load the user's saved workouts
     func loadWorkouts() -> [CreateWorkout]?{
         let request: NSFetchRequest<CreateWorkout> = CreateWorkout.fetchRequest()
         do{
@@ -73,7 +71,7 @@ class WorkoutTableViewController: UITableViewController {
         
         return 1
 }
-    
+    //returns the amount of saved exercises the user has
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if loadWorkouts()?.count == 0{
             return 1
@@ -83,9 +81,10 @@ class WorkoutTableViewController: UITableViewController {
 }
 
     
-    
+    //returns the data for each workout in their respective cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //if their are no saved exercises, it returns a cell that displays "No Workouts"
         if loadWorkouts()?.count == 0  {
             return tableView.dequeueReusableCell(withIdentifier: "noWorkoutsCell", for: indexPath)
         }
@@ -93,28 +92,26 @@ class WorkoutTableViewController: UITableViewController {
         guard
            
             let cell = tableView.dequeueReusableCell(withIdentifier: "workoutsCell", for: indexPath) as? WorkoutTableViewCell,
-            let workouts = loadWorkouts()
+            let workouts = loadWorkouts() //set the loaded workout array
         else { return UITableViewCell() }
         
         
             
-            let sortedWorkouts = workouts.sorted(by: { $0.name ?? "" < $1.name ?? "" })
+            let sortedWorkouts = workouts.sorted(by: { $0.name ?? "" < $1.name ?? "" }) //sort the workouts in alphabetical order
             let workout = sortedWorkouts[indexPath.row]
-            
-            
+ 
             cell.workout = workout
-            
-      
-        return cell
+
+        return cell     //returns the workouts
     }
     
+    //function to show which index the user selected the workout at
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.indexRowSelected = indexPath.row
-
     }
     
-    
+    //function to save the workouts
     func saveWorkouts(){
         do{
             try context.save()
@@ -125,18 +122,19 @@ class WorkoutTableViewController: UITableViewController {
     }
 
 
-
+    //editing function to allow the user to delete any exercise they don't want to have saved to core data
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard var workouts = loadWorkouts() else { return }
-            context.delete(workouts[indexPath.row])
+            context.delete(workouts[indexPath.row]) //deletes the workout from core data
             workouts.remove(at: indexPath.row)
             tableView.reloadData()
-            saveWorkouts()
+            saveWorkouts() //saves the remaining workouts
         }
     }
 }
     
+//extension handler for the segues to different view controllers
 extension WorkoutTableViewController: SegueHandlerType {
     enum SegueIdentifier: String {
         case detailsOne = "SelectWorkout"
@@ -151,7 +149,7 @@ extension WorkoutTableViewController: SegueHandlerType {
             switch segueIdentifier(for: segue) {
             case .detailsOne:
                 let destination = segue.destination as! StartWorkoutTableViewController
-    
+                //this sends the selected workout and it's data to the StartWorkoutTableViewController
                 destination.workout = workoutsArray.sorted(by: { $0.name! < $1.name! })[indexPath!.row]
                 
             case .detailsTwo:

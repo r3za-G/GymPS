@@ -10,6 +10,8 @@ import UIKit
 
 class ExerciseDescriptionViewController: UIViewController{
 
+    //view controller to show the each exercise description
+    
     @IBOutlet var textView: UITextView!
     
     override func viewDidLoad() {

@@ -15,7 +15,6 @@
 		EC139CB425ED3D87006A5227 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CB325ED3D87006A5227 /* UnitExtensions.swift */; };
 		EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CBB25ED403B006A5227 /* FormatDisplay.swift */; };
 		EC139CC125ED4054006A5227 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CC025ED4054006A5227 /* LocationManager.swift */; };
-		EC139CC625ED4072006A5227 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CC525ED4072006A5227 /* Extensions.swift */; };
 		EC139CCB25ED4099006A5227 /* ToolBarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */; };
 		EC139CDD25ED422F006A5227 /* CardioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CDC25ED422F006A5227 /* CardioViewController.swift */; };
 		EC139CEA25ED4343006A5227 /* CardioDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */; };
@@ -37,6 +36,7 @@
 		ECA20C4A25F159C60086B63E /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */; };
 		ECA20C4F25F1670F0086B63E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */; };
 		ECA20C5B25F172AF0086B63E /* WorkoutNameTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */; };
+		ECBF11A4261C924400577CE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBF11A3261C924400577CE6 /* Extensions.swift */; };
 		ECD12E0725ED50320034BF06 /* CardioHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD12E0625ED50320034BF06 /* CardioHomeViewController.swift */; };
 		ECDCDDF625EC390A006B30B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */; };
 		ECDCDDF825EC390A006B30B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */; };
@@ -79,7 +79,6 @@
 		EC139CB325ED3D87006A5227 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
 		EC139CBB25ED403B006A5227 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
 		EC139CC025ED4054006A5227 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		EC139CC525ED4072006A5227 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerViewDelegate.swift; sourceTree = "<group>"; };
 		EC139CDC25ED422F006A5227 /* CardioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioViewController.swift; sourceTree = "<group>"; };
 		EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioDetailsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutNameTableCell.swift; sourceTree = "<group>"; };
+		ECBF11A3261C924400577CE6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ECD12E0625ED50320034BF06 /* CardioHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioHomeViewController.swift; sourceTree = "<group>"; };
 		ECDCDDF225EC390A006B30B2 /* GymPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymPS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,17 +188,16 @@
 				ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */,
 				EC139CBB25ED403B006A5227 /* FormatDisplay.swift */,
 				EC139CC025ED4054006A5227 /* LocationManager.swift */,
-				EC139CC525ED4072006A5227 /* Extensions.swift */,
 				EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */,
 				ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */,
 				ECA20C5A25F172AF0086B63E /* WorkoutNameTableCell.swift */,
 				EC9E4A6625F528D3005CEA35 /* ExerciseManager.swift */,
 				EC9E4A7525F64C81005CEA35 /* ExerciseData.swift */,
-				EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */,
 				EC6D63C02611FC7E008D2AC1 /* ExerciseRepsCell.swift */,
 				EC9B94D42614D23C00CAC76E /* LogCardioTableCell.swift */,
 				EC9B94D92614D29900CAC76E /* LogWorkoutTableCell.swift */,
 				EC9B94EB2614EE1000CAC76E /* WorkoutDetailsCell.swift */,
+				ECBF11A3261C924400577CE6 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,6 +226,7 @@
 				EC6D63AB2610F6F9008D2AC1 /* DoWorkoutViewController.swift */,
 				EC9B94E12614E07D00CAC76E /* LogViewController.swift */,
 				EC9B94E62614EC4400CAC76E /* LogWorkoutDetailsViewController.swift */,
+				EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -541,8 +541,8 @@
 				EC9E4A7625F64C81005CEA35 /* ExerciseData.swift in Sources */,
 				EC9B94EC2614EE1000CAC76E /* WorkoutDetailsCell.swift in Sources */,
 				EC139CEF25ED4381006A5227 /* SettingsViewController.swift in Sources */,
+				ECBF11A4261C924400577CE6 /* Extensions.swift in Sources */,
 				EC6D63C12611FC7E008D2AC1 /* ExerciseRepsCell.swift in Sources */,
-				EC139CC625ED4072006A5227 /* Extensions.swift in Sources */,
 				EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */,
 				EC9B94E22614E07D00CAC76E /* LogViewController.swift in Sources */,
 				EC6D63AC2610F6F9008D2AC1 /* DoWorkoutViewController.swift in Sources */,

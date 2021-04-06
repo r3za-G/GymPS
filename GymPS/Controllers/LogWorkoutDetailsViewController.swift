@@ -9,7 +9,7 @@ import UIKit
 
 class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    //All of the UI labels to display the workout info for selected workout
     @IBOutlet var workoutName: UILabel!
     @IBOutlet var dateCompleted: UILabel!
     @IBOutlet var duration: UILabel!
@@ -30,8 +30,8 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
 
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var workoutArray = [Workout]()
-    var workout: Workout!
+    var workoutArray = [Workout]() //declared workout array for loaded workouts
+    var workout: Workout!   //workout data received from segue
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,9 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
 
+        /*
+         decoded all of the array as strings from core data so they are turned back into arrays of their respected data types.
+         */
         let exerciseNamesStringAsData = workout.exerciseNames!.data(using: String.Encoding.utf16)
         self.exerciseNames = try! JSONDecoder().decode([String].self, from: exerciseNamesStringAsData!)
         
@@ -55,38 +58,40 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         let weightStringAsData = workout.weight!.data(using: String.Encoding.utf16)
         self.weightArray = try! JSONDecoder().decode([String].self, from: weightStringAsData!)
         
+        
+        //use zip function to append two arrays into one
         for i in zip(exerciseNames, setsArray){
             self.exerciseArray.append((name: i.0, sets: i.1))
         }
         
         
-        
-       
-        
         let workoutNameString = workout.workoutName!
-        let formattedDate = FormatDisplay.date(workout.dateCompleted)
-        let formattedTime = FormatDisplay.time(Int(workout.duration))
+        let dateFormatted = FormatDisplay.date(workout.dateCompleted)
+        let timeFormatted = FormatDisplay.time(Int(workout.duration))
         let totalExercisesInt = exerciseArray.count
         
      
-        
+        //turn the weightArray into a double array to work out the total weight lifted
         if !(weightArray.contains("")) {
         weightArrayAsDouble = weightArray.map { Double($0)!}
         }
         
-        
+        //display the workout name, time and date
         workoutName.text = "\(workoutNameString)"
-        dateCompleted.text = "\(formattedDate)"
-        duration.text = "\(formattedTime)"
+        dateCompleted.text = "\(dateFormatted)"
+        duration.text = "\(timeFormatted)"
         
+        //if statement to show singular/plural exercises if their is only one exercise executed
         if totalExercisesInt == 1 {
             totalExercise.text = "\(totalExercisesInt) Exercise"
         } else {
             totalExercise.text = "\(totalExercisesInt) Exercises"
         }
         
+        //zip function to work out the amount of weight lifted
         self.totalWeight = zip(repsArray, weightArrayAsDouble).map { Double($0) * $1 }
         
+        //totals sets, reps and weight lifted labels
         totalSets.text = "\(setsArray.sum()) Sets"
         totalReps.text = "\(repsArray.sum()) Reps"
         totalWeightLifted.text = "\(totalWeight.sum())kg Weight Lifted "
@@ -128,21 +133,24 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
 
     }
     
+    //number of sections in table
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return exerciseArray.count
     }
     
+    //number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exerciseArray[section].sets
     }
     
+    //cells to display the exercise and set information
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "workoutDetailsCell", for: indexPath) as! WorkoutDetailsCell
-        cell.exerciseName.text = exerciseArray[indexPath.section].name
-        cell.setsLabel.text = "SET \(indexPath.row + 1)/\(exerciseArray[indexPath.section].sets)"
-//        cell.weightsAndRepsLabel.text = "\(repsWeightsArray[indexPath.row].reps) x \(repsWeightsArray[indexPath.row].weight) kg"
+        cell.exerciseName.text = exerciseArray[indexPath.section].name  //workout names
+        cell.setsLabel.text = "SET \(indexPath.row + 1)/\(exerciseArray[indexPath.section].sets)"  //what sets the user did
+//        cell.weightsAndRepsLabel.text = "\(repsWeightsArray[indexPath.row].reps) x \(repsWeightsArray[indexPath.row].weight) kg"  //The amount of reps and weight for each exercise
     
         return cell
         

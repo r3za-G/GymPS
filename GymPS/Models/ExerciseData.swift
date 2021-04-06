@@ -7,10 +7,12 @@
 
 import Foundation
 
+//Struct for our exercise data
 struct ExerciseData: Codable{
     let Exercises: [Exercises]
 }
 
+//Exercises struct for the JSON data to be decoded
 struct Exercises: Codable {
     let id: String
     let name: String

@@ -36,6 +36,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     var exercisesSelected: [String] = []
     var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
     
+    
 
    // datastack context to save/load data to/from core data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -57,9 +58,10 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
     }
+    
  
     
-    
+   
     //function to reload data in the tableview
     func updateTheTable() {
         exerciseTable.reloadData()
@@ -119,6 +121,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         
+    
         // sorts all the muscle group arrays so they are in alphabetical order
         let sortedChestArray = self.chestExercises.sorted{ $0.name < $1.name }
         let sortedBicepArray = self.bicepExercises.sorted{ $0.name < $1.name }
@@ -149,7 +152,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         }
         updateTheTable()
     }
-
+    
     
     //Function to send the user's selected exercises to NewWorkoutViewController
     func addExercises(){
@@ -162,6 +165,7 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     //IB Action to send selected exercises to NewWorkoutViewController
     @IBAction func addExercisesButton(_ sender: UIButton) {
         
+    
         //if statement to show if the exercisesSelected array is empty
         if exercisesSelected.isEmpty == true{
             //if array is empty it will show an alert to prompt the user to select exercises

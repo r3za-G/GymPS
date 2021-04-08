@@ -2041,7 +2041,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                         <color key="tintColor" name="Color"/>
-                                        <state key="normal" title="    Add Exercise">
+                                        <state key="normal" title="Add Exercise">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="black"/>
                                         </state>
                                         <connections>

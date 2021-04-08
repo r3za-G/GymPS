@@ -147,18 +147,10 @@ class CardioViewController: UIViewController {
          This updates the four labels (Distance, time, calories and pace)
         */
 
-        let distanceMiles = distance / 1609 //change distance into miles
-        let ditanceFormatted = FormatDisplay.distance(distance) // formats the distance using the FormatDisplay Struct with formatting methods
+      
+        let distanceFormatted = FormatDisplay.distance(distance) // formats the distance using the FormatDisplay Struct with formatting methods
         let timeFormatted = FormatDisplay.time(Int(seconds)) //formats the time using the FormatDisplay Struct with formatting methods
  
-        if distanceMiles.value > 0{
-            pace = ((Double(seconds)/60) / distanceMiles.value) //formula to work out the pace of the user
-        }
-
-        if pace > 0{
-            paces.append(pace)
-        }
-        
         let bodyWeight = UserDefaults.standard.integer(forKey: "Weight")    //Reads the value for the user's weight
         
         if cardioImage.image == UIImage(named: "bicycle-rider") { //See what type of cardio activity the user has chosen to determind the calories burnt formula
@@ -176,7 +168,7 @@ class CardioViewController: UIViewController {
                                                seconds: Int(seconds),
                                                outputUnit: UnitSpeed.minutesPerMile)
         //display the four data labels whilst the user is on their exericse.
-        self.distanceLabel.text = String("\(ditanceFormatted)")
+        self.distanceLabel.text = String("\(distanceFormatted)")
         self.timeLabel.text = "\(timeFormatted)"
         self.speedLabel.text = "\(paceFormatted)"
         self.caloriesLabel.text = "\(totalCalories) kcal"

@@ -6,8 +6,11 @@
 //
 
 import XCTest
+import ValueStepper
 
 class GymPSUITests: XCTestCase {
+    
+    var valueStepper = ValueStepper()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -86,6 +89,161 @@ class GymPSUITests: XCTestCase {
         app.sheets["End exercise?"].scrollViews.otherElements.buttons["Save"].tap()
         
     }
+    
+    func testCreateWorkout(){
+        
+        
+        
+        let app = XCUIApplication()
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+        app.navigationBars["WORKOUTS"].buttons["Create New"].tap()
+        app/*@START_MENU_TOKEN@*/.textFields["Workout Name"]/*[[".otherElements[\"AddWorkoutTableViewController\"].textFields[\"Workout Name\"]",".textFields[\"Workout Name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let pKey = app/*@START_MENU_TOKEN@*/.keys["P"]/*[[".keyboards.keys[\"P\"]",".keys[\"P\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        pKey.tap()
+    
+        
+        let uKey = app/*@START_MENU_TOKEN@*/.keys["u"]/*[[".keyboards.keys[\"u\"]",".keys[\"u\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        uKey.tap()
+   
+        
+        let sKey = app/*@START_MENU_TOKEN@*/.keys["s"]/*[[".keyboards.keys[\"s\"]",".keys[\"s\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        sKey.tap()
+
+        
+        let hKey = app/*@START_MENU_TOKEN@*/.keys["h"]/*[[".keyboards.keys[\"h\"]",".keys[\"h\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        hKey.tap()
+     
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Return"]/*[[".keyboards",".buttons[\"return\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.staticTexts["Add Exercise"]/*[[".otherElements[\"AddWorkoutTableViewController\"]",".buttons[\"Add Exercise\"].staticTexts[\"Add Exercise\"]",".staticTexts[\"Add Exercise\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Cable Curl"]/*[[".otherElements[\"AddExerciseTableViewController\"].tables",".cells.staticTexts[\"Cable Curl\"]",".staticTexts[\"Cable Curl\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Hammer Curl"]/*[[".otherElements[\"AddExerciseTableViewController\"].tables",".cells.staticTexts[\"Hammer Curl\"]",".staticTexts[\"Hammer Curl\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Spider Curl"]/*[[".otherElements[\"AddExerciseTableViewController\"].tables",".cells.staticTexts[\"Spider Curl\"]",".staticTexts[\"Spider Curl\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.swipeUp()
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Pull-up"]/*[[".otherElements[\"AddExerciseTableViewController\"].tables",".cells.staticTexts[\"Pull-up\"]",".staticTexts[\"Pull-up\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        
+        app/*@START_MENU_TOKEN@*/.staticTexts["ADD"]/*[[".otherElements[\"AddExerciseTableViewController\"]",".buttons[\"ADD\"].staticTexts[\"ADD\"]",".staticTexts[\"ADD\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let cableCurlStaticText = app/*@START_MENU_TOKEN@*/.tables.staticTexts["Cable Curl"]/*[[".otherElements[\"AddWorkoutTableViewController\"].tables",".cells.staticTexts[\"Cable Curl\"]",".staticTexts[\"Cable Curl\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+        cableCurlStaticText.tap()
+        cableCurlStaticText.tap()
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Hammer Curl"]/*[[".otherElements[\"AddWorkoutTableViewController\"].tables",".cells.staticTexts[\"Hammer Curl\"]",".staticTexts[\"Hammer Curl\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["Pull-up"]/*[[".otherElements[\"AddWorkoutTableViewController\"].tables",".cells.staticTexts[\"Pull-up\"]",".staticTexts[\"Pull-up\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        
+        app.navigationBars["GymPS.NewWorkoutView"].buttons["SAVE"].tap()
+ 
+      
+    }
+    
+    func testCompleteWorkout(){
+        
+       
+        
+        let app = XCUIApplication()
+
+        app.tabBars["Tab Bar"].buttons["Workout"].tap()
+
+        let pushWorkout = app.tables.staticTexts["Push"]
+        pushWorkout.tap()
+
+        app.buttons["START"].tap()
+
+    
+        let tablesQuery = app.tables
+        let set12CellsQuery = tablesQuery.cells.containing(.staticText, identifier:"SET 1/2")
+        set12CellsQuery.children(matching: .textField).element.tap()
+        
+        let key = app/*@START_MENU_TOKEN@*/.keys["2"]/*[[".keyboards.keys[\"2\"]",".keys[\"2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+  
+        
+        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key2.tap()
+
+        
+        let doneButton = app.toolbars["Toolbar"].buttons["Done"]
+        doneButton.tap()
+        set12CellsQuery.children(matching: .button).element(boundBy: 2).tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"SET 1\/2\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
+        
+        let set22CellsQuery = tablesQuery.cells.containing(.staticText, identifier:"SET 2/2")
+        let textField = set22CellsQuery.children(matching: .textField).element
+        textField.tap()
+        textField.tap()
+        key.tap()
+        
+        let key3 = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key3.tap()
+        doneButton.tap()
+        
+        let button = set22CellsQuery.children(matching: .button).element(boundBy: 2)
+        button.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"SET 2\/2\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
+        button.tap()
+        
+        let tablesQueryTwo = app.tables
+        let hammerCurlCellsQuery = tablesQueryTwo.cells.containing(.staticText, identifier:"Hammer Curl")
+        hammerCurlCellsQuery.children(matching: .textField).element.tap()
+        
+        let keyTwo = app/*@START_MENU_TOKEN@*/.keys["1"]/*[[".keyboards.keys[\"1\"]",".keys[\"1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        keyTwo.tap()
+        
+        let keyThree = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        keyThree.tap()
+        
+        let doneButtonTwo = app.toolbars["Toolbar"].buttons["Done"]
+        doneButtonTwo.tap()
+        
+        let buttonTwo = hammerCurlCellsQuery.children(matching: .button).element(boundBy: 2)
+        buttonTwo.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"Hammer Curl\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
+        buttonTwo.tap()
+        buttonTwo.tap()
+        
+        let cellsQuery = tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"0")/*[[".cells.containing(.staticText, identifier:\"Pull-up\")",".cells.containing(.button, identifier:\"0\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        cellsQuery.children(matching: .textField).element.tap()
+        app/*@START_MENU_TOKEN@*/.keys["7"]/*[[".keyboards.keys[\"7\"]",".keys[\"7\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+
+        let keyFour = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        keyFour.tap()
+        doneButton.tap()
+        cellsQuery.children(matching: .button).element(boundBy: 2).tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"Pull-up\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
+        tablesQuery.cells.containing(.staticText, identifier:"Pull-up").children(matching: .button).element(boundBy: 2).tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["FINISH AND LOG"]/*[[".buttons[\"FINISH AND LOG\"].staticTexts[\"FINISH AND LOG\"]",".staticTexts[\"FINISH AND LOG\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.sheets["End Workout?"].scrollViews.otherElements.buttons["Save"].tap()
+             
+    }
+    
+    func testViewSavedWorkoutExercises(){
+        let app =  XCUIApplication()
+       app.tabBars["Tab Bar"].buttons["Log"].tap()
+        
+        let pushWorkout = app.tables.staticTexts["Push"].firstMatch
+        pushWorkout.tap()
+        
+        app.navigationBars["GymPS.LogWorkoutDetailsView"].buttons["LOG"].tap()
+    
+                
+    }
+    
+    func testViewSavedCardioExercises() {
+        
+        let app = XCUIApplication()
+        app.tabBars["Tab Bar"].buttons["Log"].tap()
+      
+        app/*@START_MENU_TOKEN@*/.tables.staticTexts["0.00"]/*[[".otherElements[\"LogViewController\"].tables",".cells.staticTexts[\"0.00\"]",".staticTexts[\"0.00\"]",".tables"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/.tap()
+        app.alerts["Error"].scrollViews.otherElements.buttons["OK"].tap()
+        let logButton = app.navigationBars["YOUR STATS"].buttons["LOG"]
+        logButton.tap()
+
+                
+        
+    }
+    
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {

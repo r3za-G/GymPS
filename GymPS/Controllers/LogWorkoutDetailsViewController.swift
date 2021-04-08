@@ -46,16 +46,16 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         /*
          decoded all of the array as strings from core data so they are turned back into arrays of their respected data types.
          */
-        let exerciseNamesStringAsData = workout.exerciseNames!.data(using: String.Encoding.utf16)
+        let exerciseNamesStringAsData = workout.exerciseNames?.data(using: String.Encoding.utf16)
         self.exerciseNames = try! JSONDecoder().decode([String].self, from: exerciseNamesStringAsData!)
         
-        let setsStringAsData = workout.sets!.data(using: String.Encoding.utf16)
+        let setsStringAsData = workout.sets?.data(using: String.Encoding.utf16)
         self.setsArray = try! JSONDecoder().decode([Int].self, from: setsStringAsData!)
         
-        let repsStringAsData = workout.reps!.data(using: String.Encoding.utf16)
+        let repsStringAsData = workout.reps?.data(using: String.Encoding.utf16)
         self.repsArray = try! JSONDecoder().decode([Int].self, from: repsStringAsData!)
         
-        let weightStringAsData = workout.weight!.data(using: String.Encoding.utf16)
+        let weightStringAsData = workout.weight?.data(using: String.Encoding.utf16)
         self.weightArray = try! JSONDecoder().decode([String].self, from: weightStringAsData!)
         
         
@@ -96,40 +96,25 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         totalReps.text = "\(repsArray.sum()) Reps"
         totalWeightLifted.text = "\(totalWeight.sum())kg Weight Lifted "
         
-        print("-------------------")
-        
-        
-        print("sets: \(setsArray)")
-        print("reps: \(repsArray)")
-        print("weights: \(weightArrayAsDouble)")
-         
+        //use the zip function to append together the reps and weight lifted for each set
         for i in zip(repsArray, weightArrayAsDouble){
             self.repsWeightsArray.append((reps: i.0, weight: i.1))
         }
         
- 
-        
-//        print(exerciseArray)
-//        print("-------------------")
-//        print(repsWeightsArray)
-        print("-------------------")
+        // variable to find the current index in the array
+        var currentIndex = 0
 
-//
-//        self.groupedRepsWeightArray = Array(repeating: Array(repeating: Array(repeating: 0, count: 2), count: setsArray.index(after: 0)), count: exerciseArray.count)
-//        print(groupedRepsWeightArray)
-        
-        for n in setsArray {
-            self.groupedRepsWeightArray = repsWeightsArray.chunked(by: n)
-            print(groupedRepsWeightArray)
+        // for loop to iterate over the sets array make groupedRepsWeightArray of the correct size
+        for (index, values) in setsArray.enumerated(){
+            self.groupedRepsWeightArray.append([repsWeightsArray[currentIndex]])
+            currentIndex += 1
+            //second for loop to append the correct values at the correct index
+            for _ in 1..<values {
+                self.groupedRepsWeightArray[index].append(repsWeightsArray[currentIndex])
+                currentIndex += 1
+            }
         }
-       
-       
         
-
-        
-//        groupedRepsWeightArray = repsWeightsArray.joined(separator: ",")
-            
-    
 
     }
     
@@ -150,7 +135,7 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "workoutDetailsCell", for: indexPath) as! WorkoutDetailsCell
         cell.exerciseName.text = exerciseArray[indexPath.section].name  //workout names
         cell.setsLabel.text = "SET \(indexPath.row + 1)/\(exerciseArray[indexPath.section].sets)"  //what sets the user did
-//        cell.weightsAndRepsLabel.text = "\(repsWeightsArray[indexPath.row].reps) x \(repsWeightsArray[indexPath.row].weight) kg"  //The amount of reps and weight for each exercise
+        cell.weightsAndRepsLabel.text = "\(groupedRepsWeightArray[indexPath.section][indexPath.row].reps) x \(groupedRepsWeightArray[indexPath.section][indexPath.row].weight) kg"  //The amount of reps and weight for each exercise
     
         return cell
         
@@ -159,16 +144,3 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
 
 }
 
-extension Array {
-    
-    func chunked(by distance: Int) -> [[Element]] {
-        let indicesSequence = stride(from: startIndex, to: endIndex, by: distance)
-        let array: [[Element]] = indicesSequence.map {
-            let newIndex = $0.advanced(by: distance) > endIndex ? endIndex : $0.advanced(by: distance)
-            //let newIndex = self.index($0, offsetBy: distance, limitedBy: self.endIndex) ?? self.endIndex // also works
-            return Array(self[$0 ..< newIndex])
-        }
-        return array
-    }
-    
-}

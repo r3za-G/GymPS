@@ -140,7 +140,6 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         return cell
         
     }
-    
 
 }
 

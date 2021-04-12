@@ -17,7 +17,9 @@
         <attribute name="sets" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES" codeGenerationType="class">
-        <attribute name="savedExerciseArray" optional="YES" attributeType="String"/>
+        <attribute name="exerciseDescription" optional="YES" attributeType="Transformable" valueTransformerName="[String]" customClassName="[String]"/>
+        <attribute name="muscleGroup" optional="YES" attributeType="String" valueTransformerName="[String]" customClassName="[String]"/>
+        <attribute name="name" optional="YES" attributeType="String" valueTransformerName="[String]" customClassName="[String]"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -37,7 +39,7 @@
     <elements>
         <element name="Cardio" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="CreateWorkout" positionX="-63" positionY="54" width="128" height="104"/>
-        <element name="Exercise" positionX="-63" positionY="72" width="128" height="44"/>
+        <element name="Exercise" positionX="-63" positionY="72" width="128" height="74"/>
         <element name="Location" positionX="-54" positionY="36" width="128" height="89"/>
         <element name="Workout" positionX="-63" positionY="54" width="128" height="134"/>
     </elements>

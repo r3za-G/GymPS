@@ -70,7 +70,6 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         let timeFormatted = FormatDisplay.time(Int(workout.duration))
         let totalExercisesInt = exerciseArray.count
         
-     
         //turn the weightArray into a double array to work out the total weight lifted
         if !(weightArray.contains("")) {
         weightArrayAsDouble = weightArray.map { Double($0)!}
@@ -106,6 +105,7 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
 
         // for loop to iterate over the sets array make groupedRepsWeightArray of the correct size
         for (index, values) in setsArray.enumerated(){
+            
             self.groupedRepsWeightArray.append([repsWeightsArray[currentIndex]])
             currentIndex += 1
             //second for loop to append the correct values at the correct index

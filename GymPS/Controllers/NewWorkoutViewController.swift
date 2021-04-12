@@ -186,7 +186,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
             return cell
         }else{
             cell.textLabel!.text = selectedExercises[indexPath.row] //returns exercise names
-            cell.textLabel!.font = UIFont.systemFont(ofSize: 16.0)
+            cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.textLabel!.textColor = UIColor.white
         }
         return cell

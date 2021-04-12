@@ -60,10 +60,11 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
             self.eachSecond()
             
             
+            
         }
         
         //sets the weight and reps array to be the size of the sum of sets array
-        self.weightInput = [String](repeating: "", count: setsArray.sum())
+        self.weightInput = [String](repeating: "0", count: setsArray.sum())
         self.finalRepsArray = [Int](repeating :0, count: setsArray.sum())
         
         self.loadWorkout = loadWorkouts()!

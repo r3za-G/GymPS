@@ -9,44 +9,72 @@ import Foundation
 import UIKit
 import CoreData
 
+
 //protocol delegate method to send the user's selected exercises back to the previous view controller (NewWorkoutViewController)
 protocol SelectedExercisesDelegate {
     func didLoadSelectedExercises(exercises: [String])
 }
 
+//create a struct for the exercise array displayed to the user
+struct ExerciseArray: Codable {
+    var name: String
+    var muscleGroup: String
+    var description: String
+}
+
 var exerciseDescription = ""
 
-class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType {
+class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ExerciseManagerDelegate, UITextFieldDelegate, SegueHandlerType, CreatedExerciseDelegate {
     
-    
+
     @IBOutlet var exerciseTable: UITableView!
     
     var exerciseManager = ExerciseManager()
     var delegate: SelectedExercisesDelegate? // variable delegate
     var exerciseInfo: ExerciseData? = nil
+    var exercise: Exercise!
     
     //arrays for each specific muscle group
-    var chestExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var bicepExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var tricepExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var backExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var legsExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var shouldersExercises: [(name: String, muscleGroup: String, description: String)] = []
-    var absExercises: [(name: String, muscleGroup: String, description: String)] = []
+    var chestExercises: [ExerciseArray] = []
+    var bicepExercises: [ExerciseArray] = []
+    var tricepExercises: [ExerciseArray] = []
+    var backExercises: [ExerciseArray] = []
+    var legsExercises: [ExerciseArray] = []
+    var shouldersExercises: [ExerciseArray] = []
+    var absExercises: [ExerciseArray] = []
     var exercisesSelected: [String] = []
-    var exerciseArray = [[(name: String, muscleGroup: String, description: String)]]()
+    var exerciseArray = [[ExerciseArray]]()
+    var loadExercises: [Exercise]!
     
+    var exercisesSaved = [ExerciseData]()
     
+    var savedExerciseNames = [String]()
+    var savedExerciseMuscleGroup = [String]()
+    var savedExerciseDescriptions = [String]()
+    var loadSavedNames = [String]()
+    var loadSavedMuscleGroup = [String]()
+    var loadSavedDescriptions = [String]()
+    var loadedExerciseArray = [ExerciseArray]()
+    var savedExerciseNameString = ""
+    var savedExerciseMGString = ""
+    var savedExerciseDescriptionString = ""
+    
+    var createdExerciseArray = [String]()
 
-   // datastack context to save/load data to/from core data
+    
+    
+    
+    
+    
+    // datastack context to save/load data to/from core data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.accessibilityIdentifier = "AddExerciseTableViewController"
         
-      
+        
         exerciseManager.delegate = self //delegate to retrieve exercise info from the ExerciseManager
         exerciseManager.fetchExercises()//fetches the exercise data
         
@@ -57,71 +85,67 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear")
+       
+        
     }
     
- 
     
-   
-    //function to reload data in the tableview
-    func updateTheTable() {
-        exerciseTable.reloadData()
-    }
     
-    //Delegate protocol function from ExerciseManager. This is where the exercise data called from the API is received and manipiulated so the user can view it.
-    func didLoadExercise(_ exerciseManager: ExerciseManager, exercise: ExerciseData)  {
+    //function to load the saved exercise array from core data
+    func configureArray(){
         
-        self.exerciseInfo = exercise
         
-        if exerciseInfo?.Exercises != nil{
-            for n in 0..<(exerciseInfo!.Exercises.count){   //for loop to iterate over the exercise info array
-                                                            //append each respected muscle groups to their own array
-                if exerciseInfo!.Exercises[n].muscleGroup == "Chest"{
-                    self.chestExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                                muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                                description: exerciseInfo!.Exercises[n].description))
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Biceps)"{
-                    self.bicepExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                                muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                                description: exerciseInfo!.Exercises[n].description))
-
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Arms (Triceps)" {
-                    self.tricepExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                                 muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                                 description: exerciseInfo!.Exercises[n].description))
-
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Back" {
-                    self.backExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                               muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                               description: exerciseInfo!.Exercises[n].description))
-          
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Legs" {
-                    self.legsExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                               muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                               description: exerciseInfo!.Exercises[n].description))
-                   
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Shoulders" {
-                    self.shouldersExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                                    muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                                    description: exerciseInfo!.Exercises[n].description))
-     
-                }
-                if exerciseInfo!.Exercises[n].muscleGroup == "Abs" {
-                    self.absExercises.append((name: exerciseInfo!.Exercises[n].name,
-                                              muscleGroup: exerciseInfo!.Exercises[n].muscleGroup,
-                                              description: exerciseInfo!.Exercises[n].description))
-                    
-                }
-            }
+        //laods the three exercise arrays and assigns them to their arrays
+        self.loadExercises = loadExerciseArray()
+        
+        //for-loop to decode the strings back to arrays
+        for x in loadExercises{
+        
+        let nameStringAsData = x.name!.data(using: String.Encoding.utf16)
+        self.loadSavedNames = try! JSONDecoder().decode([String].self, from: nameStringAsData!)
+        
+        let muscleGroupStringAsData = x.muscleGroup!.data(using: String.Encoding.utf16)
+        self.loadSavedMuscleGroup = try! JSONDecoder().decode([String].self, from: muscleGroupStringAsData!)
+        
+        self.loadSavedDescriptions = x.exerciseDescription!
             
         }
         
+        //zip the three arrays together to create one exercise array called loadedExerciseArray
+        for (names, muscleGroups, descriptions) in zip3(loadSavedNames, loadSavedMuscleGroup, loadSavedDescriptions){
+            self.loadedExerciseArray.append(ExerciseArray.init(name: names, muscleGroup: muscleGroups, description: descriptions))
+        }
         
-    
+        //for loop to iterate over the exercise info array and append each respected name/muscle groups/descriptions to their own array
+        
+        for n in loadedExerciseArray{
+            if n.muscleGroup == "Chest"{
+                self.chestExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Arms (Biceps)"{
+                self.bicepExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Arms (Triceps)"{
+                self.tricepExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Back"{
+                self.backExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Legs"{
+                self.legsExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Shoulders"{
+                self.shouldersExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+            if n.muscleGroup == "Abs"{
+                self.absExercises.append(ExerciseArray.init(name: n.name, muscleGroup: n.muscleGroup, description: n.description))
+            }
+        }
         // sorts all the muscle group arrays so they are in alphabetical order
         let sortedChestArray = self.chestExercises.sorted{ $0.name < $1.name }
         let sortedBicepArray = self.bicepExercises.sorted{ $0.name < $1.name }
@@ -130,27 +154,128 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         let sortedLegsArray = self.legsExercises.sorted{ $0.name < $1.name }
         let sortedShouldersArray = self.shouldersExercises.sorted{ $0.name < $1.name }
         let sortedAbsArray = self.absExercises.sorted{ $0.name < $1.name }
-   
+        
+        
+        
         // append all of the muscle group arrays into one exercise array
         self.exerciseArray.append(contentsOf: [sortedAbsArray, sortedBicepArray, sortedTricepArray,
                                                sortedBackArray, sortedChestArray, sortedLegsArray,
                                                sortedShouldersArray])
+        
+        print("exercises loaded")
+        
+    }
+    
+ 
+    
 
+    //function to reload data in the tableview
+    func updateTheTable() {
+  
+        exerciseTable.reloadData()
+        print("table updated")
+    
+    }
+    
+    //Delegate protocol function from ExerciseManager. This is where the exercise data called from the API is received and manipiulated so the user can view it.
+    func didLoadExercise(_ exerciseManager: ExerciseManager, exercise: ExerciseData)  {
+        
+        self.exerciseInfo = exercise
+        
+        if exerciseInfo?.Exercises != nil{
+            self.exercisesSaved.append(ExerciseData.init(Exercises: exerciseInfo!.Exercises))
+            for n in 0..<(exerciseInfo!.Exercises.count){   //for loop to iterate over the exercise info array
+                //append to each array which will get saved to core data
+                
+                self.savedExerciseNames.append((exerciseInfo?.Exercises[n].name)!)
+                self.savedExerciseMuscleGroup.append((exerciseInfo?.Exercises[n].muscleGroup)!)
+                self.savedExerciseDescriptions.append((exerciseInfo?.Exercises[n].description)!)
+                
+            }
+        }
+        let savedArray = UserDefaults.standard.bool(forKey: "savedArray")
+        
+        //set the strings as arrays so they can be saved to core data
+        savedExerciseNameString = self.savedExerciseNames.description
+        savedExerciseMGString = self.savedExerciseMuscleGroup.description
+        
+        //save the exercises information only once when the user first laods the app up
+        //I have done this incase the data from the API url cannot be reached (if the university server is down)
         DispatchQueue.main.async {
+            print("didLoadExercise")
+      
+            if !(savedArray) {
+
+                let savedExercises = Exercise(context: self.context)
+                savedExercises.name = self.savedExerciseNameString
+                savedExercises.muscleGroup = self.savedExerciseMGString
+                savedExercises.exerciseDescription = self.savedExerciseDescriptions
+                self.saveItems()
+                UserDefaults.standard.set(true, forKey: "savedArray")
+                print("saved")
+            }
+            
+            self.configureArray()
             self.updateTheTable()
         }
- 
     }
+    
+    //delegate function to retrieve the created exercise from the user
+    func didLoadCreatedExercise(createdExercise: [String]) {
+      
+
+        self.createdExerciseArray = createdExercise
+        
+        //appending the created exercise info to the existing exercise array
+        loadSavedNames.append(createdExerciseArray[0])
+        loadSavedMuscleGroup.append(createdExerciseArray[1])
+        loadSavedDescriptions.append(createdExerciseArray[2])
+        
+        let loadNameString: String = loadSavedNames.description
+        let loadMGString: String = loadSavedMuscleGroup.description
+       
+        //save the created exercise to core data
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            print("didLoadCreatedExercise")
+            
+            let savedExercises = Exercise(context: self.context)
+            savedExercises.name = loadNameString
+            savedExercises.muscleGroup = loadMGString
+            savedExercises.exerciseDescription = self.loadSavedDescriptions
+            self.saveItems()
+            self.configureArray()
+           
+        })
+       
+    }
+    
+    
+    
     
     //function to save the exercise items
     func saveItems(){
         
         do {
             try context.save()
+            print("saved Exercise")
         } catch {
             print("Error saving items \(error)")
         }
         updateTheTable()
+    }
+    
+    func loadExerciseArray() -> [Exercise]?{
+        let request: NSFetchRequest<Exercise> = Exercise.fetchRequest()
+        do{
+            loadExercises = try context.fetch(request)
+            
+            return loadExercises
+        }catch {
+            print("error fetching data \(error)")
+        }
+    
+        return loadExercises
+        
     }
     
     
@@ -161,11 +286,11 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
-
+    
     //IB Action to send selected exercises to NewWorkoutViewController
     @IBAction func addExercisesButton(_ sender: UIButton) {
         
-    
+        
         //if statement to show if the exercisesSelected array is empty
         if exercisesSelected.isEmpty == true{
             //if array is empty it will show an alert to prompt the user to select exercises
@@ -181,12 +306,13 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
-//    @IBAction func createExercisePressed(_ sender: UIBarButtonItem) {
-//        self.performSegue(withIdentifier: "CreateExercise", sender: nil)
-//
-//    }
+    @IBAction func createExercisePressed(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "CreateExercise", sender: nil)
+        
+        
+    }
     
-
+    
     // MARK: - Table view data source
     
     //returns number of sections in table
@@ -200,11 +326,11 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return exerciseArray[section].count
-        
     }
     
     //titles for each section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         
         if section == 0{
             return "Abs"
@@ -229,7 +355,6 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     
     //returns the information displayed for each cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseNameCell", for: indexPath)
         cell.textLabel!.text = exerciseArray[indexPath.section][indexPath.row].name
@@ -272,8 +397,9 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     enum SegueIdentifier: String {
-
+        
         case details = "ExerciseDescription"
+        case detailsTwo = "createExercise"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -282,17 +408,22 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         case .details:
             _ = segue.destination as! ExerciseDescriptionViewController
             
+        case .detailsTwo:
+            let createExercise = segue.destination as! CreateExerciseViewController
+            createExercise.delegate = self
         }
+        
+        
     }
-     
+    
 }
 
 
 
 
-    
-    
-    
+
+
+
 
 
 

@@ -65,33 +65,50 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //returns number of sections
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 2
+        if loadWorkout()?.isEmpty ?? (0 != 0) && loadCardioExercise()?.isEmpty  == true {
+            return 1
+        }else {
+            return 2
+        }
     }
     
     //return titles
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "Cardio Exercises"
+        if loadWorkout()?.isEmpty ?? (0 != 0) && loadCardioExercise()?.isEmpty  == true {
+            return ""
         } else {
-            return "Weightlifting Exercises"
+            if section == 0{
+                return "Cardio Exercises"
+            } else {
+                return "Weightlifting Exercises"
+            }
         }
     }
     
     //returns number of rows in each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-            return loadCardioExercise()?.count ?? 0
+        if loadWorkout()?.isEmpty ?? (0 != 0) && loadCardioExercise()?.isEmpty  == true {
+            return 1
         } else {
-            return loadWorkout()?.count ?? 0
+            if section == 0 {
+                return loadCardioExercise()?.count ?? 0
+            } else {
+                return loadWorkout()?.count ?? 0
+            }
         }
     }
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
+        if loadWorkout()?.isEmpty ?? (0 != 0) && loadCardioExercise()?.isEmpty  == true {
+            
+            return tableView.dequeueReusableCell(withIdentifier: "noLogs", for: indexPath)
+            
+        }
+        
         if indexPath.section == 0{  //if statement to return cardio exercises in the first section
             let cardioCell = tableView.dequeueReusableCell(withIdentifier: "LogCardioCell", for: indexPath) as? LogCardioTableCell
             let cardioExercise = loadCardioExercise()   //loads cardio Exercise
@@ -112,7 +129,10 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             return workoutCell!
             
         }
+        
     }
+    
+    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

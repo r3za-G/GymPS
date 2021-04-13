@@ -63,6 +63,8 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
         
+       
+        
         //sets the weight and reps array to be the size of the sum of sets array
         self.weightInput = [String](repeating: "0", count: setsArray.sum())
         self.finalRepsArray = [Int](repeating :0, count: setsArray.sum())
@@ -121,7 +123,7 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
                 currentIndex += 1
             }
         }
-        print(groupedRepsWeightArray)
+        
         
         
     }

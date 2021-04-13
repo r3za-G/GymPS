@@ -17,7 +17,7 @@
         <attribute name="sets" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Exercise" representedClassName="Exercise" syncable="YES" codeGenerationType="class">
-        <attribute name="exerciseDescription" optional="YES" attributeType="Transformable" valueTransformerName="[String]" customClassName="[String]"/>
+        <attribute name="exerciseDescription" optional="YES" attributeType="String" valueTransformerName="[String]" customClassName="[String]"/>
         <attribute name="muscleGroup" optional="YES" attributeType="String" valueTransformerName="[String]" customClassName="[String]"/>
         <attribute name="name" optional="YES" attributeType="String" valueTransformerName="[String]" customClassName="[String]"/>
     </entity>

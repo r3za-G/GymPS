@@ -9,13 +9,28 @@ import XCTest
 @testable import GymPS
 
 class GymPSTests: XCTestCase {
-
+    
+    var sut: LogWorkoutDetailsViewController!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = LogWorkoutDetailsViewController()
+        
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        super.tearDown()
+    }
+    
+    func testCalculateTotalSets(){
+        
+        var setsArray = sut.setsArray
+        
+        setsArray = [2, 5, 7, 9]
+        
+        XCTAssertEqual(setsArray.sum(), 23)
+        
     }
   
 

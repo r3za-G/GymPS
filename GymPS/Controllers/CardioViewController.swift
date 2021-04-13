@@ -142,7 +142,7 @@ class CardioViewController: UIViewController {
         updateDisplay()
     }
     
-    private func updateDisplay() {
+     func updateDisplay() {
         /* Method to update the display every second
          This updates the four labels (Distance, time, calories and pace)
         */
@@ -192,18 +192,18 @@ class CardioViewController: UIViewController {
     }
     
     //function to display a bike image if the user selects the cycle cardio type
-    private func cardioBike(){
+     func cardioBike(){
         cardioImage.image = UIImage(named: "bicycle-rider")
     }
     //function to display a runner image if the user selects the run cardio type
-    private func cardioRun(){
+     func cardioRun(){
         cardioImage.image = UIImage(named: "runner")
     }
     
     
     // method to calculate the calories burnt when running
     
-    private func caloriesBurnedRunning(avgSpeed: Double, bodyWeight: Double) -> Double {        //Takes in the speed and the weight of the user to calculate calories
+     func caloriesBurnedRunning(avgSpeed: Double, bodyWeight: Double) -> Double {        //Takes in the speed and the weight of the user to calculate calories
         var MET: Double     //The MET's (Metabolic equivalents) are used to esimate the energy cost of the activity
         switch avgSpeed {
         case _ where avgSpeed <= 4.0:       // the met is determined on the speed of the user
@@ -295,7 +295,7 @@ class CardioViewController: UIViewController {
     
     
     //Start the cardio exercise function, called when the user presses the start button
-    private func startCardio() {
+     func startCardio() {
         
         mapContainerView.isHidden = false
         mapView.removeOverlays(mapView.overlays)      // remove any overlays from previous run
@@ -323,7 +323,7 @@ class CardioViewController: UIViewController {
     }
     
     //pause cardio exercise function
-    private func pauseCardio(){
+     func pauseCardio(){
         
         resumeButton.isHidden = false
         resumeImage.isHidden = false
@@ -340,7 +340,7 @@ class CardioViewController: UIViewController {
     }
     
     //resume cardio exercise function
-    private func resumeCardio(){
+     func resumeCardio(){
         resumeButton.isHidden = true
         resumeImage.isHidden = true
         stopButton.isHidden = true
@@ -356,7 +356,7 @@ class CardioViewController: UIViewController {
     }
     
     //stop cardio exercise function
-    private func stopCardio() {
+     func stopCardio() {
         
         startButton.isHidden = false
         pauseButton.isHidden = true
@@ -425,7 +425,7 @@ class CardioViewController: UIViewController {
     }
     
     // Method to save the cardio details to Core Data
-    private func saveCardio() {
+     func saveCardio() {
         
         
         let distanceMiles = Float(String(format: "%.03f", (distance.value / 1609)))
@@ -456,7 +456,7 @@ class CardioViewController: UIViewController {
     }
     
     //Function to start location updates of the user
-    private func startLocationUpdates() {
+     func startLocationUpdates() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

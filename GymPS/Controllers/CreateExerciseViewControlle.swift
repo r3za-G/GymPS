@@ -15,7 +15,7 @@ protocol CreatedExerciseDelegate {
 
 
 class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolBarPickerViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
-
+    
     //IB outlets
     @IBOutlet var exerciseNameTextField: UITextField!
     @IBOutlet var exerciseDescriptionTextField: UITextView!
@@ -37,7 +37,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
     //delegate instance
     var delegate: CreatedExerciseDelegate?
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +50,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         configureFields()
-
+        
     }
     //function to set up the text-field and picker views
     func configureFields(){
@@ -68,7 +68,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
         muscleGroupPickerView.toolBarDelegate = self
         
         exerciseDescriptionTextField.text = "Give brief exercise description"
-
+        
     }
     
     //allows user to edit text fieldd
@@ -79,12 +79,12 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
     
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-            if(text == "\n") {
-                textView.resignFirstResponder()
-                return false
-            }
-            return true
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
         }
+        return true
+    }
     
     
     @IBAction func exerciseName(_ sender: UITextField) {
@@ -106,11 +106,11 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
     
     //protocol method for the picker view
     func cancelButtonTapped() {
-        self.muscleGroupTextField.text = nil
+        self.muscleGroupTextField.text = ""
         self.muscleGroupTextField.resignFirstResponder()
     }
-
-
+    
+    
     //function to return components of the picker view
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -139,6 +139,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         self.exericseDescription = exerciseDescriptionTextField.text!
+        print(exericseDescription)
         
         //set up alerts to see make sure the user adds all the necessary information for their created exercise
         if exerciseName == ""{
@@ -147,25 +148,31 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
-        } else if muscleGroup == ""{
+        }
+        else if muscleGroup == ""{
             let alert = UIAlertController(title: "Pick Muscle group", message: "Please pick the muscle group your exercises belongs to.", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
-        } else if description == ""{
-            let alert = UIAlertController(title: "Pick Add Description", message: "Please add a brief description of your exercise.", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else if exericseDescription == ""{
+            let alert = UIAlertController(title: "Add Exercise Description", message: "Please add a brief description of your exercise.", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            
+            //array containing the created exercise data
+            self.createdExerciseArray.append(contentsOf: [exerciseName,  muscleGroup,  exericseDescription])
+            
+            //call the delegate method to send the data back
+            self.delegate?.didLoadCreatedExercise(createdExercise: createdExerciseArray)
+            
+            //navigate to previous view controller
+            self.navigationController?.popViewController(animated: false)
+            
         }
         
-        //array containing the created exercise data
-        self.createdExerciseArray.append(contentsOf: [exerciseName,  muscleGroup,  exericseDescription])
-        
-        //call the delegate method to send the data back
-        self.delegate?.didLoadCreatedExercise(createdExercise: createdExerciseArray)
-        
-        //navigate to previous view controller
-        self.navigationController?.popViewController(animated: false)
-        
     }
-    
 }

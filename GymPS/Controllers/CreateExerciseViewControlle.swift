@@ -139,7 +139,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         self.exericseDescription = exerciseDescriptionTextField.text!
-        print(exericseDescription)
+      
         
         //set up alerts to see make sure the user adds all the necessary information for their created exercise
         if exerciseName == ""{

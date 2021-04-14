@@ -59,14 +59,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="noWorkoutsCell" id="Skq-fc-Bx2">
-                                <rect key="frame" x="0.0" y="100" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Skq-fc-Bx2" id="tQ4-9z-gO9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Workouts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qS-Zg-Dha">
-                                            <rect key="frame" x="75" y="11" width="170" height="21.5"/>
+                                            <rect key="frame" x="75" y="11" width="170" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="9K5-lF-Ri1"/>
                                             </constraints>
@@ -195,7 +195,7 @@
             <objects>
                 <viewController id="f2u-ke-dNJ" customClass="ExerciseDescriptionViewController" customModule="GymPS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QUW-jS-4w6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCS-oy-wX5">
@@ -878,7 +878,7 @@
                                         <rect key="frame" x="0.0" y="256" width="320" height="166"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-bb-4VX">
-                                                <rect key="frame" x="30" y="23" width="261" height="121"/>
+                                                <rect key="frame" x="20" y="23" width="261" height="121"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="OGC-G6-chi">
                                                         <rect key="frame" x="0.0" y="0.0" width="261" height="51"/>
@@ -989,10 +989,10 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Yvz-bb-4VX" secondAttribute="trailing" constant="29" id="Rp7-8I-293"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yvz-bb-4VX" secondAttribute="trailing" constant="39" id="Rp7-8I-293"/>
                                             <constraint firstAttribute="bottom" secondItem="Yvz-bb-4VX" secondAttribute="bottom" constant="22" id="ZwI-ZJ-hvb"/>
                                             <constraint firstItem="Yvz-bb-4VX" firstAttribute="top" secondItem="Ipy-JR-jt5" secondAttribute="top" constant="23" id="txZ-L5-7dF"/>
-                                            <constraint firstItem="Yvz-bb-4VX" firstAttribute="leading" secondItem="Ipy-JR-jt5" secondAttribute="leading" constant="30" id="uez-sP-NFV"/>
+                                            <constraint firstItem="Yvz-bb-4VX" firstAttribute="leading" secondItem="Ipy-JR-jt5" secondAttribute="leading" constant="20" id="uez-sP-NFV"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Uv6-rI-yPl" userLabel="ButtonView">
@@ -2534,14 +2534,6 @@
             <point key="canvasLocation" x="4046" y="370"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="XVE-bg-NhS">
-            <size key="intrinsicContentSize" width="141" height="29"/>
-        </designable>
-        <designable name="fdy-x4-Mq2">
-            <size key="intrinsicContentSize" width="141" height="29"/>
-        </designable>
-    </designables>
     <resources>
         <image name="DumbbellNavigation" width="30" height="13"/>
         <image name="gear" catalog="system" width="128" height="119"/>

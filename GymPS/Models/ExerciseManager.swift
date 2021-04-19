@@ -56,7 +56,7 @@ struct ExerciseManager{
     func parseJSON(_ exerciseData: Data) -> ExerciseData?{
         let decoder = JSONDecoder()
         do{
-            // decodes the data using our codable ExerciseData struct
+            // decodes the data using the codable ExerciseData struct
             let decodedData = try decoder.decode(ExerciseData.self, from: exerciseData)
             let exercises = ExerciseData(Exercises: decodedData.Exercises)
             return exercises

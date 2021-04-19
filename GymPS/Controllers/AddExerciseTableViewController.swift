@@ -206,6 +206,8 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
                     savedExercises.muscleGroup = exerciseInfo?.Exercises[n].muscleGroup
                     savedExercises.exerciseDescription = exerciseInfo?.Exercises[n].description
                     self.saveItems()
+                    
+                    
                     UserDefaults.standard.set(true, forKey: "savedArray")
    
                 }
@@ -213,13 +215,10 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
-      
         DispatchQueue.main.async {
-            self.configureArray()
+            self.configureArray()   //Load the exercises from core data
             self.updateTheTable()
- 
         }
- 
     }
     
     //delegate function to retrieve the created exercise from the user
@@ -253,18 +252,16 @@ class AddExerciseTableViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
+    // function to laod the saved exercises from Core Data, and return them as an array.
     func loadExerciseArray() -> [Exercise]?{
         let request: NSFetchRequest<Exercise> = Exercise.fetchRequest()
         do{
             loadExercises = try context.fetch(request)
-            
             return loadExercises
         }catch {
             print("error fetching data \(error)")
         }
-    
         return loadExercises
-        
     }
     
     

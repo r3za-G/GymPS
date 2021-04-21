@@ -1,5 +1,5 @@
 //
-//  LogDetailsViewController.swift
+//  LogCardioDetailsViewController.swift
 //  GymPS
 //
 //  Created by Reza Gharooni on 22/03/2021.
@@ -12,7 +12,7 @@ import MapKit
 
 
 
-class LogDetailsViewController: UIViewController{
+class LogCardioDetailsViewController: UIViewController{
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var timeLabel: UILabel!
@@ -202,7 +202,7 @@ class LogDetailsViewController: UIViewController{
 }
 
 //MARK: - MKPolyLine method
-extension LogDetailsViewController: MKMapViewDelegate {
+extension LogCardioDetailsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         if (overlay is MKPolyline) {

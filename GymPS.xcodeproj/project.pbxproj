@@ -19,7 +19,7 @@
 		EC139CDD25ED422F006A5227 /* CardioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CDC25ED422F006A5227 /* CardioViewController.swift */; };
 		EC139CEA25ED4343006A5227 /* CardioDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */; };
 		EC139CEF25ED4381006A5227 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CEE25ED4381006A5227 /* SettingsViewController.swift */; };
-		EC57E3ED2608F3D1008FF2E5 /* LogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */; };
+		EC57E3ED2608F3D1008FF2E5 /* LogCardioDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3EC2608F3D1008FF2E5 /* LogCardioDetailsViewController.swift */; };
 		EC57E3F8260A3EB7008FF2E5 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3F7260A3EB4008FF2E5 /* NewWorkoutViewController.swift */; };
 		EC57E400260AA93F008FF2E5 /* ExerciseDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */; };
 		EC665E3326237B7D00AF3F37 /* CreateExerciseViewControlle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC665E3226237B7D00AF3F37 /* CreateExerciseViewControlle.swift */; };
@@ -86,7 +86,7 @@
 		EC139CDC25ED422F006A5227 /* CardioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioViewController.swift; sourceTree = "<group>"; };
 		EC139CE925ED4343006A5227 /* CardioDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioDetailsViewController.swift; sourceTree = "<group>"; };
 		EC139CEE25ED4381006A5227 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailsViewController.swift; sourceTree = "<group>"; };
+		EC57E3EC2608F3D1008FF2E5 /* LogCardioDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCardioDetailsViewController.swift; sourceTree = "<group>"; };
 		EC57E3F7260A3EB4008FF2E5 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
 		EC57E3FF260AA93E008FF2E5 /* ExerciseDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDescriptionViewController.swift; sourceTree = "<group>"; };
 		EC665E3226237B7D00AF3F37 /* CreateExerciseViewControlle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExerciseViewControlle.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				ECA20C3F25F146CC0086B63E /* AddExerciseTableViewController.swift */,
 				ECA20C4925F159C60086B63E /* WorkoutTableViewController.swift */,
 				ECA20C4425F147030086B63E /* StartWorkoutTableViewController.swift */,
-				EC57E3EC2608F3D1008FF2E5 /* LogDetailsViewController.swift */,
+				EC57E3EC2608F3D1008FF2E5 /* LogCardioDetailsViewController.swift */,
 				EC57E3F7260A3EB4008FF2E5 /* NewWorkoutViewController.swift */,
 				EC6D63AB2610F6F9008D2AC1 /* DoWorkoutViewController.swift */,
 				EC9B94E12614E07D00CAC76E /* LogViewController.swift */,
@@ -543,7 +543,7 @@
 				EC9B94D52614D23C00CAC76E /* LogCardioTableCell.swift in Sources */,
 				EC139CCB25ED4099006A5227 /* ToolBarPickerViewDelegate.swift in Sources */,
 				ECDCDE0025EC390A006B30B2 /* GymPS.xcdatamodeld in Sources */,
-				EC57E3ED2608F3D1008FF2E5 /* LogDetailsViewController.swift in Sources */,
+				EC57E3ED2608F3D1008FF2E5 /* LogCardioDetailsViewController.swift in Sources */,
 				ECA20C4A25F159C60086B63E /* WorkoutTableViewController.swift in Sources */,
 				ECA20C5B25F172AF0086B63E /* WorkoutNameTableCell.swift in Sources */,
 				EC139CAF25ED3D6F006A5227 /* StoryBoardSupport.swift in Sources */,

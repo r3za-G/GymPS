@@ -188,7 +188,7 @@ extension LogViewController: SegueHandlerType {
         let indexPath = tableView.indexPathForSelectedRow
         switch segueIdentifier(for: segue) {
         case .detailsOne:
-            let destination = segue.destination as! LogDetailsViewController
+            let destination = segue.destination as! LogCardioDetailsViewController
             //sends the selected cardio data to LogDetailsViewController
             destination.cardio = cardioArray.reversed()[indexPath!.row]
             

@@ -63,10 +63,10 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
         
-       
+        
         
         //sets the weight and reps array to be the size of the sum of sets array
-        self.weightInput = [String](repeating: "0", count: setsArray.sum())
+        self.weightInput = [String](repeating: "", count: setsArray.sum())
         self.finalRepsArray = [Int](repeating :0, count: setsArray.sum())
         
         self.loadWorkout = loadWorkouts()!
@@ -277,28 +277,35 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
     //IBAction for the user when they finish their workout
     @IBAction func finishWorkout(_ sender: UIButton) {
         
-        
-        //alert to show the user if they want to save or discard their workout
-        let alertController = UIAlertController(title: "End Workout?",
-                                                message: "Are you sure you want to stop?",
-                                                preferredStyle: .actionSheet)
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-        })
-        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-            self.saveWorkout()  //saves workout and the respective data
-            self.stopWorkout()  //stops timer
-            self.tabBarController?.selectedIndex = 2 //sends the user to the log view in the navigation controller
-            _ = self.navigationController?.popToRootViewController(animated: false)
+        //Alert to notify user to input a weight if they missed any out for any exercise.
+        if weightInput.contains(""){
+            let alert = UIAlertController(title: "Add Weight", message: "Please add any missing weights to an exercise.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        } else {
             
-        })
-        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-            self.stopWorkout()  //stops timer
-            _ = self.navigationController?.popToRootViewController(animated: false) //sends user to the root vierw controller
-        })
-        
-        present(alertController, animated: true)
-        
+            //alert to show the user if they want to save or discard their workout
+            let alertController = UIAlertController(title: "End Workout?",
+                                                    message: "Are you sure you want to stop?",
+                                                    preferredStyle: .actionSheet)
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            })
+            alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+                self.saveWorkout()  //saves workout and the respective data
+                self.stopWorkout()  //stops timer
+                self.tabBarController?.selectedIndex = 2 //sends the user to the log view in the navigation controller
+                _ = self.navigationController?.popToRootViewController(animated: false)
+                
+            })
+            alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
+                self.stopWorkout()  //stops timer
+                _ = self.navigationController?.popToRootViewController(animated: false) //sends user to the root vierw controller
+            })
+            
+            present(alertController, animated: true)
+        }
     }
     
     //function to save the data from the workout

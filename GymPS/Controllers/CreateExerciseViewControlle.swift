@@ -150,7 +150,7 @@ class CreateExerciseViewController: UIViewController, UITextFieldDelegate, ToolB
             self.present(alert, animated: true, completion: nil)
         }
         else if muscleGroup == ""{
-            let alert = UIAlertController(title: "Pick Muscle group", message: "Please pick the muscle group your exercises belongs to.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Pick Muscle group", message: "Please pick the muscle group your exercise belongs to.", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)

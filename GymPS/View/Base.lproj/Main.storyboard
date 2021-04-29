@@ -59,14 +59,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="noWorkoutsCell" id="Skq-fc-Bx2">
-                                <rect key="frame" x="0.0" y="100" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Skq-fc-Bx2" id="tQ4-9z-gO9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Workouts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qS-Zg-Dha">
-                                            <rect key="frame" x="75" y="11" width="170" height="21.5"/>
+                                            <rect key="frame" x="75" y="11" width="170" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="9K5-lF-Ri1"/>
                                             </constraints>
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAc-1P-Lda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5488" y="-708"/>
+            <point key="canvasLocation" x="5501" y="-709"/>
         </scene>
         <!--LOG-->
         <scene sceneID="7Nk-08-SdS">
@@ -455,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1l-gy-S4B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470" y="411"/>
+            <point key="canvasLocation" x="2469" y="410"/>
         </scene>
         <!--Log-->
         <scene sceneID="CN3-0A-DBo">
@@ -539,7 +539,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B7V-gJ-Nbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="1199"/>
+            <point key="canvasLocation" x="2469" y="1199"/>
         </scene>
         <!--Log Workout Details View Controller-->
         <scene sceneID="VCy-1l-yv7">
@@ -744,7 +744,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbb-hb-cng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4044.9275362318845" y="1068.0803571428571"/>
+            <point key="canvasLocation" x="3443" y="1070"/>
         </scene>
         <!--Settings-->
         <scene sceneID="L3x-wB-Iid">
@@ -1610,7 +1610,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8w9-Wx-05e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="-1651"/>
+            <point key="canvasLocation" x="2469" y="-1651"/>
         </scene>
         <!--Start Workout Table View Controller-->
         <scene sceneID="2th-T6-JVR">
@@ -1750,7 +1750,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AX-2K-HE7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3550.7246376811595" y="-339.50892857142856"/>
+            <point key="canvasLocation" x="3443" y="-270"/>
         </scene>
         <!--Do Workout View Controller-->
         <scene sceneID="mMQ-jm-Ojm">
@@ -2530,7 +2530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXo-VK-z6q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4046" y="370"/>
+            <point key="canvasLocation" x="3443" y="410"/>
         </scene>
     </scenes>
     <designables>

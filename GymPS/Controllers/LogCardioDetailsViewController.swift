@@ -51,10 +51,10 @@ class LogCardioDetailsViewController: UIViewController{
         let distance = Measurement(value: cardio.distance, unit: UnitLength.meters)
         let seconds = Int(cardio.duration)
         let date = cardio.timestamp
-        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedDistance = DisplayFormatter.distance(distance)
         let caloriesBurnt = (cardio.calories).rounded()
-        let formattedDate = FormatDisplay.date(date)
-        let formattedTime = FormatDisplay.time(seconds)
+        let formattedDate = DisplayFormatter.date(date)
+        let formattedTime = DisplayFormatter.time(seconds)
         let averagePace = String(format: "%.2f", cardio.averagePace)
         
     

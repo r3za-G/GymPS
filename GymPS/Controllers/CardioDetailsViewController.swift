@@ -47,10 +47,10 @@ class CardioDetailsViewController: UIViewController {
         let distance = Measurement(value: cardio.distance, unit: UnitLength.meters)
         let seconds = Int(cardio.duration)
         let date = cardio.timestamp
-        let distanceFormatted = FormatDisplay.distance(distance)
+        let distanceFormatted = DisplayFormatter.distance(distance)
         let caloriesBurnt = Int(cardio.calories)
-        let dateFormatted = FormatDisplay.date(date)
-        let timeFormatted = FormatDisplay.time(seconds)
+        let dateFormatted = DisplayFormatter.date(date)
+        let timeFormatted = DisplayFormatter.time(seconds)
         let averagePace = String(format: "%.2f", cardio.averagePace)
     
         distanceLabel.text = "\(distanceFormatted)"

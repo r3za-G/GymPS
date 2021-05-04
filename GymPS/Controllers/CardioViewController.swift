@@ -148,8 +148,8 @@ class CardioViewController: UIViewController {
         
         var caloriesHandler = CaloriesHandler()
       
-        let distanceFormatted = FormatDisplay.distance(distance) // formats the distance using the FormatDisplay Struct with formatting methods
-        let timeFormatted = FormatDisplay.time(Int(seconds)) //formats the time using the FormatDisplay Struct with formatting methods
+        let distanceFormatted = DisplayFormatter.distance(distance) // formats the distance using the DisplayFormatter Struct with formatting methods
+        let timeFormatted = DisplayFormatter.time(Int(seconds)) //formats the time using the DisplayFormatter Struct with formatting methods
  
         let bodyWeight = UserDefaults.standard.integer(forKey: "Weight")    //Reads the value for the user's weight
         
@@ -164,7 +164,7 @@ class CardioViewController: UIViewController {
         let totalCalories = Int(calories.sum().rounded())
         
         //pace formatted with units for the display
-        let paceFormatted = FormatDisplay.pace(distance: distance,
+        let paceFormatted = DisplayFormatter.pace(distance: distance,
                                                seconds: Int(seconds),
                                                outputUnit: UnitSpeed.minutesPerMile)
         //display the four data labels whilst the user is on their exericse.

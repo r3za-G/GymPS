@@ -145,7 +145,7 @@ class DoWorkoutViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // function to updated the timer every second
     private func updateDisplay() {
-        let timeFormatted = FormatDisplay.time(Int(seconds))
+        let timeFormatted = DisplayFormatter.time(Int(seconds))
         
         self.timerLabel.text = "\(timeFormatted)"
     }

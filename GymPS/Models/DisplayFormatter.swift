@@ -9,7 +9,7 @@ import Foundation
 
 //Struct that formats the display of specific data relative to cardio/working out
 //This allows for the data to be formatted for display and have a respective measurement
-struct FormatDisplay {
+struct DisplayFormatter {
     
     static func date(_ timestamp: Date?) -> String {
         guard let timestamp = timestamp as Date? else { return "" }
@@ -39,7 +39,7 @@ struct FormatDisplay {
     
     static func distance(_ distance: Double) -> String {
         let distanceMeasurement = Measurement(value: distance, unit: UnitLength.miles)
-        return FormatDisplay.distance(distanceMeasurement)
+        return DisplayFormatter.distance(distanceMeasurement)
     }
     
     static func distance(_ distance: Measurement<UnitLength>) -> String {

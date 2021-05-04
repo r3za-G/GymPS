@@ -66,8 +66,8 @@ class LogWorkoutDetailsViewController: UIViewController, UITableViewDelegate, UI
         
         
         let workoutNameString = workout.workoutName!
-        let dateFormatted = FormatDisplay.date(workout.dateCompleted)
-        let timeFormatted = FormatDisplay.time(Int(workout.duration))
+        let dateFormatted = DisplayFormatter.date(workout.dateCompleted)
+        let timeFormatted = DisplayFormatter.time(Int(workout.duration))
         let totalExercisesInt = exerciseArray.count
         
         //turn the weightArray into a double array to work out the total weight lifted

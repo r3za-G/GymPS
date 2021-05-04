@@ -31,7 +31,7 @@ class LogWorkoutTableCell: UITableViewCell {
        guard let workout = workout else { return }
         
         //format date and name for the workout
-        let dateFormatted = FormatDisplay.date(workout.dateCompleted)
+        let dateFormatted = DisplayFormatter.date(workout.dateCompleted)
         let name = workout.workoutName ?? ""
              
         //set the labels for the name and date

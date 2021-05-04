@@ -12,8 +12,8 @@
 		E31F46893A1FB401EF77CBE0 /* Pods_GymPS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5BD5F7F011B0EF7CA1B9EA2 /* Pods_GymPS.framework */; };
 		EC139CA625ED3B1D006A5227 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CA525ED3B1D006A5227 /* CoreDataStack.swift */; };
 		EC139CAF25ED3D6F006A5227 /* StoryBoardSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */; };
-		EC139CB425ED3D87006A5227 /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CB325ED3D87006A5227 /* UnitExtensions.swift */; };
-		EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CBB25ED403B006A5227 /* FormatDisplay.swift */; };
+		EC139CB425ED3D87006A5227 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CB325ED3D87006A5227 /* UnitConverter.swift */; };
+		EC139CBC25ED403B006A5227 /* DisplayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CBB25ED403B006A5227 /* DisplayFormatter.swift */; };
 		EC139CC125ED4054006A5227 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CC025ED4054006A5227 /* LocationManager.swift */; };
 		EC139CCB25ED4099006A5227 /* ToolBarPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */; };
 		EC139CDD25ED422F006A5227 /* CardioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC139CDC25ED422F006A5227 /* CardioViewController.swift */; };
@@ -79,8 +79,8 @@
 		E5BD5F7F011B0EF7CA1B9EA2 /* Pods_GymPS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymPS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC139CA525ED3B1D006A5227 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardSupport.swift; sourceTree = "<group>"; };
-		EC139CB325ED3D87006A5227 /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitExtensions.swift; sourceTree = "<group>"; };
-		EC139CBB25ED403B006A5227 /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		EC139CB325ED3D87006A5227 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		EC139CBB25ED403B006A5227 /* DisplayFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFormatter.swift; sourceTree = "<group>"; };
 		EC139CC025ED4054006A5227 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarPickerViewDelegate.swift; sourceTree = "<group>"; };
 		EC139CDC25ED422F006A5227 /* CardioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioViewController.swift; sourceTree = "<group>"; };
@@ -189,10 +189,10 @@
 			isa = PBXGroup;
 			children = (
 				EC139CAE25ED3D6F006A5227 /* StoryBoardSupport.swift */,
-				EC139CB325ED3D87006A5227 /* UnitExtensions.swift */,
+				EC139CB325ED3D87006A5227 /* UnitConverter.swift */,
 				ECDCDDF725EC390A006B30B2 /* SceneDelegate.swift */,
 				ECDCDDF525EC390A006B30B2 /* AppDelegate.swift */,
-				EC139CBB25ED403B006A5227 /* FormatDisplay.swift */,
+				EC139CBB25ED403B006A5227 /* DisplayFormatter.swift */,
 				EC139CC025ED4054006A5227 /* LocationManager.swift */,
 				EC139CCA25ED4099006A5227 /* ToolBarPickerViewDelegate.swift */,
 				ECA20C4E25F1670F0086B63E /* WorkoutTableViewCell.swift */,
@@ -554,10 +554,10 @@
 				ECBF11A4261C924400577CE6 /* Extensions.swift in Sources */,
 				EC6D63C12611FC7E008D2AC1 /* ExerciseRepsCell.swift in Sources */,
 				ECBF11AC261F38AC00577CE6 /* PreviousWorkoutDetails.swift in Sources */,
-				EC139CBC25ED403B006A5227 /* FormatDisplay.swift in Sources */,
+				EC139CBC25ED403B006A5227 /* DisplayFormatter.swift in Sources */,
 				EC9B94E22614E07D00CAC76E /* LogViewController.swift in Sources */,
 				EC6D63AC2610F6F9008D2AC1 /* DoWorkoutViewController.swift in Sources */,
-				EC139CB425ED3D87006A5227 /* UnitExtensions.swift in Sources */,
+				EC139CB425ED3D87006A5227 /* UnitConverter.swift in Sources */,
 				ECD12E0725ED50320034BF06 /* CardioHomeViewController.swift in Sources */,
 				ECDCDDF825EC390A006B30B2 /* SceneDelegate.swift in Sources */,
 				EC9B94DA2614D29900CAC76E /* LogWorkoutTableCell.swift in Sources */,

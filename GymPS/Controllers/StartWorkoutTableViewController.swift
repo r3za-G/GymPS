@@ -83,7 +83,7 @@ class StartWorkoutTableViewController: UIViewController, UITableViewDelegate, UI
             cell.textLabel?.text = workout.name //workout name
             cell.textLabel?.textColor = UIColor.white
             
-            let dateFormat = FormatDisplay.date(workout.created)   //formats date
+            let dateFormat = DisplayFormatter.date(workout.created)   //formats date
 
             cell.detailTextLabel?.text = "Created on: \(dateFormat)"   //returns the date the workout was created on
             cell.detailTextLabel?.textColor = UIColor.white

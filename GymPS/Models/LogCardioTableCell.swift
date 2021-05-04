@@ -38,10 +38,10 @@ class LogCardioTableCell: UITableViewCell {
         let distanceTravelled = Measurement(value: cardio.distance, unit: UnitLength.meters)
         let seconds = cardio.duration
         let date = cardio.timestamp
-        let distanceFormatted = FormatDisplay.distance(distanceTravelled)
+        let distanceFormatted = DisplayFormatter.distance(distanceTravelled)
         let caloriesBurnt = Int(cardio.calories.rounded())
-        let dateFormatted = FormatDisplay.date(date)
-        let timeFormatted = FormatDisplay.time(Int(seconds))
+        let dateFormatted = DisplayFormatter.date(date)
+        let timeFormatted = DisplayFormatter.time(Int(seconds))
         let averagePace = String(format: "%.2f", cardio.averagePace)
         
         //sets the image of the cardio type depending on the user's activity.

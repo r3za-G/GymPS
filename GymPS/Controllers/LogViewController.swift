@@ -78,9 +78,9 @@ class LogViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             return ""
         } else {
             if section == 0{
-                return "Cardio Exercises"
+                return "Cardio Workouts"
             } else {
-                return "Weightlifting Exercises"
+                return "Weightlifting Workouts"
             }
         }
     }

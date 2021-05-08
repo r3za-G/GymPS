@@ -25,7 +25,7 @@ class CardioDetailsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        displayCardioData()
         
         navigationController?.navigationBar.tintColor = UIColor.white
         
@@ -41,7 +41,7 @@ class CardioDetailsViewController: UIViewController {
         //Pops to root view controller
     }
     
-    private func configureView() {  // Function to configure the labels and display the results from the user's exercise
+    func displayCardioData() {  // Function to configure the labels and display the results from the user's exercise
         
         
         let distance = Measurement(value: cardio.distance, unit: UnitLength.meters)
@@ -64,7 +64,7 @@ class CardioDetailsViewController: UIViewController {
     
     // Function to show the map region where the user's locations were recorded
     
-    private func mapRegion() -> MKCoordinateRegion? {
+    func mapRegion() -> MKCoordinateRegion? {
         guard
             let locations = cardio.locations,   // Retrieve the locations from the user's exercise
             locations.count > 0
@@ -102,7 +102,7 @@ class CardioDetailsViewController: UIViewController {
     
     // Function to diplay the poly line showing where the user has ran/cycled
     
-    private func polyLine() -> MKPolyline {
+    func polyLine() -> MKPolyline {
         guard let locations = cardio.locations else {
             return MKPolyline()
         }
@@ -117,7 +117,7 @@ class CardioDetailsViewController: UIViewController {
     
     // Function to show a start pin for the first location of user
     
-    private func startPin() -> MKPointAnnotation{
+    func startPin() -> MKPointAnnotation{
         guard let locations = cardio.locations else {
             return MKShape() as! MKPointAnnotation
         }
@@ -136,7 +136,7 @@ class CardioDetailsViewController: UIViewController {
     }
     
     // Function to show a last pin for the last location of user
-    private func finishPin() -> MKPointAnnotation{
+    func finishPin() -> MKPointAnnotation{
         guard let locations = cardio.locations else {
             return MKShape() as! MKPointAnnotation
         }
@@ -176,7 +176,7 @@ class CardioDetailsViewController: UIViewController {
 
     //Function to load the map and respective locations the user recorded
     
-    private func loadMap() {
+    func loadMap() {
         guard
             let locations = cardio.locations,
             locations.count > 0,

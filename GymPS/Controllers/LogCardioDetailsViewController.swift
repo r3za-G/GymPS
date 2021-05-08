@@ -28,7 +28,7 @@ class LogCardioDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        displayCardioExercise()
+        displayCardioData()
  
     }
     
@@ -46,7 +46,7 @@ class LogCardioDetailsViewController: UIViewController{
     
     // Function to configure the labels and display the results from the user's exercise
     
-    func displayCardioExercise() {
+    func displayCardioData() {
 
         let distance = Measurement(value: cardio.distance, unit: UnitLength.meters)
         let seconds = Int(cardio.duration)

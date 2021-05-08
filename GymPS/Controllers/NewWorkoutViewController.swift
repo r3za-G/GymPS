@@ -107,7 +107,7 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
     //function to only add exercises the user hasn't already selecteds
     func updatedExercisesArray() {
         
-        for exercises in delegateExercises{ //iterates over the arrray to append non duplicate exercises
+        for exercises in delegateExercises{ //iterates over the array to append non duplicate exercises
             if !(selectedExercises.contains(exercises)){
                 self.selectedExercises.append(exercises)
             }
@@ -205,8 +205,8 @@ class NewWorkoutViewController: UIViewController, SelectedExercisesDelegate, Seg
         let setsArrayAsString: String = finalSetsArray.description          //change the array to a string to save to core data
         
   
-        //if statements to show alerts to the user if they haven't added a name to their workout, added sets for each exercise or even added any exrecise
-        //if all statements are satisfied, the user can save the workout data to core data
+        //if-statements to show alerts to the user if they haven't added a name to their workout, added sets for each exercise or even added any exrecise
+        //if all if-statements are satisfied, the user can save the workout data to core data
         if selectedExercises.isEmpty == true {
             
             let alert = UIAlertController(title: "Add Exercises", message: "Please add desired exercises to your workout.", preferredStyle: .alert)

@@ -138,10 +138,10 @@ class CardioViewController: UIViewController {
     func eachSecond() {
         //allows the seconds to be counted every second
         seconds += 1
-        updateDisplay()
+        updateCardioData()
     }
     
-     func updateDisplay() {
+     func updateCardioData() {
         /* Method to update the display every second
          This updates the four labels (Distance, time, calories and pace)
         */
@@ -223,12 +223,12 @@ class CardioViewController: UIViewController {
         calories.removeAll()        // removes all calories
         navigationItem.hidesBackButton = true
         
-        updateDisplay()
+        updateCardioData()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in      // starts the timer
             self.eachSecond()
             
         }
-        startLocationUpdates()  //start the location updates
+        updateLocation()  //start the location updates
         
     }
     
@@ -366,7 +366,7 @@ class CardioViewController: UIViewController {
     }
     
     //Function to start location updates of the user
-     func startLocationUpdates() {
+     func updateLocation() {
         locationManager.delegate = self
         locationManager.activityType = .fitness
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

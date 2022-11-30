@@ -30,7 +30,7 @@ class GymPSUITests: XCTestCase {
     }
 
     
-    func testStartRun(){
+    func testCardioExercise(){
         
         let app = XCUIApplication()
         app/*@START_MENU_TOKEN@*/.staticTexts["ENTER"]/*[[".buttons[\"ENTER\"].staticTexts[\"ENTER\"]",".staticTexts[\"ENTER\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -39,7 +39,14 @@ class GymPSUITests: XCTestCase {
         let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
         element.children(matching: .other).element(boundBy: 0).children(matching: .button).element.tap()
         app.sheets["Pick Cardio Type"].scrollViews.otherElements.buttons["Run"].tap()
-        element.children(matching: .other).element(boundBy: 2).children(matching: .button).element.tap()
+        
+        let element2 = element.children(matching: .other).element(boundBy: 3)
+        let button = element2.children(matching: .button).element
+        button.tap()
+        button.tap()
+        element2.children(matching: .button).element(boundBy: 1).tap()
+        app.sheets["End exercise?"].scrollViews.otherElements.buttons["Save"].tap()
+       
     
     }
     
@@ -68,27 +75,7 @@ class GymPSUITests: XCTestCase {
         
     }
     
-    func testSaveCardio(){
-        
-        let app = XCUIApplication()
-        app/*@START_MENU_TOKEN@*/.staticTexts["ENTER"]/*[[".buttons[\"ENTER\"].staticTexts[\"ENTER\"]",".staticTexts[\"ENTER\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
-        element.children(matching: .other).element(boundBy: 0).children(matching: .button).element.tap()
-        app.sheets["Pick Cardio Type"].scrollViews.otherElements.buttons["Cycle"].tap()
-        
-        let element2 = element.children(matching: .other).element(boundBy: 2)
-        let button = element2.children(matching: .button).element
-        button.tap()
-        button.tap()
-        element2.children(matching: .button).element(boundBy: 1).tap()
-        
-        let stopButton = element2.children(matching: .button).element(boundBy: 1)
-        XCTAssertTrue(stopButton.exists)
-        
-        app.sheets["End exercise?"].scrollViews.otherElements.buttons["Save"].tap()
-        
-    }
+ 
     
     func testCreateWorkout(){
         
@@ -137,97 +124,8 @@ class GymPSUITests: XCTestCase {
       
     }
     
-    func testCompleteWorkout(){
-        
-       
-        
-        let app = XCUIApplication()
 
-        app.tabBars["Tab Bar"].buttons["Workout"].tap()
-
-        let pushWorkout = app.tables.staticTexts["Push"]
-        pushWorkout.tap()
-
-        app.buttons["START"].tap()
-
-    
-        let tablesQuery = app.tables
-        let set12CellsQuery = tablesQuery.cells.containing(.staticText, identifier:"SET 1/2")
-        set12CellsQuery.children(matching: .textField).element.tap()
-        
-        let key = app/*@START_MENU_TOKEN@*/.keys["2"]/*[[".keyboards.keys[\"2\"]",".keys[\"2\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key.tap()
   
-        
-        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key2.tap()
-
-        
-        let doneButton = app.toolbars["Toolbar"].buttons["Done"]
-        doneButton.tap()
-        set12CellsQuery.children(matching: .button).element(boundBy: 2).tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"SET 1\/2\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
-        
-        let set22CellsQuery = tablesQuery.cells.containing(.staticText, identifier:"SET 2/2")
-        let textField = set22CellsQuery.children(matching: .textField).element
-        textField.tap()
-        textField.tap()
-        key.tap()
-        
-        let key3 = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key3.tap()
-        doneButton.tap()
-        
-        let button = set22CellsQuery.children(matching: .button).element(boundBy: 2)
-        button.tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"SET 2\/2\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
-        button.tap()
-        
-        let tablesQueryTwo = app.tables
-        let hammerCurlCellsQuery = tablesQueryTwo.cells.containing(.staticText, identifier:"Hammer Curl")
-        hammerCurlCellsQuery.children(matching: .textField).element.tap()
-        
-        let keyTwo = app/*@START_MENU_TOKEN@*/.keys["1"]/*[[".keyboards.keys[\"1\"]",".keys[\"1\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        keyTwo.tap()
-        
-        let keyThree = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        keyThree.tap()
-        
-        let doneButtonTwo = app.toolbars["Toolbar"].buttons["Done"]
-        doneButtonTwo.tap()
-        
-        let buttonTwo = hammerCurlCellsQuery.children(matching: .button).element(boundBy: 2)
-        buttonTwo.tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"Hammer Curl\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
-        buttonTwo.tap()
-        buttonTwo.tap()
-        
-        let cellsQuery = tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"0")/*[[".cells.containing(.staticText, identifier:\"Pull-up\")",".cells.containing(.button, identifier:\"0\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        cellsQuery.children(matching: .textField).element.tap()
-        app/*@START_MENU_TOKEN@*/.keys["7"]/*[[".keyboards.keys[\"7\"]",".keys[\"7\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-
-        let keyFour = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        keyFour.tap()
-        doneButton.tap()
-        cellsQuery.children(matching: .button).element(boundBy: 2).tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.button, identifier:"1")/*[[".cells.containing(.staticText, identifier:\"Pull-up\")",".cells.containing(.button, identifier:\"1\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .button).element(boundBy: 2).tap()
-        tablesQuery.cells.containing(.staticText, identifier:"Pull-up").children(matching: .button).element(boundBy: 2).tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["FINISH AND LOG"]/*[[".buttons[\"FINISH AND LOG\"].staticTexts[\"FINISH AND LOG\"]",".staticTexts[\"FINISH AND LOG\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.sheets["End Workout?"].scrollViews.otherElements.buttons["Save"].tap()
-             
-    }
-    
-    func testViewSavedWorkoutExercises(){
-        let app =  XCUIApplication()
-       app.tabBars["Tab Bar"].buttons["Log"].tap()
-        
-        let pushWorkout = app.tables.staticTexts["Push"].firstMatch
-        pushWorkout.tap()
-        
-        app.navigationBars["GymPS.LogWorkoutDetailsView"].buttons["LOG"].tap()
-    
-                
-    }
     
     func testViewSavedCardioExercises() {
         
